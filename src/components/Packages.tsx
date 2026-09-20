@@ -99,34 +99,9 @@ export default function Packages() {
             marginBottom: "clamp(32px, 4vw, 48px)",
           }}
         >
-          {packages.map((pkg, i) => (
-            <Reveal key={i} delay={i * 0.06}>
-              <div
-                style={{
-                  background: pkg.highlight ? "#141414" : "#0a0a0a",
-                  padding: "clamp(28px, 3vw, 40px)",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "0",
-                  height: "100%",
-                  position: "relative",
-                }}
-              >
-                {/* Highlight top border accent */}
-                {pkg.highlight && (
-                  <div
-                    aria-hidden
-                    style={{
-                      position: "absolute",
-                      top: 0,
-                      left: "10%",
-                      right: "10%",
-                      height: "1px",
-                      background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)",
-                    }}
-                  />
-                )}
-
+          {packages.map((pkg, i) => {
+            const cardContent = (
+              <>
                 {/* Plan name + badge */}
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "24px" }}>
                   <p
@@ -145,11 +120,11 @@ export default function Packages() {
                         fontSize: "10px",
                         letterSpacing: "0.06em",
                         textTransform: "uppercase",
-                        color: "rgba(255,255,255,0.6)",
+                        color: pkg.highlight ? "var(--color-text-heading)" : "rgba(255,255,255,0.6)",
                         padding: "4px 10px",
                         borderRadius: "999px",
-                        border: "1px solid rgba(255,255,255,0.15)",
-                        background: "rgba(255,255,255,0.05)",
+                        border: pkg.highlight ? "1px solid rgba(255,255,255,0.3)" : "1px solid rgba(255,255,255,0.15)",
+                        background: pkg.highlight ? "rgba(255,255,255,0.1)" : "rgba(255,255,255,0.05)",
                       }}
                     >
                       {pkg.badge}
@@ -161,7 +136,7 @@ export default function Packages() {
                 <p
                   style={{
                     fontSize: "clamp(36px, 4vw, 48px)",
-                    fontWeight: 400,
+                    fontWeight: pkg.highlight ? 500 : 400,
                     letterSpacing: "-0.04em",
                     lineHeight: 1,
                     color: "rgba(255,255,255,0.92)",
@@ -193,8 +168,8 @@ export default function Packages() {
                 <ul style={{ display: "flex", flexDirection: "column", gap: "12px", flex: 1, marginBottom: "32px" }}>
                   {pkg.features.map((f, j) => (
                     <li key={j} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                      <Check size={13} strokeWidth={1.5} style={{ color: "rgba(255,255,255,0.35)", flexShrink: 0 }} />
-                      <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.6)" }}>{f}</span>
+                      <Check size={13} strokeWidth={1.5} style={{ color: pkg.highlight ? "#fff" : "rgba(255,255,255,0.35)", flexShrink: 0 }} />
+                      <span style={{ fontSize: "14px", color: pkg.highlight ? "rgba(255,255,255,0.8)" : "rgba(255,255,255,0.6)" }}>{f}</span>
                     </li>
                   ))}
                 </ul>
@@ -209,31 +184,68 @@ export default function Packages() {
                     textAlign: "center",
                     padding: "13px 20px",
                     borderRadius: "999px",
-                    border: `1px solid ${pkg.highlight ? "rgba(255,255,255,0.25)" : "rgba(255,255,255,0.1)"}`,
-                    background: pkg.highlight ? "rgba(255,255,255,0.08)" : "transparent",
+                    border: `1px solid ${pkg.highlight ? "rgba(255,255,255,0.5)" : "rgba(255,255,255,0.1)"}`,
+                    background: pkg.highlight ? "rgba(255,255,255,0.9)" : "transparent",
                     fontSize: "13px",
                     fontWeight: 500,
                     letterSpacing: "-0.01em",
-                    color: pkg.highlight ? "rgba(255,255,255,0.85)" : "rgba(255,255,255,0.45)",
+                    color: pkg.highlight ? "#000" : "rgba(255,255,255,0.45)",
                     textDecoration: "none",
                     transition: "background 0.2s, border-color 0.2s, color 0.2s",
                   }}
                   onMouseEnter={e => {
-                    (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.12)";
-                    (e.currentTarget as HTMLAnchorElement).style.color = "rgba(255,255,255,0.9)";
-                    (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.3)";
+                    (e.currentTarget as HTMLAnchorElement).style.background = pkg.highlight ? "#fff" : "rgba(255,255,255,0.12)";
+                    (e.currentTarget as HTMLAnchorElement).style.color = pkg.highlight ? "#000" : "rgba(255,255,255,0.9)";
+                    (e.currentTarget as HTMLAnchorElement).style.borderColor = pkg.highlight ? "transparent" : "rgba(255,255,255,0.3)";
                   }}
                   onMouseLeave={e => {
-                    (e.currentTarget as HTMLAnchorElement).style.background = pkg.highlight ? "rgba(255,255,255,0.08)" : "transparent";
-                    (e.currentTarget as HTMLAnchorElement).style.color = pkg.highlight ? "rgba(255,255,255,0.85)" : "rgba(255,255,255,0.45)";
-                    (e.currentTarget as HTMLAnchorElement).style.borderColor = pkg.highlight ? "rgba(255,255,255,0.25)" : "rgba(255,255,255,0.1)";
+                    (e.currentTarget as HTMLAnchorElement).style.background = pkg.highlight ? "rgba(255,255,255,0.9)" : "transparent";
+                    (e.currentTarget as HTMLAnchorElement).style.color = pkg.highlight ? "#000" : "rgba(255,255,255,0.45)";
+                    (e.currentTarget as HTMLAnchorElement).style.borderColor = pkg.highlight ? "rgba(255,255,255,0.5)" : "rgba(255,255,255,0.1)";
                   }}
                 >
                   {pkg.cta} →
                 </a>
-              </div>
+              </>
+            );
+
+            return (
+            <Reveal key={i} delay={i * 0.06}>
+              {pkg.highlight ? (
+                <div className="magic-border" style={{ height: "100%", borderRadius: "0" }}>
+                  <div className="magic-border-inner" style={{ borderRadius: "0", background: "#0a0a0a" }} />
+                  <div 
+                    className="magic-border-content"
+                    style={{
+                      padding: "clamp(28px, 3vw, 40px)",
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "0",
+                      height: "100%",
+                      position: "relative",
+                    }}
+                  >
+                    {cardContent}
+                  </div>
+                </div>
+              ) : (
+                <div
+                  style={{
+                    background: "#0a0a0a",
+                    padding: "clamp(28px, 3vw, 40px)",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "0",
+                    height: "100%",
+                    position: "relative",
+                  }}
+                >
+                  {cardContent}
+                </div>
+              )}
             </Reveal>
-          ))}
+            );
+          })}
         </div>
 
         {/* Footnote */}

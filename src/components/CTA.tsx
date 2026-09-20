@@ -12,21 +12,27 @@ export default function CTA() {
       <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)" }}>
         <Reveal>
           <div
+            className="magic-border"
             style={{
-              position: "relative",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              padding: "clamp(48px, 6vw, 80px) clamp(20px, 5vw, 40px)",
-              textAlign: "center",
               borderRadius: "32px",
-              border: "1px solid rgba(255,255,255,0.1)",
               background: "rgba(0,0,0,0.25)",
               backdropFilter: "blur(8px)",
               boxShadow: "0 20px 40px -10px rgba(0,0,0,0.3)",
             }}
           >
+            <div className="magic-border-inner" style={{ background: "#0a0a0a", borderRadius: "32px" }} />
+            <div 
+              className="magic-border-content"
+              style={{
+                position: "relative",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "clamp(48px, 6vw, 80px) clamp(20px, 5vw, 40px)",
+                textAlign: "center",
+              }}
+            >
             {/* Removed Background Image - Now handled in layout/page for full bleed */}
 
             {/* Content */}
@@ -99,6 +105,7 @@ export default function CTA() {
                   Available for new projects
                 </span>
               </div>
+            </div>
             </div>
           </div>
         </Reveal>
