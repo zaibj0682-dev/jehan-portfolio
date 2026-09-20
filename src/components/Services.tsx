@@ -164,70 +164,69 @@ export default function Services() {
             </Reveal>
           ))}
           
-          {/* 6th Box: Gradient CTA */}
+          {/* 6th Box: Editorial Gradient CTA */}
           <Reveal delay={5 * 0.04}>
             <a
               href="https://www.fiverr.com/jehanzaib_007"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col items-center justify-center gap-6 group"
+              className="group"
               style={{
                 position: "relative",
                 overflow: "hidden",
-                background: "linear-gradient(135deg, #1b203a 0%, #3a2235 100%)",
+                background: "linear-gradient(145deg, #1c2040 0%, #2e1535 50%, #1a1030 100%)",
                 padding: "clamp(28px, 3vw, 40px)",
                 height: "100%",
                 minHeight: "240px",
                 textDecoration: "none",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
               }}
             >
-              {/* Hover gradient */}
+              {/* Subtle radial light top-left */}
+              <div style={{
+                position: "absolute", inset: 0, pointerEvents: "none",
+                background: "radial-gradient(ellipse at 20% 20%, rgba(90,80,200,0.25) 0%, transparent 55%), radial-gradient(ellipse at 80% 80%, rgba(180,60,130,0.2) 0%, transparent 55%)",
+              }} />
+              {/* Hover brightening */}
               <div
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                style={{ background: "linear-gradient(135deg, #2b3363 0%, #633358 100%)" }}
+                style={{ background: "radial-gradient(ellipse at 30% 30%, rgba(110,100,255,0.3) 0%, transparent 60%), radial-gradient(ellipse at 70% 70%, rgba(200,80,150,0.25) 0%, transparent 60%)" }}
               />
 
-              {/* 3D Arrow Icon — bottom right, blends into gradient bg */}
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: "-8%",
-                  right: "-8%",
-                  width: "180px",
-                  height: "180px",
-                  pointerEvents: "none",
-                  zIndex: 0,
-                  transition: "all 0.6s ease",
-                  mixBlendMode: "luminosity",
-                }}
-                className="opacity-30 group-hover:opacity-50 group-hover:scale-110"
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/images/icons/arrow.png"
-                  alt=""
-                  style={{ width: "100%", height: "100%", objectFit: "contain" }}
-                />
+              {/* Top: Status pill */}
+              <div className="relative z-10">
+                <span style={{
+                  display: "inline-flex", alignItems: "center", gap: "6px",
+                  fontSize: "11px", letterSpacing: "0.08em", textTransform: "uppercase",
+                  color: "rgba(255,255,255,0.45)",
+                  padding: "5px 12px", borderRadius: "999px",
+                  border: "1px solid rgba(255,255,255,0.12)",
+                  background: "rgba(255,255,255,0.05)",
+                }}>
+                  <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#4ade80", boxShadow: "0 0 8px #4ade80", display: "inline-block" }} />
+                  Open for projects
+                </span>
               </div>
 
-              {/* Content */}
-              <div className="relative z-10 flex flex-col items-center text-center gap-5">
-                <span
-                  style={{
-                    fontSize: "clamp(20px, 2.5vw, 26px)",
-                    fontWeight: 500,
-                    letterSpacing: "-0.02em",
-                    color: "#fff",
-                    lineHeight: 1.2,
-                  }}
-                >
-                  Start your<br />project
-                </span>
+              {/* Bottom: Headline + arrow */}
+              <div className="relative z-10 flex items-end justify-between">
+                <p style={{
+                  fontSize: "clamp(22px, 2.5vw, 28px)",
+                  fontWeight: 500,
+                  letterSpacing: "-0.03em",
+                  lineHeight: 1.15,
+                  color: "rgba(255,255,255,0.92)",
+                }}>
+                  Start your<br />project →
+                </p>
+                {/* Arrow circle */}
                 <div
-                  className="w-14 h-14 rounded-full flex items-center justify-center border border-white/25 group-hover:border-white/60 group-hover:scale-110 transition-all duration-400"
+                  className="w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center border border-white/20 group-hover:border-white/60 group-hover:bg-white/10 group-hover:scale-110 transition-all duration-500"
                 >
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5">
+                    <path d="M7 17L17 7M17 7H7M17 7v10"/>
                   </svg>
                 </div>
               </div>
