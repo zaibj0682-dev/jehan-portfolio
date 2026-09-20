@@ -7,6 +7,7 @@ const WORDS = ["Crafting.", "Building.", "Launching."];
 export default function Preloader() {
   const [progress, setProgress] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+  const [isComplete, setIsComplete] = useState(false);
   const [wordIndex, setWordIndex] = useState(0);
 
   useEffect(() => {
