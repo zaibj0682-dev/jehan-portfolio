@@ -170,11 +170,11 @@ export default function Services() {
               href="https://www.fiverr.com/jehanzaib_007"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col items-center justify-center gap-4 group"
+              className="flex flex-col items-center justify-center gap-6 group"
               style={{
                 position: "relative",
                 overflow: "hidden",
-                background: "linear-gradient(135deg, rgba(58,58,255,0.15) 0%, rgba(255,97,171,0.15) 100%)",
+                background: "linear-gradient(135deg, #1b203a 0%, #3a2235 100%)",
                 padding: "clamp(28px, 3vw, 40px)",
                 height: "100%",
                 minHeight: "240px",
@@ -183,36 +183,27 @@ export default function Services() {
             >
               {/* Vibrant gradient hover state */}
               <div 
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
                 style={{
-                  background: "linear-gradient(135deg, #3a3aff 0%, #ff61ab 50%, #6ec3f4 100%)",
+                  background: "linear-gradient(135deg, #2b3363 0%, #633358 100%)",
                 }}
               />
               
-              {/* Subtle idle gradient mesh */}
-              <div 
-                className="absolute inset-0 opacity-60 group-hover:opacity-0 transition-opacity duration-500"
-                style={{
-                  background: "radial-gradient(circle at top left, rgba(110,195,244,0.2) 0%, transparent 60%), radial-gradient(circle at bottom right, rgba(255,97,171,0.2) 0%, transparent 60%)",
-                }}
-              />
-              
-              <div className="relative z-10 flex flex-col items-center text-center gap-4">
+              <div className="relative z-10 flex flex-col items-center text-center gap-5">
                 <span 
                   style={{
                     fontSize: "24px",
                     fontWeight: 500,
-                    letterSpacing: "-0.02em",
+                    letterSpacing: "-0.01em",
                     color: "#fff",
-                    fontFamily: "var(--font-display)",
                   }}
                 >
                   Start your project
                 </span>
                 <div 
-                  className="w-12 h-12 rounded-full flex items-center justify-center bg-white/5 border border-white/10 group-hover:bg-white group-hover:border-white transition-all duration-500"
+                  className="w-14 h-14 rounded-full flex items-center justify-center bg-transparent border border-white/20 group-hover:scale-105 group-hover:border-white/50 transition-all duration-300"
                 >
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-white group-hover:text-black transition-colors duration-500">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-white transition-colors duration-500">
                     <path d="M5 12h14M12 5l7 7-7 7"/>
                   </svg>
                 </div>
