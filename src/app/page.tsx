@@ -12,6 +12,7 @@ import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 
 import Image from "next/image";
+import ScrollProgress from "@/components/ui/ScrollProgress";
 
 export default function Home() {
   return (
@@ -54,6 +55,6 @@ export default function Home() {
           <Footer />
         </div>
       </div>
-    </>
+    <ScrollProgress /></>
   );
 }

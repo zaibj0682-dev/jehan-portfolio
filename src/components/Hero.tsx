@@ -8,6 +8,7 @@ import { Star } from "lucide-react";
 import HeroBg from "./ui/HeroBg";
 import TiltCard from "./ui/TiltCard";
 import AnimatedText from "./ui/AnimatedText";
+import SplitText from "./ui/SplitText";
 import { usePreloader } from "@/context/PreloaderContext";
 
 export default function Hero() {
@@ -72,26 +73,20 @@ export default function Hero() {
           </motion.div>
 
           {/* H1 */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={isReadyToAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          <div
             className="text-balance"
             style={{
               fontSize: "clamp(40px, 5.5vw, 72px)",
               fontWeight: 500,
               letterSpacing: "-0.04em",
               lineHeight: 1.1,
-              color: "rgba(255,255,255,0.92)",
               fontFamily: "var(--font-display)",
               maxWidth: "600px",
             }}
           >
-            High-converting web experiences{" "}
-            <span style={{ color: "rgba(255,255,255,0.42)" }}>
-              engineered for industry leaders.
-            </span>
-          </motion.h1>
+            <SplitText trigger={isReadyToAnimate} delay={0.2} text="High-converting web experiences" style={{ color: "rgba(255,255,255,0.92)" }} />
+            <SplitText trigger={isReadyToAnimate} delay={0.4} text="engineered for industry leaders." style={{ color: "rgba(255,255,255,0.42)" }} />
+          </div>
 
           {/* Subhead */}
           <motion.p

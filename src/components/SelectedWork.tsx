@@ -3,6 +3,7 @@ import Parallax from "./ui/Parallax";
 import { ExternalLink } from "lucide-react";
 import Reveal from "./ui/Reveal";
 import Image from "next/image";
+import SplitText from "./ui/SplitText";
 
 
 interface CaseStudy {
@@ -245,19 +246,18 @@ export default function SelectedWork() {
               <p style={{ fontSize: "11px", letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.25)", marginBottom: "16px" }}>
                 Selected work
               </p>
-              <Parallax offset={20}><h2
+              <div
                 style={{
                   fontSize: "clamp(28px, 3.5vw, 48px)",
                   lineHeight: 1.15,
                   letterSpacing: "-0.04em",
                   fontWeight: 500,
-                  color: "rgba(255,255,255,0.92)",
                   maxWidth: "480px",
                 }}
               >
-                Proven impact.{" "}
-                <span style={{ color: "rgba(255,255,255,0.25)" }}>Measurable results.</span>
-              </h2></Parallax>
+                <SplitText text="Proven impact." style={{ color: "rgba(255,255,255,0.92)" }} />
+                <SplitText text="Measurable results." delay={0.2} style={{ color: "rgba(255,255,255,0.25)" }} />
+              </div>
             </Reveal>
           </div>
           <Reveal delay={0.08}>

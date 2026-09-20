@@ -1,5 +1,6 @@
 "use client";
 import { ExternalLink } from "lucide-react";
+import LiveStatus from "./ui/LiveStatus";
 
 const navLinks = [
   { label: "Work", href: "#work" },
@@ -53,9 +54,7 @@ export default function Footer() {
                 Digital Platform Architect & Brand Strategist
               </p>
             </div>
-            <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.4)", lineHeight: 1.6, maxWidth: "300px" }}>
-              Top Rated on Fiverr since 2020. Delivering elite platforms for clients across the US, UK, Europe, and beyond.
-            </p>
+            <LiveStatus />
             <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
               <span
                 style={{
