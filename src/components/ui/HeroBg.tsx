@@ -37,7 +37,7 @@ export default function HeroBg() {
         }
       `}</style>
 
-      {/* The 20MB Video - browser natively streams it asynchronously via range requests */}
+      {/* The 5.5MB Video - browser natively streams it asynchronously via range requests */}
       {/* preload="auto" ensures it starts downloading immediately but without blocking the main thread */}
       <video
         autoPlay
