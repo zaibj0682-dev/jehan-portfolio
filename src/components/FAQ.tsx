@@ -210,7 +210,7 @@ export default function FAQ() {
             }}
           >
             Everything you need to know about how we work. Still have a question?{" "}
-            <a href="https://www.fiverr.com/jehanzaib_007" target="_blank" rel="noopener noreferrer" style={{ color: "#fff", textDecoration: "underline", textUnderlineOffset: "4px", decorationColor: "rgba(255,255,255,0.3)" }}>Ask on Fiverr</a>
+            <a href="https://www.fiverr.com/jehanzaib_007" target="_blank" rel="noopener noreferrer" style={{ color: "#fff", textDecoration: "underline", textUnderlineOffset: "4px", textDecorationColor: "rgba(255,255,255,0.3)" }}>Ask on Fiverr</a>
           </p>
         </div>
 
