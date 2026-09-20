@@ -87,7 +87,7 @@ export default function RootLayout({
         sameAs: ["https://www.fiverr.com/jehanzaib_007"],
         address: {
           "@type": "PostalAddress",
-          addressLocality: "Okara",
+          addressLocality: "United States",
           addressCountry: "PK",
         },
         knowsAbout: [

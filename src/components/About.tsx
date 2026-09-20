@@ -178,32 +178,59 @@ export default function About() {
                   display: "grid",
                   gridTemplateColumns: "1fr 1fr",
                   gap: "1px",
-                  background: "rgba(255,255,255,0.08)",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                  borderRadius: "12px",
+                  background: "rgba(255,255,255,0.03)",
+                  border: "1px solid rgba(255,255,255,0.1)",
+                  borderRadius: "24px",
                   overflow: "hidden",
+                  backdropFilter: "blur(20px)",
+                  boxShadow: "0 20px 40px -10px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1)",
                 }}
               >
                 {[
-                  { value: "3,300+", label: "Projects" },
-                  { value: "5.0", label: "Rating" },
-                  { value: "6+ yrs", label: "Top Rated" },
-                  { value: "~20", label: "Team size" },
+                  { value: "3,300+", label: "Projects Delivered" },
+                  { value: "5.0", label: "Average Rating" },
+                  { value: "6+ yrs", label: "Top Rated Status" },
+                  { value: "~20", label: "Expert Team" },
                 ].map((s) => (
                   <div
                     key={s.label}
                     style={{
-                      background: "#0d0d0d",
-                      padding: "16px",
+                      background: "rgba(255,255,255,0.02)",
+                      padding: "24px 16px",
                       display: "flex",
                       flexDirection: "column",
-                      gap: "3px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      textAlign: "center",
+                      gap: "8px",
+                      transition: "background 0.3s ease",
                     }}
+                    className="hover:bg-white/5"
                   >
-                    <span style={{ fontSize: "20px", fontWeight: 500, letterSpacing: "-0.03em", color: "var(--color-text-heading)", lineHeight: 1 }}>
+                    <span 
+                      style={{ 
+                        fontSize: "28px", 
+                        fontWeight: 600, 
+                        letterSpacing: "-0.04em", 
+                        background: "linear-gradient(180deg, #fff, rgba(255,255,255,0.7))",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                        lineHeight: 1 
+                      }}
+                    >
                       {s.value}
                     </span>
-                    <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.3)", letterSpacing: "0.04em" }}>{s.label}</span>
+                    <span 
+                      style={{ 
+                        fontSize: "10px", 
+                        color: "rgba(255,255,255,0.45)", 
+                        letterSpacing: "0.08em",
+                        textTransform: "uppercase",
+                        fontWeight: 500
+                      }}
+                    >
+                      {s.label}
+                    </span>
                   </div>
                 ))}
               </div>

@@ -3,21 +3,21 @@ import { useRef } from "react";
 import { useScroll, useTransform, motion, useMotionTemplate } from "framer-motion";
 
 const lines = [
-  "I started on Fiverr while still at university in Okara, Pakistan.",
-  "Learning a new technique in the morning. Shipping it for a real client by evening.",
-  "That pace — learning fast, delivering faster — became my whole approach.",
-  "My first Top Rated badge came after 18 months of late nights and early mornings.",
-  "Then my first $2,500 project. Then my first client in the US. Then the UK. Then everywhere.",
-  "I founded Upastra Digital Media to handle the scale.",
-  "Today, my team delivers 100 to 120 WordPress websites every single month.",
-  "But every project still goes through me. Every client still talks to me directly.",
-  "3,300 projects delivered. 2,277 five-star reviews. Not one handed off to a stranger.",
-  "I don't give you a template and call it done.",
-  "I study your industry before I open Elementor.",
-  "I think about your customers, your goals, what the page actually needs to do.",
-  "That's why clients come back — for the second site, the third, the fourth.",
-  "One contact. One standard. From your first message to the day you go live.",
-  "That's the promise. And it's the same one I made on day one.",
+  "My journey started in a university dorm room, balancing lectures with late-night coding.",
+  "I learned a new framework in the morning and deployed it for a real client by evening.",
+  "That relentless pace — engineering fast, delivering faster — became my entire philosophy.",
+  "It took 18 months of uncompromising dedication to earn my first Top Rated badge.",
+  "Then came the first enterprise contract. Then clients in the US. Then the UK. Then globally.",
+  "To handle the immense scale, I founded an agency.",
+  "Today, we architect and launch over 100 bespoke web experiences every single month.",
+  "But despite the growth, every project still goes through me. Every client speaks to me directly.",
+  "Over 3,300 projects deployed. 2,277 five-star reviews. Zero compromises on quality.",
+  "I don't just build websites. I engineer digital assets that drive revenue.",
+  "I study your market, your competitors, and your audience before writing a single line of code.",
+  "Because a beautiful design is worthless if it doesn't convert visitors into clients.",
+  "This approach is why founders return for their second, third, and fourth platforms.",
+  "One dedicated expert. One elite standard. From our first call to launch day.",
+  "That is the promise. And it is the same one I made on day one.",
 ];
 
 function StoryLine({ text }: { text: string; index: number }) {
