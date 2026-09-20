@@ -5,32 +5,32 @@ import { Plus } from "lucide-react";
 
 const faqs = [
   {
-    q: "Are hosting and domain included?",
-    a: "No — a domain costs about $10/year and hosting $4–$10/month, both managed by you. I'll help set them up and point your domain to your server at no extra charge.",
+    q: "Is domain and hosting infrastructure included?",
+    a: "We recommend you retain ownership of your core assets. A domain costs ~$10/year and robust hosting is ~$10/month. We will handle the entire technical configuration and DNS routing for you at no additional charge.",
   },
   {
-    q: "Do you write the content?",
-    a: "Content comes from you. If it's not ready when we start, I use professional placeholder text you can swap later — no delay to the build.",
+    q: "Do you provide copywriting and content?",
+    a: "We architect the platform around your brand's voice. You provide the core copy, and we strategically integrate it for maximum conversion. If content isn't finalized, we deploy premium structural placeholders.",
   },
   {
-    q: "Do you provide theme and plugin licences?",
-    a: "I mostly build with free themes and custom Elementor layouts. Premium plugins go under your account so you own them outright. I'll tell you exactly what you need — and the cost — before we start.",
+    q: "How are premium plugin licenses handled?",
+    a: "Transparency is paramount. Any required enterprise plugins are licensed directly to your business to ensure you retain full legal ownership and control. A full technical cost breakdown is provided during discovery.",
   },
   {
-    q: "What if something breaks after delivery?",
-    a: "Contact me within 14 days for free fixes inside the original scope. After that, optional monthly care plans keep everything maintained.",
+    q: "What happens post-launch?",
+    a: "Every deployment includes a 14-day intensive monitoring period to guarantee flawless performance. For long-term peace of mind, we offer dedicated monthly retainer plans for ongoing scaling and maintenance.",
   },
   {
-    q: "What are the ongoing costs after launch?",
-    a: "Domain (~$10/yr), hosting (~$4–$10/mo), and Elementor Pro renewal (~$30/yr after year one, except the Basic package). I'll walk you through exactly what applies to your setup.",
+    q: "What are the recurring operational costs?",
+    a: "Beyond your standard hosting and domain renewals, specific premium tools (like Elementor Pro) may have annual renewals. We engineer lean systems to keep your ongoing overhead as low as possible.",
   },
   {
-    q: "Can you migrate my blog or teach me to manage the site?",
-    a: "Yes — both are add-ons. Blog migration is quoted by post count. A short training session is included with every multi-page project.",
+    q: "Do you train my internal team?",
+    a: "Absolutely. A comprehensive handoff and training session is included with our premium and enterprise packages, ensuring your team is fully empowered to operate the platform from day one.",
   },
   {
-    q: "Do you work with clients outside Pakistan?",
-    a: "Absolutely — over 95% of my 3,300+ projects have been for clients in the US, UK, Canada, Australia, and Europe. All communication is in English via Fiverr.",
+    q: "Do you work with international clients?",
+    a: "Yes. Over 95% of our 3,300+ deployments have been engineered for brands spanning the US, UK, Canada, Australia, and Europe. Our entire operational workflow is optimized for seamless global collaboration.",
   },
 ];
 

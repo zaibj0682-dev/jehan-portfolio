@@ -141,7 +141,7 @@ body {
   position: absolute;
   inset: 1px; /* 1px border width */
   z-index: -1;
-  background: inherit; /* Takes the background of parent */
+  background: #0a0a0a; /* Must be a solid dark color to block the gradient from showing in the middle */
   border-radius: inherit; /* Perfectly matches parent radius */
 }
 

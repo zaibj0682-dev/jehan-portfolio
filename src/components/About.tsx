@@ -48,8 +48,8 @@ export default function About() {
                   maxWidth: "560px",
                 }}
               >
-                I started on Fiverr while still at university.{" "}
-                <span style={{ color: "rgba(255,255,255,0.35)" }}>It became my full-time career.</span>
+                My journey started in a university dorm room.{" "}
+                <span style={{ color: "rgba(255,255,255,0.35)" }}>It evolved into a global agency.</span>
               </h2>
             </Reveal>
 
@@ -67,16 +67,16 @@ export default function About() {
                 }}
               >
                 <p>
-                  Learning a technique in the morning and shipping it for a real client the same evening. That pace built my skills fast. After I graduated, Fiverr became everything.
+                  I learned to code between lectures, deploying real-world solutions by evening. That relentless pace—engineering fast and delivering faster—became the foundation of my entire philosophy.
                 </p>
                 <p>
-                  The grind paid off. Today I deliver 100–120 websites per month for clients across every industry and timezone. Fiverr Top Rated. One of the highest-reviewed WordPress sellers on the platform.
+                  What started as a solo hustle has scaled into a dedicated operation. Today, my team and I architect and launch over 100 bespoke web experiences every single month for industry leaders worldwide. 
                 </p>
                 <p>
-                  My work is WordPress and Elementor, with UX thinking behind every decision. I don&apos;t hand you a template. I look into your business, your customers, and what the page needs to do.
+                  But despite the immense scale, my standards remain unchanged. I don't just hand off templates; I engineer digital assets driven by UX thinking, competitor analysis, and a relentless focus on conversion.
                 </p>
                 <p style={{ color: "rgba(255,255,255,0.4)", fontStyle: "italic" }}>
-                  &quot;The customer is everything.&quot; — the same rule Amazon built an empire on, and the one that earned every five-star review I have.
+                  "A beautiful design is worthless if it doesn't convert." — This is why founders return to me for their second, third, and fourth platforms.
                 </p>
               </div>
             </Reveal>
