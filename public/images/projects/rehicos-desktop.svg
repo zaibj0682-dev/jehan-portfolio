@@ -1,0 +1,18 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="500" fill="#0d1117"/>
+  <rect x="0" y="0" width="800" height="56" fill="#111820"/>
+  <rect x="24" y="18" width="80" height="20" rx="4" fill="rgba(255,255,255,0.15)"/>
+  <rect x="600" y="16" width="60" height="24" rx="12" fill="rgba(255,255,255,0.1)"/>
+  <rect x="680" y="16" width="90" height="24" rx="12" fill="rgba(200,160,80,0.7)"/>
+  <!-- hero section -->
+  <rect x="60" y="100" width="320" height="48" rx="6" fill="rgba(255,255,255,0.15)"/>
+  <rect x="60" y="162" width="240" height="20" rx="4" fill="rgba(255,255,255,0.08)"/>
+  <rect x="60" y="194" width="200" height="20" rx="4" fill="rgba(255,255,255,0.06)"/>
+  <rect x="60" y="240" width="140" height="44" rx="22" fill="rgba(200,160,80,0.8)"/>
+  <!-- product mockup right -->
+  <rect x="440" y="80" width="320" height="340" rx="12" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <rect x="460" y="100" width="280" height="160" rx="8" fill="rgba(255,255,255,0.07)"/>
+  <rect x="460" y="274" width="120" height="20" rx="4" fill="rgba(255,255,255,0.1)"/>
+  <rect x="460" y="302" width="80" height="16" rx="4" fill="rgba(255,255,255,0.06)"/>
+  <text x="400" y="470" text-anchor="middle" fill="rgba(255,255,255,0.2)" font-family="system-ui" font-size="13">Rehicos — Project placeholder</text>
+</svg>

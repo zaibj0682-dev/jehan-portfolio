@@ -1,0 +1,216 @@
+import Image from "next/image";
+import Reveal from "./ui/Reveal";
+
+const milestones = [
+  { year: "2020", event: "Joined Fiverr. First 10 projects in 30 days." },
+  { year: "2022", event: "Reached Top Rated status. First $2,500 project." },
+  { year: "2023", event: "Founded Upastra Digital Media." },
+  { year: "2024", event: "3,000+ orders delivered. Team of ~20." },
+  { year: "2026", event: "Applying for Fiverr Pro." },
+];
+
+export default function About() {
+  return (
+    <section
+      style={{ width: "100%", paddingTop: "clamp(60px,7vw,100px)", paddingBottom: "clamp(60px,7vw,100px)" }}
+    >
+      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)" }}>
+
+        {/* Label */}
+        <Reveal>
+          <p
+            style={{
+              fontSize: "11px",
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              color: "rgba(255,255,255,0.3)",
+              marginBottom: "clamp(32px, 4vw, 56px)",
+            }}
+          >
+            About
+          </p>
+        </Reveal>
+
+        {/* Two-column layout */}
+        <div className="flex flex-col desktop:flex-row gap-12 desktop:gap-20 items-stretch">
+
+          {/* Left: story */}
+          <div className="flex-1 flex flex-col gap-8">
+            {/* Pull quote */}
+            <Reveal>
+              <h2
+                style={{
+                  fontSize: "clamp(28px, 3.5vw, 48px)",
+                  lineHeight: 1.2,
+                  letterSpacing: "-0.04em",
+                  fontWeight: 400,
+                  color: "var(--color-text-heading)",
+                  fontFamily: "var(--font-display)",
+                  maxWidth: "560px",
+                }}
+              >
+                I started on Fiverr while still at university.{" "}
+                <span style={{ color: "rgba(255,255,255,0.35)" }}>It became my full-time career.</span>
+              </h2>
+            </Reveal>
+
+            {/* Body paragraphs */}
+            <Reveal delay={0.05}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "16px",
+                  fontSize: "15px",
+                  lineHeight: 1.7,
+                  color: "rgba(255,255,255,0.6)",
+                  maxWidth: "520px",
+                }}
+              >
+                <p>
+                  Learning a technique in the morning and shipping it for a real client the same evening. That pace built my skills fast. After I graduated, Fiverr became everything.
+                </p>
+                <p>
+                  The grind paid off. Today I deliver 100–120 websites per month for clients across every industry and timezone. Fiverr Top Rated. One of the highest-reviewed WordPress sellers on the platform.
+                </p>
+                <p>
+                  My work is WordPress and Elementor, with UX thinking behind every decision. I don&apos;t hand you a template. I look into your business, your customers, and what the page needs to do.
+                </p>
+                <p style={{ color: "rgba(255,255,255,0.4)", fontStyle: "italic" }}>
+                  &quot;The customer is everything.&quot; — the same rule Amazon built an empire on, and the one that earned every five-star review I have.
+                </p>
+              </div>
+            </Reveal>
+
+            {/* Timeline */}
+            <Reveal delay={0.08}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "0",
+                  borderTop: "1px solid rgba(255,255,255,0.08)",
+                  marginTop: "8px",
+                }}
+              >
+                {milestones.map((t, i) => (
+                  <div
+                    key={t.year}
+                    style={{
+                      display: "flex",
+                      gap: "24px",
+                      alignItems: "baseline",
+                      padding: "14px 0",
+                      borderBottom: i < milestones.length - 1 ? "1px solid rgba(255,255,255,0.06)" : "none",
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontSize: "11px",
+                        letterSpacing: "0.06em",
+                        color: "rgba(255,255,255,0.25)",
+                        minWidth: "36px",
+                        flexShrink: 0,
+                      }}
+                    >
+                      {t.year}
+                    </span>
+                    <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.6)" }}>{t.event}</span>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+          </div>
+
+          {/* Right: photo + stats */}
+          <Reveal delay={0.1} className="shrink-0 w-full desktop:w-[460px] flex flex-col">
+            <div style={{ display: "flex", flexDirection: "column", gap: "20px", height: "100%", flex: 1 }}>
+              {/* Photo */}
+              <div
+                className="group"
+                style={{
+                  width: "100%",
+                  flex: 1, // Stretches to fill remaining vertical space
+                  minHeight: "400px",
+                  padding: "10px",
+                  background: "rgba(255,255,255,0.03)",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                  borderRadius: "24px",
+                  boxShadow: "0 20px 40px -20px rgba(0,0,0,0.5)",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <div
+                  style={{
+                    width: "100%",
+                    flex: 1,
+                    borderRadius: "16px",
+                    overflow: "hidden",
+                    position: "relative",
+                    background: "#f0ece8", // Match the image background just in case
+                  }}
+                >
+                  <Image
+                    src="/images/profile.png"
+                    alt="Jehan Zaib"
+                    fill
+                    className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    style={{ transform: "scale(1.25) translateY(5%)" }}
+                    sizes="(max-width: 1280px) 50vw, 340px"
+                    priority
+                  />
+                  {/* Subtle inner shadow so it sits nicely in the frame */}
+                  <div 
+                    style={{ 
+                      position: "absolute", 
+                      inset: 0, 
+                      boxShadow: "inset 0 0 20px rgba(0,0,0,0.15)", 
+                      pointerEvents: "none" 
+                    }} 
+                  />
+                </div>
+              </div>
+
+              {/* Stats strip */}
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1fr",
+                  gap: "1px",
+                  background: "rgba(255,255,255,0.08)",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                  borderRadius: "12px",
+                  overflow: "hidden",
+                }}
+              >
+                {[
+                  { value: "3,300+", label: "Projects" },
+                  { value: "5.0", label: "Rating" },
+                  { value: "6+ yrs", label: "Top Rated" },
+                  { value: "~20", label: "Team size" },
+                ].map((s) => (
+                  <div
+                    key={s.label}
+                    style={{
+                      background: "#0d0d0d",
+                      padding: "16px",
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "3px",
+                    }}
+                  >
+                    <span style={{ fontSize: "20px", fontWeight: 500, letterSpacing: "-0.03em", color: "var(--color-text-heading)", lineHeight: 1 }}>
+                      {s.value}
+                    </span>
+                    <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.3)", letterSpacing: "0.04em" }}>{s.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}

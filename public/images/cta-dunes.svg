@@ -1,0 +1,12 @@
+<svg width="1440" height="190" viewBox="0 0 1440 190" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="duneFade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1b2228" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </linearGradient>
+  </defs>
+  <rect width="1440" height="190" fill="url(#duneFade)"/>
+  <!-- rolling dune shapes -->
+  <path d="M0 190 L0 120 Q180 60 360 100 Q540 140 720 80 Q900 20 1080 70 Q1260 120 1440 90 L1440 190 Z" fill="rgba(0,0,0,0.4)"/>
+  <path d="M0 190 L0 150 Q240 110 480 140 Q720 170 960 130 Q1200 90 1440 130 L1440 190 Z" fill="rgba(0,0,0,0.6)"/>
+</svg>

@@ -1,0 +1,19 @@
+<svg width="1440" height="600" viewBox="0 0 1440 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="sky" cx="50%" cy="0%" r="80%">
+      <stop offset="0%" stop-color="#0a0f16"/>
+      <stop offset="100%" stop-color="#000408"/>
+    </radialGradient>
+  </defs>
+  <rect width="1440" height="600" fill="url(#sky)"/>
+  <!-- distant mountain silhouette -->
+  <path d="M0 600 L0 360 L80 320 L200 280 L340 240 L480 200 L560 220 L680 180 L800 160 L920 180 L1040 220 L1160 200 L1280 240 L1380 280 L1440 320 L1440 600 Z" fill="rgba(10,18,30,0.7)"/>
+  <!-- stars -->
+  <circle cx="120" cy="60" r="1" fill="rgba(255,255,255,0.6)"/>
+  <circle cx="340" cy="40" r="0.8" fill="rgba(255,255,255,0.4)"/>
+  <circle cx="560" cy="80" r="1.2" fill="rgba(255,255,255,0.5)"/>
+  <circle cx="780" cy="30" r="0.9" fill="rgba(255,255,255,0.6)"/>
+  <circle cx="980" cy="55" r="1" fill="rgba(255,255,255,0.4)"/>
+  <circle cx="1200" cy="45" r="0.8" fill="rgba(255,255,255,0.5)"/>
+  <circle cx="1380" cy="70" r="1.1" fill="rgba(255,255,255,0.4)"/>
+</svg>

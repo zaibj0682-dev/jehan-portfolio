@@ -1,0 +1,5 @@
+<svg width="1440" height="500" viewBox="0 0 1440 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- mid-ground hills -->
+  <path d="M0 500 L0 300 L120 260 L280 240 L420 220 L560 210 L680 230 L800 200 L920 215 L1060 230 L1200 220 L1340 240 L1440 260 L1440 500 Z" fill="rgba(8,14,24,0.85)"/>
+  <path d="M0 500 L0 380 L200 340 L440 320 L640 330 L840 310 L1040 325 L1240 340 L1440 360 L1440 500 Z" fill="rgba(5,10,18,0.9)"/>
+</svg>
