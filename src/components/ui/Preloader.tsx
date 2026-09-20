@@ -13,6 +13,10 @@ export default function Preloader() {
   const { setReady } = usePreloader();
 
   useEffect(() => {
+    // Remove the native HTML blocker once React has hydrated the preloader
+    const blocker = document.getElementById("ssr-blocker");
+    if (blocker) blocker.remove();
+    
     document.body.style.overflow = "hidden";
 
     // Cycle through words every 700ms, stop on the last word
