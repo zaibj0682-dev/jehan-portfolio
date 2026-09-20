@@ -130,7 +130,7 @@ export default function About() {
                 style={{
                   width: "100%",
                   flex: 1, // Stretches to fill remaining vertical space
-                  minHeight: "400px",
+                  minHeight: "340px", // Reduced from 400px so it's not overly tall on mobile
                   padding: "10px",
                   background: "rgba(255,255,255,0.03)",
                   border: "1px solid rgba(255,255,255,0.08)",
@@ -141,6 +141,7 @@ export default function About() {
                 }}
               >
                 <div
+                  className="aspect-square desktop:aspect-auto"
                   style={{
                     width: "100%",
                     flex: 1,
@@ -155,7 +156,7 @@ export default function About() {
                     alt="Jehan Zaib"
                     fill
                     className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                    style={{ transform: "scale(1.25) translateY(5%)" }}
+                    style={{ transform: "scale(1.1) translateY(2%)" }} // Softened the zoom so the face isn't cut off
                     sizes="(max-width: 1280px) 50vw, 340px"
                     priority
                   />

@@ -29,7 +29,7 @@ export default function Footer() {
           display: "flex",
           flexDirection: "column",
           gap: "0",
-          padding: "clamp(40px, 6vw, 64px)",
+          padding: "clamp(32px, 6vw, 64px) clamp(24px, 6vw, 64px)",
           borderRadius: "32px",
           border: "1px solid rgba(255,255,255,0.1)",
           background: "rgba(0,0,0,0.25)",
@@ -41,7 +41,7 @@ export default function Footer() {
         {/* Top section: brand + cols */}
         <div
           className="flex flex-col tablet:flex-row tablet:justify-between gap-12"
-          style={{ marginBottom: "64px" }}
+          style={{ marginBottom: "clamp(40px, 6vw, 64px)" }}
         >
           {/* Brand block */}
           <div style={{ maxWidth: "340px", display: "flex", flexDirection: "column", gap: "16px" }}>
