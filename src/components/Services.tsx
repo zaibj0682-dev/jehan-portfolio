@@ -188,6 +188,29 @@ export default function Services() {
                   background: "linear-gradient(135deg, #2b3363 0%, #633358 100%)",
                 }}
               />
+
+              {/* Background 3D Arrow Icon — matches other service cards */}
+              <div
+                style={{
+                  position: "absolute",
+                  top: "-5%",
+                  right: "-5%",
+                  width: "160px",
+                  height: "160px",
+                  pointerEvents: "none",
+                  zIndex: 0,
+                  transition: "all 0.5s ease",
+                }}
+                className="opacity-20 group-hover:opacity-60 group-hover:scale-105"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/icons/arrow.png"
+                  alt=""
+                  className="transition-all duration-500 grayscale group-hover:grayscale-0"
+                  style={{ width: "100%", height: "100%", objectFit: "contain" }}
+                />
+              </div>
               
               <div className="relative z-10 flex flex-col items-center text-center gap-5">
                 <span 
