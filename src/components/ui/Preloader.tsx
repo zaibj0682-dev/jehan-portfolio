@@ -92,26 +92,6 @@ export default function Preloader() {
               background: "radial-gradient(circle, rgba(180,60,120,0.1) 0%, transparent 70%)",
               pointerEvents: "none",
             }} />
-
-            {/* Name reveal — clips up into view */}
-            <div style={{ overflow: "hidden", paddingBottom: "1px", paddingTop: "80px" }}>
-              <motion.p
-                initial={{ y: "110%" }}
-                animate={{ y: 0 }}
-                transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: "clamp(36px, 5vw, 68px)",
-                  fontWeight: 500,
-                  letterSpacing: "-0.04em",
-                  color: "rgba(255,255,255,0.92)",
-                  lineHeight: 1,
-                  textAlign: "center",
-                }}
-              >
-                Jehan Zaib
-              </motion.p>
-            </div>
           </motion.div>
 
           {/* Bottom panel */}
@@ -159,10 +139,10 @@ export default function Preloader() {
                   transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
                   style={{
                     fontFamily: "var(--font-display)",
-                    fontSize: "clamp(36px, 5vw, 68px)",
+                    fontSize: "clamp(48px, 8vw, 96px)", // Increased size
                     fontWeight: 500,
                     letterSpacing: "-0.04em",
-                    color: "rgba(255,255,255,0.15)",
+                    color: "rgba(255,255,255,0.85)", // Brighter color
                     lineHeight: 1,
                     textAlign: "center",
                     paddingBottom: "60px",
