@@ -151,3 +151,13 @@ body {
   width: 100%;
   height: 100%;
 }
+
+/* SSR Flash Prevention */
+.app-main {
+  opacity: 0;
+  visibility: hidden;
+}
+body.preloader-finished .app-main {
+  opacity: 1;
+  visibility: visible;
+}

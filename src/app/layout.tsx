@@ -163,7 +163,7 @@ export default function RootLayout({
             <Preloader />
             <FilmGrain />
             <CustomCursor />
-            <main id="main">{children}</main>
+            <main id="main" className="app-main">{children}</main>
           </LenisProvider>
         </PreloaderProvider>
       </body>
