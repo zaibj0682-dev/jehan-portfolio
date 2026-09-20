@@ -151,7 +151,7 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <div id="ssr-blocker" style={{ position: "fixed", inset: 0, backgroundColor: "#060606", zIndex: 999999 }} />
+        <div id="ssr-blocker" style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0, width: "100vw", height: "100vh", backgroundColor: "#060606", zIndex: 9999999 }} />
         <PreloaderProvider>
           <a
             href="#main"
@@ -163,7 +163,7 @@ export default function RootLayout({
             <Preloader />
             <FilmGrain />
             <CustomCursor />
-            <main id="main" className="app-main">{children}</main>
+            <main id="main" style={{ opacity: 0, transition: "opacity 0.4s ease-in-out" }}>{children}</main>
           </LenisProvider>
         </PreloaderProvider>
       </body>

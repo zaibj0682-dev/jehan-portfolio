@@ -44,7 +44,9 @@ export default function Preloader() {
         clearInterval(wordInterval);
         setIsComplete(true); // Trigger text/UI fade out
         setTimeout(() => {
-          document.body.classList.add('preloader-finished'); // Reveal the background!
+          const main = document.getElementById("main");
+          if (main) main.style.opacity = "1";
+          
           setIsLoading(false); // Trigger panel split
           document.body.style.overflow = "";
           window.scrollTo(0, 0);
