@@ -12,27 +12,31 @@ export default function Preloader() {
   useEffect(() => {
     document.body.style.overflow = "hidden";
 
-    // Cycle through words
+    // Cycle through words every 700ms — needs at least 2.1s to show all 3
     const wordInterval = setInterval(() => {
       setWordIndex((i) => (i + 1) % WORDS.length);
-    }, 600);
+    }, 700);
 
-    // Progress counter
+    // Progress counter — slow & organic, takes ~2.5–3s total
     let current = 0;
     const interval = setInterval(() => {
-      current += Math.floor(Math.random() * 14) + 5;
+      // Slow near the end for dramatic effect
+      const remaining = 100 - current;
+      const increment = remaining > 30
+        ? Math.floor(Math.random() * 6) + 3   // fast early: +3 to +8
+        : Math.floor(Math.random() * 2) + 1;   // slow near end: +1 to +2
+      current = Math.min(current + increment, 100);
       if (current >= 100) {
-        current = 100;
         clearInterval(interval);
         clearInterval(wordInterval);
         setTimeout(() => {
           setIsLoading(false);
           document.body.style.overflow = "";
           window.scrollTo(0, 0);
-        }, 500);
+        }, 600);
       }
       setProgress(current);
-    }, 65);
+    }, 90); // 90ms interval × ~25 steps ≈ ~2.5s
 
     return () => {
       clearInterval(interval);
