@@ -70,28 +70,40 @@ export default function Hero() {
           </motion.div>
 
           {/* H1 */}
-          <AnimatedText
-            className="text-heading text-balance"
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.8, ease: [0.16, 1, 0.3, 1] }}
             style={{
-              fontSize: "clamp(40px, 5.5vw, 72px)",
-              lineHeight: 1.15,
+              fontSize: "clamp(48px, 6.5vw, 92px)",
+              fontWeight: 500,
               letterSpacing: "-0.04em",
-              fontWeight: 400,
+              lineHeight: 1.05,
+              color: "rgba(255,255,255,0.92)",
               fontFamily: "var(--font-display)",
             }}
-            text="WordPress websites that look custom-built,"
-            highlighted="because they are." delay={1.6}
-          />
+          >
+            High-converting <br className="hidden desktop:block" />
+            web experiences <br className="hidden desktop:block" />
+            engineered for <br className="hidden desktop:block" />
+            industry leaders.
+          </motion.h1>
 
           {/* Subhead */}
           <motion.p
             initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.8, delay: 2.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-body text-balance"
-            style={{ fontSize: "clamp(15px, 1.5vw, 18px)", lineHeight: 1.6, maxWidth: "480px", color: "rgba(255,255,255,0.55)" }}
+            style={{
+              fontSize: "clamp(15px, 1.3vw, 17px)",
+              lineHeight: 1.6,
+              color: "rgba(255,255,255,0.42)",
+              maxWidth: "480px",
+              marginTop: "24px",
+              marginBottom: "40px",
+            }}
           >
-            Top Rated on Fiverr for 6+ years. 3,300+ projects delivered for clients in the US, UK, Europe and beyond. One person, start to launch.
+            Partnering with ambitious brands to engineer high-performance platforms. Over 3,300+ successful deployments globally. One dedicated expert, from strategy to launch.
           </motion.p>
 
           {/* CTAs */}

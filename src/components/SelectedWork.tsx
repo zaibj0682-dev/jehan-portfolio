@@ -232,14 +232,14 @@ export default function SelectedWork() {
                   maxWidth: "480px",
                 }}
               >
-                Real projects.{" "}
-                <span style={{ color: "rgba(255,255,255,0.25)" }}>Real clients.</span>
+                Proven impact.{" "}
+                <span style={{ color: "rgba(255,255,255,0.25)" }}>Measurable results.</span>
               </h2></Parallax>
             </Reveal>
           </div>
           <Reveal delay={0.08}>
-            <p style={{ fontSize: "14px", lineHeight: 1.65, color: "rgba(255,255,255,0.38)", maxWidth: "320px" }}>
-              A sample of projects delivered through Fiverr across industries — wellness, real estate, e-commerce, and services.
+            <p style={{ fontSize: "14px", lineHeight: 1.65, color: "rgba(255,255,255,0.38)", maxWidth: "340px" }}>
+              A curated selection of digital platforms engineered to solve complex business challenges across wellness, real estate, and e-commerce.
             </p>
           </Reveal>
         </div>

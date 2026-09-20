@@ -60,11 +60,11 @@ export default function CTA() {
                   marginBottom: "20px",
                 }}
               >
-                Tell me about your project.
+                Ready to dominate your industry?
               </h2>
               
               <p style={{ fontSize: "16px", color: "rgba(255,255,255,0.65)", lineHeight: 1.6, marginBottom: "32px", maxWidth: "600px" }}>
-                All enquiries handled directly via Fiverr — no middlemen, no agencies. You talk to me, start to finish. I usually reply within an hour.
+                Stop losing high-ticket clients to poor design. Let's engineer a digital experience that reflects the true value of your brand.
               </p>
               
               <Magnetic>
@@ -78,7 +78,7 @@ export default function CTA() {
                     alignItems: "center",
                     gap: "10px",
                     padding: "18px 40px",
-                    borderRadius: "14px",
+                    borderRadius: "999px",
                     background: "rgba(255,255,255,0.95)",
                     color: "#000",
                     fontSize: "16px",

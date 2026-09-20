@@ -4,48 +4,30 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 const steps = [
   {
-    iconUrl: "/images/icons/brief.png",
+    iconUrl: "/images/icons/business.png",
     num: "01",
-    title: "Brief",
-    detail: "Usually within an hour",
+    title: "Discovery & Strategy",
+    detail: "Aligning digital goals",
     description:
-      "You message me on Fiverr. I reply with a clear project plan, timeline, and fixed price — no guesswork.",
+      "We don't just build; we strategize. We align your digital presence with your core business objectives before writing a single line of code.",
     side: "left" as const,
   },
   {
     iconUrl: "/images/icons/research.png",
     num: "02",
-    title: "Research & first draft",
-    detail: "First draft in ~2 days",
+    title: "Bespoke Engineering",
+    detail: "Pixel-perfect execution",
     description:
-      "I study your industry, competitors, and audience before touching the design. You see a real working draft — not wireframes.",
+      "Custom development optimized for speed, accessibility, and conversion. Every component is engineered to elevate your brand's authority.",
     side: "right" as const,
-  },
-  {
-    iconUrl: "/images/icons/revisions.png",
-    num: "03",
-    title: "Revisions",
-    detail: "Unlimited within scope",
-    description:
-      "We refine together until it's right. Free revisions inside the agreed scope — no hidden fees, no pressure.",
-    side: "left" as const,
   },
   {
     iconUrl: "/images/icons/launch.png",
-    num: "04",
-    title: "Launch",
-    detail: "Live on your domain",
+    num: "03",
+    title: "Seamless Handoff",
+    detail: "Frictionless deployment",
     description:
-      "Hosting setup, content upload, speed optimisation, and responsive checks across every device before I hand you the keys.",
-    side: "right" as const,
-  },
-  {
-    iconUrl: "/images/icons/support.png",
-    num: "05",
-    title: "Support",
-    detail: "14 days post-delivery",
-    description:
-      "Two weeks of free fixes after delivery. After that, an optional monthly care plan keeps everything running.",
+      "A flawless launch process with complete guidance, ensuring your team is fully empowered to manage your new digital asset from day one.",
     side: "left" as const,
   },
 ];
@@ -249,11 +231,11 @@ export default function Process() {
             lineHeight: 1.15,
             color: "rgba(255,255,255,0.9)",
             marginBottom: "20px",
-            maxWidth: "560px",
+            maxWidth: "600px",
           }}
         >
-          How a project unfolds.{" "}
-          <span style={{ color: "rgba(255,255,255,0.28)" }}>Five clear steps.</span>
+          A frictionless workflow.{" "}
+          <span style={{ color: "rgba(255,255,255,0.28)" }}>Engineered for impact.</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 16 }}
@@ -264,10 +246,10 @@ export default function Process() {
             fontSize: "clamp(14px, 1.3vw, 16px)",
             lineHeight: 1.65,
             color: "rgba(255,255,255,0.38)",
-            maxWidth: "420px",
+            maxWidth: "480px",
           }}
         >
-          No surprises, no handoffs. One person from your first message to launch day.
+          From initial strategy to final deployment, every phase is optimized for speed, clarity, and business outcomes.
         </motion.p>
       </div>
 

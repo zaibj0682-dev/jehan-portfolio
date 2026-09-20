@@ -4,7 +4,7 @@ import { Check } from "lucide-react";
 
 const packages = [
   {
-    name: "Landing page",
+    name: "The Launchpad",
     price: "$180",
     note: "Fixed price",
     description: "A fast, focused page for a single campaign or product.",
@@ -20,7 +20,7 @@ const packages = [
     badge: null,
   },
   {
-    name: "Business website",
+    name: "The Accelerator",
     price: "From $500",
     note: "Most popular",
     description: "Multi-page site for businesses ready to invest in a serious online presence.",
@@ -37,7 +37,7 @@ const packages = [
     badge: "Most popular",
   },
   {
-    name: "Custom / store",
+    name: "The Enterprise",
     price: "From $1,200",
     note: "Scope-based",
     description: "WooCommerce stores, custom functionality, and complex integrations.",
