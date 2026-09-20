@@ -79,33 +79,44 @@ export default function Reviews() {
         {/* Rating bar */}
         <Reveal>
           <div
+            className="magic-border"
             style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "clamp(20px, 4vw, 48px)",
-              padding: "28px 32px",
+              borderRadius: "24px",
               background: "rgba(255,255,255,0.03)",
-              border: "1px solid rgba(255,255,255,0.08)",
-              borderRadius: "16px",
-              marginBottom: "clamp(24px, 3vw, 36px)",
-              flexWrap: "wrap",
+              backdropFilter: "blur(20px)",
+              boxShadow: "0 20px 40px -10px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1)",
+              marginBottom: "clamp(32px, 5vw, 48px)",
             }}
           >
+            <div className="magic-border-inner" />
+            <div 
+              className="magic-border-content"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "clamp(20px, 4vw, 48px)",
+                padding: "32px clamp(20px, 4vw, 40px)",
+                flexWrap: "wrap",
+                borderRadius: "24px",
+              }}
+            >
             {/* Big score */}
             <div style={{ display: "flex", alignItems: "baseline", gap: "8px" }}>
               <span
                 style={{
                   fontSize: "clamp(48px, 6vw, 72px)",
-                  fontWeight: 500,
+                  fontWeight: 600,
                   letterSpacing: "-0.04em",
-                  color: "var(--color-text-heading)",
+                  background: "linear-gradient(180deg, #fff, rgba(255,255,255,0.7))",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
                   lineHeight: 1,
                   fontFamily: "var(--font-display)",
                 }}
               >
                 5.0
               </span>
-              <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.35)" }}>/ 5.0</span>
+              <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.35)", fontWeight: 500 }}>/ 5.0</span>
             </div>
 
             {/* Divider */}
@@ -115,55 +126,81 @@ export default function Reviews() {
             <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
               <div style={{ display: "flex", gap: "4px" }}>
                 {Array.from({ length: 5 }).map((_, j) => (
-                  <svg key={j} width="18" height="18" viewBox="0 0 24 24" fill="rgba(211,151,148,1)">
+                  <svg key={j} width="18" height="18" viewBox="0 0 24 24" fill="url(#gold-gradient)">
+                    <defs>
+                      <linearGradient id="gold-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#fff" />
+                        <stop offset="100%" stopColor="rgba(255,255,255,0.6)" />
+                      </linearGradient>
+                    </defs>
                     <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
                   </svg>
                 ))}
               </div>
-              <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.4)" }}>From 2,277 verified Fiverr reviews</p>
+              <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.4)", textTransform: "uppercase", letterSpacing: "0.05em" }}>From 2,277 verified reviews</p>
             </div>
 
             {/* Divider */}
             <div style={{ width: "1px", height: "40px", background: "rgba(255,255,255,0.1)", flexShrink: 0 }} className="hidden tablet:block" />
 
             {/* Stats */}
-            <div style={{ display: "flex", gap: "clamp(20px, 4vw, 48px)", flexWrap: "wrap" }}>
+            <div style={{ display: "flex", gap: "clamp(24px, 4vw, 48px)", flexWrap: "wrap" }}>
               {[
-                { value: "3,300+", label: "Projects delivered" },
-                { value: "6+ yrs", label: "Top Rated on Fiverr" },
-                { value: "~1 hr", label: "Average reply time" },
+                { value: "3,300+", label: "Projects Delivered" },
+                { value: "6+ yrs", label: "Top Rated Status" },
+                { value: "~1 hr", label: "Average Reply" },
               ].map((s) => (
-                <div key={s.label} style={{ display: "flex", flexDirection: "column", gap: "3px" }}>
-                  <span style={{ fontSize: "clamp(18px, 2.5vw, 24px)", fontWeight: 500, letterSpacing: "-0.03em", color: "var(--color-text-heading)", lineHeight: 1 }}>
+                <div key={s.label} style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                  <span 
+                    style={{ 
+                      fontSize: "clamp(20px, 2.5vw, 24px)", 
+                      fontWeight: 600, 
+                      letterSpacing: "-0.03em", 
+                      background: "linear-gradient(180deg, #fff, rgba(255,255,255,0.7))",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      lineHeight: 1 
+                    }}
+                  >
                     {s.value}
                   </span>
-                  <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.35)", letterSpacing: "0.03em" }}>{s.label}</span>
+                  <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.35)", letterSpacing: "0.06em", textTransform: "uppercase", fontWeight: 500 }}>{s.label}</span>
                 </div>
               ))}
+            </div>
             </div>
           </div>
         </Reveal>
 
         {/* Review cards */}
-        <div className="grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3 gap-6">
           {reviews.map((r, i) => (
             <Reveal key={i} delay={i * 0.05}>
               <div
+                className="group hover:-translate-y-1 transition-all duration-300"
                 style={{
-                  padding: "clamp(20px, 2.5vw, 28px)",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                  borderRadius: "14px",
-                  background: "#0d0d0d",
+                  padding: "clamp(24px, 3vw, 32px)",
+                  border: "1px solid rgba(255,255,255,0.06)",
+                  borderRadius: "20px",
+                  background: "rgba(255,255,255,0.02)",
+                  backdropFilter: "blur(20px)",
+                  boxShadow: "inset 0 1px 0 rgba(255,255,255,0.05), 0 20px 40px -10px rgba(0,0,0,0.5)",
                   display: "flex",
                   flexDirection: "column",
-                  gap: "20px",
+                  gap: "24px",
                   height: "100%",
                 }}
               >
                 {/* Stars */}
-                <div style={{ display: "flex", gap: "3px" }}>
+                <div style={{ display: "flex", gap: "4px" }}>
                   {Array.from({ length: 5 }).map((_, j) => (
-                    <svg key={j} width="13" height="13" viewBox="0 0 24 24" fill="rgba(211,151,148,0.9)">
+                    <svg key={j} width="14" height="14" viewBox="0 0 24 24" fill="url(#silver-gradient)">
+                      <defs>
+                        <linearGradient id="silver-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="#fff" />
+                          <stop offset="100%" stopColor="rgba(255,255,255,0.4)" />
+                        </linearGradient>
+                      </defs>
                       <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
                     </svg>
                   ))}
@@ -172,30 +209,30 @@ export default function Reviews() {
                 {/* Quote */}
                 <p
                   style={{
-                    fontSize: "14px",
-                    lineHeight: 1.65,
-                    color: "rgba(255,255,255,0.75)",
+                    fontSize: "15px",
+                    lineHeight: 1.7,
+                    color: "rgba(255,255,255,0.85)",
                     flex: 1,
                   }}
                 >
-                  &quot;{r.quote}&quot;
+                  "{r.quote}"
                 </p>
 
                 {/* Meta */}
                 <div
                   style={{
-                    paddingTop: "16px",
-                    borderTop: "1px solid rgba(255,255,255,0.07)",
+                    paddingTop: "20px",
+                    borderTop: "1px solid rgba(255,255,255,0.05)",
                     display: "flex",
                     flexDirection: "column",
-                    gap: "3px",
+                    gap: "4px",
                   }}
                 >
-                  <p style={{ fontSize: "13px", fontWeight: 500, color: "var(--color-text-heading)", letterSpacing: "-0.01em" }}>
+                  <p style={{ fontSize: "14px", fontWeight: 600, color: "rgba(255,255,255,0.9)", letterSpacing: "-0.01em" }}>
                     @{r.handle}
                   </p>
-                  <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.3)" }}>
-                    {r.country} · {r.project} · Verified Fiverr review
+                  <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.4)", fontWeight: 500 }}>
+                    {r.country} · {r.project}
                   </p>
                 </div>
               </div>
