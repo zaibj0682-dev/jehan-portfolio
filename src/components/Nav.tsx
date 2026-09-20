@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import Magnetic from "./ui/Magnetic";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { usePreloader } from "@/context/PreloaderContext";
 
@@ -57,33 +58,39 @@ export default function Nav() {
         }}
       >
         {/* Brand */}
-        <Link
-          href="/"
-          aria-label="Jehan Zaib"
-          style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }}
-        >
-          <span
-            style={{
-              fontSize: "14px",
-              fontWeight: 500,
-              letterSpacing: "-0.02em",
-              color: "rgba(255,255,255,0.9)",
-            }}
+        <Magnetic intensity={0.1}>
+          <Link
+            href="/"
+            aria-label="Jehan Zaib"
+            className="group"
+            style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none", padding: "8px 0" }}
           >
-            Jehan Zaib
-          </span>
-          <span
-            style={{
-              fontSize: "11px",
-              letterSpacing: "0.04em",
-              color: "rgba(255,255,255,0.25)",
-              paddingLeft: "10px",
-              borderLeft: "1px solid rgba(255,255,255,0.12)",
-            }}
-          >
-            Digital Platform Architect
-          </span>
-        </Link>
+            <span
+              className="transition-colors duration-300 group-hover:text-white"
+              style={{
+                fontSize: "15px",
+                fontWeight: 600,
+                letterSpacing: "-0.02em",
+                color: "rgba(255,255,255,0.9)",
+                textShadow: "0 0 20px rgba(255,255,255,0)",
+              }}
+            >
+              Jehan Zaib
+            </span>
+            <span
+              className="transition-colors duration-300 group-hover:text-white/40 group-hover:border-white/20"
+              style={{
+                fontSize: "11px",
+                letterSpacing: "0.04em",
+                color: "rgba(255,255,255,0.25)",
+                paddingLeft: "10px",
+                borderLeft: "1px solid rgba(255,255,255,0.12)",
+              }}
+            >
+              Digital Platform Architect
+            </span>
+          </Link>
+        </Magnetic>
 
         {/* Desktop nav links */}
         <nav className="hidden tablet:flex items-center" style={{ gap: "2px" }}>

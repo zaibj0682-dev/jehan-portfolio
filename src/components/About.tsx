@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Reveal from "./ui/Reveal";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const milestones = [
   { year: "2020", event: "Launched career. First 10 projects shipped in 30 days." },
@@ -7,6 +9,38 @@ const milestones = [
   { year: "2023", event: "Founded agency to scale operations globally." },
   { year: "2026", event: "Thousands of custom platforms delivered. Maintaining a 5.0 elite standard." },
 ];
+
+function ProfileImage() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "-15%"]);
+
+  return (
+    <motion.div
+      ref={ref}
+      style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        right: 0,
+        height: "115%",
+        y,
+      }}
+    >
+      <Image
+        src="/images/profile.png"
+        alt="Jehan Zaib"
+        fill
+        className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+        sizes="(max-width: 1280px) 50vw, 340px"
+        priority
+      />
+    </motion.div>
+  );
+}
 
 export default function About() {
   return (
@@ -151,15 +185,7 @@ export default function About() {
                     background: "#f0ece8", // Match the image background just in case
                   }}
                 >
-                  <Image
-                    src="/images/profile.png"
-                    alt="Jehan Zaib"
-                    fill
-                    className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                    style={{ transform: "scale(1.1) translateY(2%)" }} // Softened the zoom so the face isn't cut off
-                    sizes="(max-width: 1280px) 50vw, 340px"
-                    priority
-                  />
+                  <ProfileImage />
                   {/* Subtle inner shadow so it sits nicely in the frame */}
                   <div 
                     style={{ 

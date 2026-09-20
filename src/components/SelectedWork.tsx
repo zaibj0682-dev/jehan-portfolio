@@ -74,8 +74,8 @@ function ProjectCard({ study, index }: { study: CaseStudy; index: number }) {
     offset: ["start end", "end start"]
   });
 
-  // Moves the image inversely to scroll direction for a "window" parallax effect
-  const y = useTransform(scrollYProgress, [0, 1], ["-12%", "12%"]);
+  // Start at 0 (top visible) and pan up to -20% as we scroll down
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
 
   return (
     <Reveal delay={index * 0.06}>
@@ -99,10 +99,10 @@ function ProjectCard({ study, index }: { study: CaseStudy; index: number }) {
           <motion.div
             style={{
               position: "absolute",
-              top: "-15%",
-              bottom: "-15%",
+              top: 0,
               left: 0,
               right: 0,
+              height: "120%",
               y,
             }}
           >
