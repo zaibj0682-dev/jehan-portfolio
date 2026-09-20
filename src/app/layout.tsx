@@ -151,7 +151,7 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <div id="ssr-blocker" style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0, width: "100vw", height: "100vh", backgroundColor: "#060606", zIndex: 9999999 }} />
+        <div id="ssr-blocker" style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0, width: "100vw", height: "100vh", backgroundColor: "#060606", zIndex: 99998 }} />
         <PreloaderProvider>
           <a
             href="#main"
