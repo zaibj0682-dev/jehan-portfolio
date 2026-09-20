@@ -39,8 +39,23 @@ function FAQItem({ item, open, onToggle }: {
   open: boolean;
   onToggle: () => void;
 }) {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
-    <div style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+    <motion.div
+      initial={false}
+      animate={{
+        backgroundColor: open ? "rgba(255,255,255,0.02)" : "rgba(255,255,255,0)",
+        borderColor: open ? "rgba(255,255,255,0.1)" : "rgba(255,255,255,0.05)",
+      }}
+      transition={{ duration: 0.3 }}
+      style={{
+        borderBottom: "1px solid",
+        overflow: "hidden",
+      }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <button
         type="button"
         onClick={onToggle}
@@ -50,50 +65,59 @@ function FAQItem({ item, open, onToggle }: {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          gap: "20px",
-          padding: "22px 0",
+          gap: "24px",
+          padding: "28px 24px",
           background: "none",
           border: "none",
           cursor: "pointer",
           textAlign: "left",
         }}
       >
-        <span
+        <motion.span
+          animate={{
+            color: open ? "rgba(255,255,255,1)" : isHovered ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.6)",
+            x: isHovered && !open ? 4 : 0,
+          }}
+          transition={{ duration: 0.2 }}
           style={{
-            fontSize: "clamp(14px, 1.2vw, 16px)",
+            fontSize: "clamp(16px, 1.4vw, 19px)",
             fontWeight: 400,
-            letterSpacing: "-0.015em",
-            color: open ? "rgba(255,255,255,0.92)" : "rgba(255,255,255,0.72)",
-            lineHeight: 1.4,
-            transition: "color 0.2s",
+            letterSpacing: "-0.01em",
+            fontFamily: "var(--font-display)",
+            lineHeight: 1.3,
           }}
         >
           {item.q}
-        </span>
-        <div
+        </motion.span>
+        
+        <motion.div
+          animate={{
+            backgroundColor: open ? "rgba(255,255,255,0.1)" : isHovered ? "rgba(255,255,255,0.05)" : "transparent",
+            borderColor: open ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.1)",
+            scale: isHovered ? 1.05 : 1,
+          }}
+          transition={{ duration: 0.2 }}
           style={{
-            width: "24px",
-            height: "24px",
+            width: "32px",
+            height: "32px",
             borderRadius: "50%",
-            border: "1px solid rgba(255,255,255,0.14)",
+            border: "1px solid",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             flexShrink: 0,
-            transition: "border-color 0.2s, background 0.2s",
-            background: open ? "rgba(255,255,255,0.08)" : "transparent",
           }}
         >
           <Plus
-            size={13}
+            size={16}
             strokeWidth={1.5}
             style={{
-              color: "rgba(255,255,255,0.5)",
+              color: open ? "#fff" : "rgba(255,255,255,0.5)",
               transform: open ? "rotate(45deg)" : "rotate(0deg)",
-              transition: "transform 0.3s cubic-bezier(0.22,1,0.36,1)",
+              transition: "transform 0.4s cubic-bezier(0.22,1,0.36,1), color 0.2s",
             }}
           />
-        </div>
+        </motion.div>
       </button>
 
       <AnimatePresence initial={false}>
@@ -102,24 +126,25 @@ function FAQItem({ item, open, onToggle }: {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
             style={{ overflow: "hidden" }}
           >
-            <p
-              style={{
-                fontSize: "14px",
-                lineHeight: 1.7,
-                color: "rgba(255,255,255,0.45)",
-                paddingBottom: "22px",
-                maxWidth: "560px",
-              }}
-            >
-              {item.a}
-            </p>
+            <div style={{ padding: "0 24px 32px 24px" }}>
+              <p
+                style={{
+                  fontSize: "15px",
+                  lineHeight: 1.7,
+                  color: "rgba(255,255,255,0.55)",
+                  maxWidth: "600px",
+                }}
+              >
+                {item.a}
+              </p>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </motion.div>
   );
 }
 
@@ -129,83 +154,81 @@ export default function FAQ() {
   return (
     <section
       id="faq"
-      style={{ width: "100%", paddingTop: "clamp(80px,8vw,120px)", paddingBottom: "clamp(80px,8vw,120px)", borderTop: "1px solid rgba(255,255,255,0.06)" }}
+      style={{ width: "100%", paddingTop: "clamp(100px,10vw,140px)", paddingBottom: "clamp(100px,10vw,140px)", borderTop: "1px solid rgba(255,255,255,0.06)", position: "relative", overflow: "hidden" }}
     >
-      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)" }}>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr",
-            gap: "clamp(40px, 6vw, 80px)",
-          }}
-          className="desktop:grid-cols-[380px_1fr]"
-        >
-          {/* Left: heading block */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-            <p
-              style={{
-                fontSize: "11px",
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                color: "rgba(255,255,255,0.25)",
-              }}
-            >
-              FAQ
-            </p>
-            <h2
-              style={{
-                fontSize: "clamp(28px, 3.2vw, 42px)",
-                fontWeight: 500,
-                letterSpacing: "-0.04em",
-                lineHeight: 1.15,
-                color: "rgba(255,255,255,0.9)",
-              }}
-            >
-              Questions<br />
-              <span style={{ color: "rgba(255,255,255,0.28)" }}>you might have.</span>
-            </h2>
-            <p
-              style={{
-                fontSize: "14px",
-                lineHeight: 1.65,
-                color: "rgba(255,255,255,0.38)",
-                maxWidth: "300px",
-              }}
-            >
-              Still have a question? Message me on Fiverr — I reply within about an hour.
-            </p>
-            <a
-              href="https://www.fiverr.com/jehanzaib_007"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "6px",
-                fontSize: "13px",
-                color: "rgba(255,255,255,0.55)",
-                textDecoration: "none",
-                marginTop: "4px",
-                transition: "color 0.2s",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.9)")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.55)")}
-            >
-              Ask on Fiverr →
-            </a>
-          </div>
+      {/* Background ambient glow */}
+      <div style={{
+        position: "absolute",
+        top: "-200px",
+        left: "50%",
+        transform: "translateX(-50%)",
+        width: "800px",
+        height: "400px",
+        background: "radial-gradient(ellipse at top, rgba(255,255,255,0.03) 0%, transparent 70%)",
+        pointerEvents: "none",
+        zIndex: 0
+      }} />
 
-          {/* Right: accordion */}
-          <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}>
-            {faqs.map((item, i) => (
-              <FAQItem
-                key={i}
-                item={item}
-                open={open === i}
-                onToggle={() => setOpen(open === i ? null : i)}
-              />
-            ))}
-          </div>
+      <div style={{ maxWidth: "1000px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", position: "relative", zIndex: 1 }}>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: "16px", marginBottom: "64px" }}>
+          <p
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "8px",
+              padding: "6px 14px",
+              borderRadius: "999px",
+              border: "1px solid rgba(255,255,255,0.1)",
+              background: "rgba(255,255,255,0.03)",
+              fontSize: "12px",
+              letterSpacing: "0.06em",
+              textTransform: "uppercase",
+              color: "rgba(255,255,255,0.5)",
+            }}
+          >
+            FAQ
+          </p>
+          <h2
+            style={{
+              fontSize: "clamp(32px, 4vw, 48px)",
+              fontWeight: 500,
+              letterSpacing: "-0.04em",
+              lineHeight: 1.15,
+              color: "rgba(255,255,255,0.9)",
+              fontFamily: "var(--font-display)",
+            }}
+          >
+            Questions you <span style={{ color: "rgba(255,255,255,0.4)" }}>might have.</span>
+          </h2>
+          <p
+            style={{
+              fontSize: "15px",
+              lineHeight: 1.6,
+              color: "rgba(255,255,255,0.4)",
+              maxWidth: "400px",
+              marginTop: "8px"
+            }}
+          >
+            Everything you need to know about how we work. Still have a question?{" "}
+            <a href="https://www.fiverr.com/jehanzaib_007" target="_blank" rel="noopener noreferrer" style={{ color: "#fff", textDecoration: "underline", textUnderlineOffset: "4px", decorationColor: "rgba(255,255,255,0.3)" }}>Ask on Fiverr</a>
+          </p>
+        </div>
+
+        {/* Accordion Container */}
+        <div style={{ 
+          borderTop: "1px solid rgba(255,255,255,0.05)",
+          borderInline: "1px solid rgba(255,255,255,0.02)",
+          background: "linear-gradient(180deg, rgba(255,255,255,0.01) 0%, transparent 100%)",
+          borderRadius: "24px",
+        }}>
+          {faqs.map((item, i) => (
+            <FAQItem
+              key={i}
+              item={item}
+              open={open === i}
+              onToggle={() => setOpen(open === i ? null : i)}
+            />
+          ))}
         </div>
       </div>
     </section>
