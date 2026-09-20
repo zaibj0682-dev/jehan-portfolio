@@ -145,16 +145,17 @@ export default function Hero() {
         >
           <TiltCard>
             <div
+              className="magic-border"
               style={{
                 width: "300px",
                 borderRadius: "20px",
                 background: "rgba(12,12,12,0.8)",
-                border: "1px solid rgba(255,255,255,0.1)",
                 backdropFilter: "blur(20px)",
-                overflow: "hidden",
                 boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)",
               }}
             >
+              <div className="magic-border-inner" />
+              <div className="magic-border-content">
               {/* Profile header */}
               <div style={{ padding: "28px 24px 20px", display: "flex", flexDirection: "column", alignItems: "center", gap: "12px" }}>
                 <div style={{ width: 72, height: 72, borderRadius: "50%", overflow: "hidden", border: "2px solid rgba(255,255,255,0.1)" }}>
@@ -211,6 +212,7 @@ export default function Hero() {
                 >
                   View Fiverr profile →
                 </a>
+              </div>
               </div>
             </div>
           </TiltCard>

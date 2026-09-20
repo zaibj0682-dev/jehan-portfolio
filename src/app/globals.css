@@ -103,3 +103,51 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ─── Magic Border Animation ──────────────────────────────── */
+@keyframes spin-gradient {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.magic-border {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate; /* Create new stacking context */
+}
+
+.magic-border::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  /* An intense glowing gradient matching the premium aesthetic */
+  background: conic-gradient(
+    transparent 0deg,
+    rgba(255, 255, 255, 0.1) 60deg,
+    rgba(255, 255, 255, 0.8) 180deg,
+    rgba(255, 255, 255, 0.1) 300deg,
+    transparent 360deg
+  );
+  transform-origin: 0 0;
+  animation: spin-gradient 4s linear infinite;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.magic-border-inner {
+  position: absolute;
+  inset: 1px; /* 1px border width */
+  z-index: -1;
+  background: inherit; /* Takes the background of parent */
+  border-radius: inherit; /* Perfectly matches parent radius */
+}
+
+.magic-border-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}

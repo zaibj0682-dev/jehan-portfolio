@@ -2,11 +2,10 @@ import Image from "next/image";
 import Reveal from "./ui/Reveal";
 
 const milestones = [
-  { year: "2020", event: "Joined Fiverr. First 10 projects in 30 days." },
-  { year: "2022", event: "Reached Top Rated status. First $2,500 project." },
-  { year: "2023", event: "Founded Upastra Digital Media." },
-  { year: "2024", event: "3,000+ orders delivered. Team of ~20." },
-  { year: "2026", event: "Applying for Fiverr Pro." },
+  { year: "2020", event: "Launched career. First 10 projects shipped in 30 days." },
+  { year: "2022", event: "Achieved Top Rated status. First enterprise-scale project." },
+  { year: "2023", event: "Founded agency to scale operations globally." },
+  { year: "2026", event: "3,300+ custom platforms delivered. Maintaining a 5.0 elite standard." },
 ];
 
 export default function About() {
@@ -174,18 +173,16 @@ export default function About() {
 
               {/* Stats strip */}
               <div
+                className="magic-border"
                 style={{
-                  display: "grid",
-                  gridTemplateColumns: "1fr 1fr",
-                  gap: "1px",
-                  background: "rgba(255,255,255,0.03)",
-                  border: "1px solid rgba(255,255,255,0.1)",
                   borderRadius: "24px",
-                  overflow: "hidden",
+                  background: "rgba(255,255,255,0.03)",
                   backdropFilter: "blur(20px)",
                   boxShadow: "0 20px 40px -10px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1)",
                 }}
               >
+                <div className="magic-border-inner" />
+                <div className="magic-border-content" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1px", borderRadius: "24px", overflow: "hidden" }}>
                 {[
                   { value: "3,300+", label: "Projects Delivered" },
                   { value: "5.0", label: "Average Rating" },
@@ -233,6 +230,7 @@ export default function About() {
                     </span>
                   </div>
                 ))}
+                </div>
               </div>
             </div>
           </Reveal>
