@@ -6,37 +6,37 @@ import Reveal from "./ui/Reveal";
 const services = [
   {
     iconUrl: "/images/icons/business.png",
-    label: "Business websites",
+    label: "Bespoke Web Platforms",
     description:
-      "Multi-page WordPress + Elementor sites built around your customers, your brand, and your goals — not a generic template.",
+      "Enterprise-grade websites engineered using WordPress, Wix, or custom stacks, tailored entirely to your brand architecture.",
     delivery: "2–4 weeks",
   },
   {
-    iconUrl: "/images/icons/landing.png",
-    label: "Landing pages",
-    description:
-      "Up to 5 sections, fast-loading and conversion-focused. You get a finished, live page in 3 days.",
-    delivery: "3 days",
-  },
-  {
     iconUrl: "/images/icons/store.png",
-    label: "Online stores",
+    label: "E-Commerce Ecosystems",
     description:
-      "WooCommerce shops with full product setup, payment integration, category pages, and mobile-first design.",
+      "High-converting online stores deployed on Shopify or WooCommerce, fully integrated with scalable backend logic.",
     delivery: "2–3 weeks",
   },
   {
-    iconUrl: "/images/icons/redesign.png",
-    label: "Redesigns & migrations",
+    iconUrl: "/images/icons/landing.png",
+    label: "Brand Identity & Graphics",
     description:
-      "Fresh design on your existing content — blog migration, domain transfer, and performance fixes handled.",
-    delivery: "1–3 weeks",
+      "Comprehensive visual strategy including logo design, typography, and UI/UX assets to position you as an industry leader.",
+    delivery: "1-2 weeks",
+  },
+  {
+    iconUrl: "/images/icons/redesign.png",
+    label: "Custom Software",
+    description:
+      "Complex web applications and custom software engineering built on modern, multi-stack frameworks for unique business challenges.",
+    delivery: "4+ weeks",
   },
   {
     iconUrl: "/images/icons/care.png",
-    label: "Care plans",
+    label: "Performance & Scaling",
     description:
-      "Monthly updates, security scans, backups, and priority support so the site stays fast and safe after launch.",
+      "Ongoing strategic retainers covering technical SEO, security architecture, and performance optimization for growing platforms.",
     delivery: "Monthly",
   },
 ];
@@ -70,8 +70,8 @@ export default function Services() {
                   fontWeight: 500,
                 }}
               >
-                One WordPress specialist.{" "}
-                <span className="text-muted">Every kind of project.</span>
+                One elite architect.{" "}
+                <span className="text-muted">A full-stack ecosystem.</span>
               </h2></Parallax>
             </Reveal>
           </div>
@@ -80,8 +80,7 @@ export default function Services() {
               className="text-body text-body-lg text-balance"
               style={{ maxWidth: "380px" }}
             >
-              From a 3-day landing page to a full WooCommerce store — same
-              contact, same quality, start to finish.
+              From bespoke brand identity and visual graphics to multi-stack web platforms and custom software—engineered to dominate.
             </p>
           </Reveal>
         </div>

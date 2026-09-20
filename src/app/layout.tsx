@@ -16,17 +16,17 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://jehanzaib007.com"),
-  title: "Jehan Zaib — Elite WordPress Architect & Developer",
+  title: "Jehan Zaib — Elite Digital Platform Architect & Brand Strategist",
   description:
-    "High-converting bespoke web experiences engineered for industry leaders. Top Rated WordPress architect with over 3,300+ successful deployments globally.",
+    "High-converting bespoke digital platforms engineered for industry leaders. Top Rated full-stack architect with over 3,300+ successful deployments globally.",
   keywords: [
-    "WordPress architect",
-    "WordPress developer",
+    "Digital platform architect",
+    "Full-stack web developer",
     "Fiverr Top Rated",
     "Enterprise web design",
-    "Elementor Pro",
-    "high-conversion design",
-    "bespoke business website",
+    "Shopify developer",
+    "Brand identity design",
+    "Custom software development",
   ],
   authors: [{ name: "Jehan Zaib" }],
   creator: "Jehan Zaib",
@@ -34,24 +34,24 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://jehanzaib007.com",
-    title: "Jehan Zaib — Elite WordPress Architect",
+    title: "Jehan Zaib — Elite Digital Platform Architect",
     description:
-      "High-converting bespoke web experiences engineered for industry leaders. Over 3,300+ successful deployments globally.",
+      "High-converting bespoke digital platforms engineered for industry leaders. Over 3,300+ successful deployments globally.",
     siteName: "Jehan Zaib Portfolio",
     images: [
       {
         url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "Jehan Zaib — Elite WordPress Architect",
+        alt: "Jehan Zaib — Elite Digital Platform Architect",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jehan Zaib — Elite WordPress Architect",
+    title: "Jehan Zaib — Elite Digital Platform Architect",
     description:
-      "High-converting bespoke web experiences engineered for industry leaders.",
+      "High-converting bespoke digital platforms engineered for industry leaders.",
     images: ["/opengraph-image.png"],
   },
   robots: {
@@ -79,17 +79,18 @@ export default function RootLayout({
         "@type": "Person",
         "@id": "https://jehanzaib007.com/#person",
         name: "Jehan Zaib",
-        jobTitle: "Elite WordPress Architect",
+        jobTitle: "Elite Digital Platform Architect",
         description:
-          "Top Rated WordPress designer and developer on Fiverr with a 5.0 rating and over 2,277 reviews.",
+          "Top Rated digital platform architect on Fiverr with a 5.0 rating and over 2,277 reviews.",
         url: "https://jehanzaib007.com",
         sameAs: ["https://www.fiverr.com/jehanzaib_007"],
         knowsAbout: [
-          "WordPress",
-          "Elementor Pro",
-          "Web Architecture",
+          "Full-Stack Web Development",
+          "Shopify & E-Commerce",
+          "Brand Identity & Graphics",
+          "Custom Software Engineering",
           "Conversion Rate Optimization",
-          "Enterprise Web Development",
+          "Enterprise Web Architecture",
         ],
       },
       {
@@ -101,7 +102,7 @@ export default function RootLayout({
         areaServed: "Worldwide",
         hasOfferCatalog: {
           "@type": "OfferCatalog",
-          name: "WordPress Services",
+          name: "Digital Architecture Services",
           itemListElement: [
             {
               "@type": "Offer",

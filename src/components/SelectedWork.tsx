@@ -33,7 +33,7 @@ const studies: CaseStudy[] = [
     num: "02",
     client: "Panel Paramedics",
     industry: "Solar & Home Services",
-    need: "A conversion-focused WordPress site for a solar panel repair and maintenance company targeting homeowners and businesses.",
+    need: "A conversion-focused web platform for a solar panel repair and maintenance company targeting homeowners and businesses.",
     time: "2 weeks",
     result: "Clear service breakdown drove a steady flow of quote requests from week one.",
     url: "https://panelparamedics.com",

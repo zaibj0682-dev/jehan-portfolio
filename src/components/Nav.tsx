@@ -76,7 +76,7 @@ export default function Nav() {
               borderLeft: "1px solid rgba(255,255,255,0.12)",
             }}
           >
-            WordPress Designer
+            Digital Platform Architect
           </span>
         </Link>
 

@@ -50,7 +50,7 @@ export default function Footer() {
                 Jehan Zaib
               </p>
               <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.35)" }}>
-                WordPress Designer & Developer
+                Digital Platform Architect & Brand Strategist
               </p>
             </div>
             <p style={{ fontSize: "13px", lineHeight: 1.65, color: "rgba(255,255,255,0.3)", maxWidth: "280px" }}>

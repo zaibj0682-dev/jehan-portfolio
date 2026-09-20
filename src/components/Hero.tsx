@@ -162,8 +162,8 @@ export default function Hero() {
                   <Image src="/images/profile.png" alt="Jehan Zaib" width={72} height={72} className="object-cover object-top w-full h-full" priority />
                 </div>
                 <div style={{ textAlign: "center" }}>
-                  <p style={{ fontSize: "15px", fontWeight: 500, letterSpacing: "-0.02em", color: "var(--color-text-heading)", lineHeight: 1.2 }}>Jehan Zaib</p>
-                  <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.4)", marginTop: "3px" }}>WordPress Designer & Developer</p>
+                  <h2 style={{ fontSize: "14px", fontWeight: 600, color: "var(--color-text-heading)", letterSpacing: "-0.01em" }}>Jehan Zaib</h2>
+                  <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.4)", marginTop: "3px" }}>Digital Platform Architect</p>
                 </div>
                 <div style={{ display: "flex", gap: "16px", fontSize: "12px", color: "rgba(255,255,255,0.4)" }}>
                   <span className="flex items-center gap-1"><Star size={10} strokeWidth={1.5} style={{ color: "#d39794" }} />5.0</span>
