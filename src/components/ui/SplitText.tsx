@@ -30,7 +30,7 @@ export default function SplitText({ text, className, style, delay = 0, trigger =
       y: 0,
       filter: "blur(0px)",
       transition: {
-        type: "spring",
+        type: "spring" as const,
         damping: 15,
         stiffness: 100,
       },
