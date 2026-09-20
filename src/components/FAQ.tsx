@@ -45,12 +45,13 @@ function FAQItem({ item, open, onToggle }: {
     <motion.div
       initial={false}
       animate={{
-        backgroundColor: open ? "rgba(255,255,255,0.02)" : "rgba(255,255,255,0)",
-        borderColor: open ? "rgba(255,255,255,0.1)" : "rgba(255,255,255,0.05)",
+        backgroundColor: open ? "rgba(255,255,255,0.04)" : isHovered ? "rgba(255,255,255,0.03)" : "rgba(255,255,255,0.015)",
+        borderColor: open ? "rgba(255,255,255,0.12)" : isHovered ? "rgba(255,255,255,0.08)" : "rgba(255,255,255,0.04)",
       }}
       transition={{ duration: 0.3 }}
       style={{
-        borderBottom: "1px solid",
+        borderRadius: "20px",
+        border: "1px solid",
         overflow: "hidden",
       }}
       onMouseEnter={() => setIsHovered(true)}
@@ -66,7 +67,7 @@ function FAQItem({ item, open, onToggle }: {
           alignItems: "center",
           justifyContent: "space-between",
           gap: "24px",
-          padding: "28px 24px",
+          padding: "24px 28px",
           background: "none",
           border: "none",
           cursor: "pointer",
@@ -92,8 +93,8 @@ function FAQItem({ item, open, onToggle }: {
         
         <motion.div
           animate={{
-            backgroundColor: open ? "rgba(255,255,255,0.1)" : isHovered ? "rgba(255,255,255,0.05)" : "transparent",
-            borderColor: open ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.1)",
+            backgroundColor: open ? "rgba(255,255,255,0.1)" : isHovered ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.02)",
+            borderColor: open ? "rgba(255,255,255,0.2)" : isHovered ? "rgba(255,255,255,0.1)" : "rgba(255,255,255,0.05)",
             scale: isHovered ? 1.05 : 1,
           }}
           transition={{ duration: 0.2 }}
@@ -129,7 +130,7 @@ function FAQItem({ item, open, onToggle }: {
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
             style={{ overflow: "hidden" }}
           >
-            <div style={{ padding: "0 24px 32px 24px" }}>
+            <div style={{ padding: "0 28px 28px 28px" }}>
               <p
                 style={{
                   fontSize: "15px",
@@ -169,7 +170,7 @@ export default function FAQ() {
         zIndex: 0
       }} />
 
-      <div style={{ maxWidth: "1000px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", position: "relative", zIndex: 1 }}>
+      <div style={{ maxWidth: "800px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", position: "relative", zIndex: 1 }}>
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: "16px", marginBottom: "64px" }}>
           <p
             style={{
@@ -216,10 +217,9 @@ export default function FAQ() {
 
         {/* Accordion Container */}
         <div style={{ 
-          borderTop: "1px solid rgba(255,255,255,0.05)",
-          borderInline: "1px solid rgba(255,255,255,0.02)",
-          background: "linear-gradient(180deg, rgba(255,255,255,0.01) 0%, transparent 100%)",
-          borderRadius: "24px",
+          display: "flex",
+          flexDirection: "column",
+          gap: "12px",
         }}>
           {faqs.map((item, i) => (
             <FAQItem
