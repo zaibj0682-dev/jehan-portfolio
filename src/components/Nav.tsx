@@ -3,25 +3,30 @@ import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { usePreloader } from "@/context/PreloaderContext";
 
 const links = [
-  { label: "Work", href: "#work" },
-  { label: "Services", href: "#services" },
-  { label: "Process", href: "#process" },
-  { label: "Reviews", href: "#reviews" },
-  { label: "FAQ", href: "#faq" },
+  { href: "#work", label: "Work" },
+  { href: "#services", label: "Services" },
+  { href: "#process", label: "Process" },
+  { href: "#reviews", label: "Reviews" },
+  { href: "#faq", label: "FAQ" },
 ];
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
+  const { isReadyToAnimate } = usePreloader();
   const { scrollYProgress } = useScroll();
 
-  const blur = useTransform(scrollYProgress, [0, 0.05], ["blur(0px)", "blur(20px)"]);
+  const blur = useTransform(scrollYProgress, [0, 0.05], ["blur(0px)", "blur(12px)"]);
   const bg = useTransform(scrollYProgress, [0, 0.05], ["rgba(8,8,8,0)", "rgba(8,8,8,0.75)"]);
   const borderBottom = useTransform(scrollYProgress, [0, 0.05], ["1px solid rgba(255,255,255,0)", "1px solid rgba(255,255,255,0.06)"]);
 
   return (
     <motion.header
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: isReadyToAnimate ? 1 : 0, y: isReadyToAnimate ? 0 : -20 }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       className="fixed top-0 left-0 right-0 z-[100]"
       style={{
         backdropFilter: blur,

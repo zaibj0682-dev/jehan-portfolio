@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { usePreloader } from "@/context/PreloaderContext";
 
 const WORDS = ["Crafting.", "Building.", "Launching."];
 
@@ -9,6 +10,7 @@ export default function Preloader() {
   const [isLoading, setIsLoading] = useState(true);
   const [isComplete, setIsComplete] = useState(false);
   const [wordIndex, setWordIndex] = useState(0);
+  const { setReady } = usePreloader();
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -41,6 +43,12 @@ export default function Preloader() {
           setIsLoading(false); // Trigger panel split
           document.body.style.overflow = "";
           window.scrollTo(0, 0);
+          
+          // Let the app know the preloader is done sliding
+          setTimeout(() => {
+            setReady();
+          }, 400); // Trigger hero animation slightly before preloader finishes completely for smooth transition
+          
         }, 500); // Wait for fade out before splitting
       }
       setProgress(current);

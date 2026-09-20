@@ -1,0 +1,11 @@
+--- src/app/globals.css
++++ src/app/globals.css
+@@ -107,7 +107,7 @@
+ .magic-border-inner {
+   position: absolute;
+   inset: 1px; /* 1px border width */
+   z-index: -1;
+-  background: inherit;
++  background: #0d0d0d; /* Must be solid so the gradient doesn't bleed through the center */
+   border-radius: inherit; /* Perfectly matches parent radius */
+ }

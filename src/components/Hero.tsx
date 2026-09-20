@@ -8,8 +8,10 @@ import { Star } from "lucide-react";
 import HeroBg from "./ui/HeroBg";
 import TiltCard from "./ui/TiltCard";
 import AnimatedText from "./ui/AnimatedText";
+import { usePreloader } from "@/context/PreloaderContext";
 
 export default function Hero() {
+  const { isReadyToAnimate } = usePreloader();
   const ref = useRef<HTMLElement>(null);
 
   return (
@@ -45,8 +47,8 @@ export default function Hero() {
           {/* Badge */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.6, ease: [0.16, 1, 0.3, 1] }}
+            animate={isReadyToAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             style={{ display: "inline-flex", alignItems: "center", gap: "8px", width: "fit-content" }}
           >
             <span
@@ -72,8 +74,8 @@ export default function Hero() {
           {/* H1 */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.8, ease: [0.16, 1, 0.3, 1] }}
+            animate={isReadyToAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="text-balance"
             style={{
               fontSize: "clamp(40px, 5.5vw, 72px)",
@@ -94,8 +96,8 @@ export default function Hero() {
           {/* Subhead */}
           <motion.p
             initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 0.8, delay: 2.2, ease: [0.16, 1, 0.3, 1] }}
+            animate={isReadyToAnimate ? { opacity: 1, y: 0, filter: "blur(0px)" } : { opacity: 0, y: 20, filter: "blur(8px)" }}
+            transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
             style={{
               fontSize: "clamp(15px, 1.3vw, 17px)",
               lineHeight: 1.6,
@@ -111,8 +113,8 @@ export default function Hero() {
           {/* CTAs */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 2.3, ease: [0.16, 1, 0.3, 1] }}
+            animate={isReadyToAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.8, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="flex flex-wrap items-center gap-3"
           >
             <PrimaryButton href="https://www.fiverr.com/jehanzaib_007" target="_blank">
@@ -124,8 +126,8 @@ export default function Hero() {
           {/* Trust strip */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 2.4, ease: [0.16, 1, 0.3, 1] }}
+            animate={isReadyToAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.8, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="flex flex-wrap items-center gap-x-6 gap-y-2" 
             style={{ fontSize: "13px", color: "rgba(255,255,255,0.35)" }}
           >
@@ -141,8 +143,8 @@ export default function Hero() {
         {/* Right: profile card */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.9, y: 40, rotateX: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0, rotateX: 0 }}
-          transition={{ duration: 1.2, delay: 2.4, ease: [0.16, 1, 0.3, 1] }}
+          animate={isReadyToAnimate ? { opacity: 1, scale: 1, y: 0, rotateX: 0 } : { opacity: 0, scale: 0.9, y: 40, rotateX: 20 }}
+          transition={{ duration: 1.2, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
           style={{ perspective: 1000 }}
           className="hidden desktop:block shrink-0"
         >
