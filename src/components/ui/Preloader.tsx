@@ -12,9 +12,15 @@ export default function Preloader() {
   useEffect(() => {
     document.body.style.overflow = "hidden";
 
-    // Cycle through words every 700ms — needs at least 2.1s to show all 3
+    // Cycle through words every 700ms, stop on the last word
     const wordInterval = setInterval(() => {
-      setWordIndex((i) => (i + 1) % WORDS.length);
+      setWordIndex((i) => {
+        if (i >= WORDS.length - 1) {
+          clearInterval(wordInterval);
+          return i;
+        }
+        return i + 1;
+      });
     }, 700);
 
     // Progress counter — slow & organic, takes ~2.5–3s total
