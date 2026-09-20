@@ -74,19 +74,18 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-balance"
             style={{
-              fontSize: "clamp(48px, 6.5vw, 92px)",
+              fontSize: "clamp(40px, 5.5vw, 72px)",
               fontWeight: 500,
               letterSpacing: "-0.04em",
-              lineHeight: 1.05,
+              lineHeight: 1.1,
               color: "rgba(255,255,255,0.92)",
               fontFamily: "var(--font-display)",
+              maxWidth: "600px",
             }}
           >
-            High-converting <br className="hidden desktop:block" />
-            web experiences <br className="hidden desktop:block" />
-            engineered for <br className="hidden desktop:block" />
-            industry leaders.
+            High-converting web experiences engineered for industry leaders.
           </motion.h1>
 
           {/* Subhead */}
