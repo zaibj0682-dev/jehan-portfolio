@@ -181,52 +181,52 @@ export default function Services() {
                 textDecoration: "none",
               }}
             >
-              {/* Vibrant gradient hover state */}
-              <div 
+              {/* Hover gradient */}
+              <div
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                style={{
-                  background: "linear-gradient(135deg, #2b3363 0%, #633358 100%)",
-                }}
+                style={{ background: "linear-gradient(135deg, #2b3363 0%, #633358 100%)" }}
               />
 
-              {/* Background 3D Arrow Icon — matches other service cards */}
+              {/* 3D Arrow Icon — bottom right, blends into gradient bg */}
               <div
                 style={{
                   position: "absolute",
-                  top: "-5%",
-                  right: "-5%",
-                  width: "160px",
-                  height: "160px",
+                  bottom: "-8%",
+                  right: "-8%",
+                  width: "180px",
+                  height: "180px",
                   pointerEvents: "none",
                   zIndex: 0,
-                  transition: "all 0.5s ease",
+                  transition: "all 0.6s ease",
+                  mixBlendMode: "luminosity",
                 }}
-                className="opacity-20 group-hover:opacity-60 group-hover:scale-105"
+                className="opacity-30 group-hover:opacity-50 group-hover:scale-110"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/images/icons/arrow.png"
                   alt=""
-                  className="transition-all duration-500 grayscale group-hover:grayscale-0"
                   style={{ width: "100%", height: "100%", objectFit: "contain" }}
                 />
               </div>
-              
+
+              {/* Content */}
               <div className="relative z-10 flex flex-col items-center text-center gap-5">
-                <span 
+                <span
                   style={{
-                    fontSize: "24px",
+                    fontSize: "clamp(20px, 2.5vw, 26px)",
                     fontWeight: 500,
-                    letterSpacing: "-0.01em",
+                    letterSpacing: "-0.02em",
                     color: "#fff",
+                    lineHeight: 1.2,
                   }}
                 >
-                  Start your project
+                  Start your<br />project
                 </span>
-                <div 
-                  className="w-14 h-14 rounded-full flex items-center justify-center bg-transparent border border-white/20 group-hover:scale-105 group-hover:border-white/50 transition-all duration-300"
+                <div
+                  className="w-14 h-14 rounded-full flex items-center justify-center border border-white/25 group-hover:border-white/60 group-hover:scale-110 transition-all duration-400"
                 >
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-white transition-colors duration-500">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5">
                     <path d="M5 12h14M12 5l7 7-7 7"/>
                   </svg>
                 </div>
