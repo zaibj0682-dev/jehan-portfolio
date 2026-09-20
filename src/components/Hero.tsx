@@ -85,7 +85,10 @@ export default function Hero() {
               maxWidth: "600px",
             }}
           >
-            High-converting web experiences engineered for industry leaders.
+            High-converting web experiences{" "}
+            <span style={{ color: "rgba(255,255,255,0.42)" }}>
+              engineered for industry leaders.
+            </span>
           </motion.h1>
 
           {/* Subhead */}
