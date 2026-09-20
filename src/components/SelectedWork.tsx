@@ -64,10 +64,22 @@ const studies: CaseStudy[] = [
   },
 ];
 
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+
 function ProjectCard({ study, index }: { study: CaseStudy; index: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  });
+
+  // Moves the image inversely to scroll direction for a "window" parallax effect
+  const y = useTransform(scrollYProgress, [0, 1], ["-12%", "12%"]);
+
   return (
     <Reveal delay={index * 0.06}>
-      <div className="group flex flex-col gap-6 h-full">
+      <div ref={ref} className="group flex flex-col gap-6 h-full">
         {/* Image Container */}
         <div
           style={{
@@ -83,21 +95,32 @@ function ProjectCard({ study, index }: { study: CaseStudy; index: number }) {
             WebkitMaskImage: "-webkit-radial-gradient(white, black)",
           }}
         >
-          {/* Next.js Optimized Image */}
-          <Image
-            src={study.mockup}
-            alt={study.alt}
-            fill
-            sizes="(max-width: 810px) 100vw, (max-width: 1280px) 50vw, 480px"
+          {/* Inner Parallax Wrapper */}
+          <motion.div
             style={{
-              objectFit: "cover",
-              objectPosition: "top center",
-              backfaceVisibility: "hidden",
-              WebkitBackfaceVisibility: "hidden",
-              transform: "translateZ(0)",
+              position: "absolute",
+              top: "-15%",
+              bottom: "-15%",
+              left: 0,
+              right: 0,
+              y,
             }}
-            className="transition-transform duration-[1200ms] ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-[1.04]"
-          />
+          >
+            <Image
+              src={study.mockup}
+              alt={study.alt}
+              fill
+              sizes="(max-width: 810px) 100vw, (max-width: 1280px) 50vw, 480px"
+              style={{
+                objectFit: "cover",
+                objectPosition: "top center",
+                backfaceVisibility: "hidden",
+                WebkitBackfaceVisibility: "hidden",
+                transform: "translateZ(0)",
+              }}
+              className="transition-transform duration-[1200ms] ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-[1.04]"
+            />
+          </motion.div>
           
           {/* Floating Industry Tag */}
           <div

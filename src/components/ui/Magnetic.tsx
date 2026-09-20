@@ -1,40 +1,49 @@
 "use client";
-import { useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { useRef, useState, ReactElement, cloneElement } from "react";
+import { motion, useSpring } from "framer-motion";
 
 export default function Magnetic({
   children,
-  className = "",
+  intensity = 0.2,
+  springConfig = { stiffness: 150, damping: 15, mass: 0.1 },
 }: {
-  children: React.ReactNode;
-  className?: string;
+  children: ReactElement;
+  intensity?: number;
+  springConfig?: any;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
 
-  const handleMouse = (e: React.MouseEvent<HTMLDivElement>) => {
+  const x = useSpring(0, springConfig);
+  const y = useSpring(0, springConfig);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!ref.current) return;
     const { clientX, clientY } = e;
-    const { height, width, left, top } = ref.current!.getBoundingClientRect();
+    const { height, width, left, top } = ref.current.getBoundingClientRect();
     const middleX = clientX - (left + width / 2);
     const middleY = clientY - (top + height / 2);
-    
-    // Magnetic pull strength (lower is weaker)
-    setPosition({ x: middleX * 0.25, y: middleY * 0.25 });
+    x.set(middleX * intensity);
+    y.set(middleY * intensity);
   };
 
-  const reset = () => {
-    setPosition({ x: 0, y: 0 });
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    x.set(0);
+    y.set(0);
+  };
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
   };
 
   return (
     <motion.div
-      className={className}
       ref={ref}
-      onMouseMove={handleMouse}
-      onMouseLeave={reset}
-      animate={{ x: position.x, y: position.y }}
-      transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
-      style={{ display: "inline-block", cursor: "pointer" }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      onMouseEnter={handleMouseEnter}
+      style={{ x, y, display: "inline-block" }}
     >
       {children}
     </motion.div>
