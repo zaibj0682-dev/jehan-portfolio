@@ -15,44 +15,43 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://jehanzaib.com"),
-  title: "Jehan Zaib — WordPress Designer & Developer",
+  metadataBase: new URL("https://jehanzaib007.com"),
+  title: "Jehan Zaib — Elite WordPress Architect & Developer",
   description:
-    "Top Rated WordPress designer and developer on Fiverr with 5.0 rating and 2,277+ reviews. Landing pages, business sites, WooCommerce stores, and care plans — delivered fast, built to convert.",
+    "High-converting bespoke web experiences engineered for industry leaders. Top Rated WordPress architect with over 3,300+ successful deployments globally.",
   keywords: [
-    "WordPress designer",
+    "WordPress architect",
     "WordPress developer",
     "Fiverr Top Rated",
-    "WooCommerce",
-    "Elementor",
-    "landing page",
-    "business website",
-    "web design Pakistan",
+    "Enterprise web design",
+    "Elementor Pro",
+    "high-conversion design",
+    "bespoke business website",
   ],
   authors: [{ name: "Jehan Zaib" }],
   creator: "Jehan Zaib",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://jehanzaib.com",
-    title: "Jehan Zaib — WordPress Designer & Developer",
+    url: "https://jehanzaib007.com",
+    title: "Jehan Zaib — Elite WordPress Architect",
     description:
-      "Top Rated WordPress designer and developer on Fiverr. 5.0 rating, 2,277+ reviews, 3,300+ projects delivered.",
+      "High-converting bespoke web experiences engineered for industry leaders. Over 3,300+ successful deployments globally.",
     siteName: "Jehan Zaib Portfolio",
     images: [
       {
         url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "Jehan Zaib — WordPress Designer & Developer",
+        alt: "Jehan Zaib — Elite WordPress Architect",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jehan Zaib — WordPress Designer & Developer",
+    title: "Jehan Zaib — Elite WordPress Architect",
     description:
-      "Top Rated WordPress designer and developer on Fiverr. 5.0 rating, 2,277+ reviews.",
+      "High-converting bespoke web experiences engineered for industry leaders.",
     images: ["/opengraph-image.png"],
   },
   robots: {
@@ -78,33 +77,27 @@ export default function RootLayout({
     "@graph": [
       {
         "@type": "Person",
-        "@id": "https://jehanzaib.com/#person",
+        "@id": "https://jehanzaib007.com/#person",
         name: "Jehan Zaib",
-        jobTitle: "WordPress Designer & Developer",
+        jobTitle: "Elite WordPress Architect",
         description:
           "Top Rated WordPress designer and developer on Fiverr with a 5.0 rating and over 2,277 reviews.",
-        url: "https://jehanzaib.com",
+        url: "https://jehanzaib007.com",
         sameAs: ["https://www.fiverr.com/jehanzaib_007"],
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: "United States",
-          addressCountry: "PK",
-        },
         knowsAbout: [
           "WordPress",
-          "Elementor",
-          "WooCommerce",
-          "Web Design",
-          "Web Development",
-          "Landing Page Design",
+          "Elementor Pro",
+          "Web Architecture",
+          "Conversion Rate Optimization",
+          "Enterprise Web Development",
         ],
       },
       {
         "@type": "ProfessionalService",
-        "@id": "https://jehanzaib.com/#service",
-        name: "Jehan Zaib — WordPress Design & Development",
-        url: "https://jehanzaib.com",
-        provider: { "@id": "https://jehanzaib.com/#person" },
+        "@id": "https://jehanzaib007.com/#service",
+        name: "Jehan Zaib — Bespoke Digital Platforms",
+        url: "https://jehanzaib007.com",
+        provider: { "@id": "https://jehanzaib007.com/#person" },
         areaServed: "Worldwide",
         hasOfferCatalog: {
           "@type": "OfferCatalog",
@@ -114,23 +107,25 @@ export default function RootLayout({
               "@type": "Offer",
               itemOffered: {
                 "@type": "Service",
-                name: "Landing Page Design",
+                name: "The Standard",
               },
-              price: "180",
+              price: "800",
               priceCurrency: "USD",
             },
             {
               "@type": "Offer",
               itemOffered: {
                 "@type": "Service",
-                name: "Business Website",
+                name: "The Premium",
               },
+              price: "2000",
+              priceCurrency: "USD",
             },
             {
               "@type": "Offer",
               itemOffered: {
                 "@type": "Service",
-                name: "WooCommerce Store",
+                name: "The Enterprise",
               },
             },
           ],
