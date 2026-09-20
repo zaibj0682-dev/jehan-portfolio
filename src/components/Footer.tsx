@@ -53,8 +53,8 @@ export default function Footer() {
                 Digital Platform Architect & Brand Strategist
               </p>
             </div>
-            <p style={{ fontSize: "13px", lineHeight: 1.65, color: "rgba(255,255,255,0.3)", maxWidth: "280px" }}>
-              Top Rated on Fiverr since 2020. 3,300+ projects delivered for clients across the US, UK, Europe and beyond.
+            <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.4)", lineHeight: 1.6, maxWidth: "300px" }}>
+              Top Rated on Fiverr since 2020. Delivering elite platforms for clients across the US, UK, Europe, and beyond.
             </p>
             <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
               <span

@@ -107,7 +107,7 @@ export default function Hero() {
               marginBottom: "40px",
             }}
           >
-            Partnering with ambitious brands to engineer high-performance platforms. Over 3,300+ successful deployments globally. One dedicated expert, from strategy to launch.
+            Partnering with ambitious brands to engineer high-performance platforms. Thousands of successful deployments globally. One dedicated expert, from strategy to launch.
           </motion.p>
 
           {/* CTAs */}
@@ -121,22 +121,6 @@ export default function Hero() {
               Start a project
             </PrimaryButton>
             <GhostButton href="#work">View my work</GhostButton>
-          </motion.div>
-
-          {/* Trust strip */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={isReadyToAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.8, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-wrap items-center gap-x-6 gap-y-2" 
-            style={{ fontSize: "13px", color: "rgba(255,255,255,0.35)" }}
-          >
-            <span className="flex items-center gap-1.5">
-              <Star size={11} strokeWidth={1.5} style={{ color: "#d39794" }} />
-              5.0 · 2,277 reviews
-            </span>
-            <span>3,300+ projects</span>
-            <span>~1 hr reply</span>
           </motion.div>
         </div>
 

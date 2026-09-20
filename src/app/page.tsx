@@ -3,7 +3,6 @@ import Hero from "@/components/Hero";
 import Intro from "@/components/Intro";
 import Services from "@/components/Services";
 import SelectedWork from "@/components/SelectedWork";
-import Numbers from "@/components/Numbers";
 import Process from "@/components/Process";
 import Reviews from "@/components/Reviews";
 import About from "@/components/About";
@@ -19,7 +18,6 @@ export default function Home() {
     <>
       <Nav />
       <Hero />
-      <Numbers />
       <Intro />
       <Services />
       <SelectedWork />

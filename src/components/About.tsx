@@ -5,7 +5,7 @@ const milestones = [
   { year: "2020", event: "Launched career. First 10 projects shipped in 30 days." },
   { year: "2022", event: "Achieved Top Rated status. First enterprise-scale project." },
   { year: "2023", event: "Founded agency to scale operations globally." },
-  { year: "2026", event: "3,300+ custom platforms delivered. Maintaining a 5.0 elite standard." },
+  { year: "2026", event: "Thousands of custom platforms delivered. Maintaining a 5.0 elite standard." },
 ];
 
 export default function About() {

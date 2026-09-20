@@ -30,7 +30,7 @@ const faqs = [
   },
   {
     q: "Do you work with international clients?",
-    a: "Yes. Over 95% of our 3,300+ deployments have been engineered for brands spanning the US, UK, Canada, Australia, and Europe. Our entire operational workflow is optimized for seamless global collaboration.",
+    a: "Yes. The vast majority of our deployments have been engineered for brands spanning the US, UK, Canada, Australia, and Europe. Our entire operational workflow is optimized for seamless global collaboration.",
   },
 ];
 

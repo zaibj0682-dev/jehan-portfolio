@@ -139,35 +139,6 @@ export default function Reviews() {
               </div>
               <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.4)", textTransform: "uppercase", letterSpacing: "0.05em" }}>From 2,277 verified reviews</p>
             </div>
-
-            {/* Divider */}
-            <div style={{ width: "1px", height: "40px", background: "rgba(255,255,255,0.1)", flexShrink: 0 }} className="hidden tablet:block" />
-
-            {/* Stats */}
-            <div style={{ display: "flex", gap: "clamp(24px, 4vw, 48px)", flexWrap: "wrap" }}>
-              {[
-                { value: "3,300+", label: "Projects Delivered" },
-                { value: "6+ yrs", label: "Top Rated Status" },
-                { value: "~1 hr", label: "Average Reply" },
-              ].map((s) => (
-                <div key={s.label} style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-                  <span 
-                    style={{ 
-                      fontSize: "clamp(20px, 2.5vw, 24px)", 
-                      fontWeight: 600, 
-                      letterSpacing: "-0.03em", 
-                      background: "linear-gradient(180deg, #fff, rgba(255,255,255,0.7))",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      lineHeight: 1 
-                    }}
-                  >
-                    {s.value}
-                  </span>
-                  <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.35)", letterSpacing: "0.06em", textTransform: "uppercase", fontWeight: 500 }}>{s.label}</span>
-                </div>
-              ))}
-            </div>
             </div>
           </div>
         </Reveal>

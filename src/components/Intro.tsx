@@ -11,7 +11,7 @@ const lines = [
   "To handle the immense scale, I founded an agency.",
   "Today, we architect and launch over 100 bespoke web experiences every single month.",
   "But despite the growth, every project still goes through me. Every client speaks to me directly.",
-  "Over 3,300 projects deployed. 2,277 five-star reviews. Zero compromises on quality.",
+  "Thousands of platforms launched. Countless five-star reviews. Zero compromises on quality.",
   "I don't just build websites. I engineer digital assets that drive revenue.",
   "I study your market, your competitors, and your audience before writing a single line of code.",
   "Because a beautiful design is worthless if it doesn't convert visitors into clients.",
