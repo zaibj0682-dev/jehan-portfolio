@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 
 const links = [
   { label: "Work", href: "#work" },
@@ -175,54 +175,82 @@ export default function Nav() {
       </div>
 
       {/* Mobile drawer */}
-      {open && (
-        <div
-          style={{
-            background: "rgba(8,8,8,0.98)",
-            backdropFilter: "blur(20px)",
-            borderTop: "1px solid rgba(255,255,255,0.06)",
-          }}
-        >
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              onClick={() => setOpen(false)}
-              style={{
-                display: "block",
-                padding: "16px 24px",
-                fontSize: "15px",
-                color: "rgba(255,255,255,0.6)",
-                textDecoration: "none",
-                borderBottom: "1px solid rgba(255,255,255,0.05)",
-              }}
-            >
-              {l.label}
-            </a>
-          ))}
-          <div style={{ padding: "16px 24px" }}>
-            <a
-              href="https://www.fiverr.com/jehanzaib_007"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "block",
-                width: "100%",
-                textAlign: "center",
-                padding: "12px",
-                borderRadius: "999px",
-                background: "rgba(255,255,255,0.9)",
-                color: "#000",
-                fontSize: "14px",
-                fontWeight: 500,
-                textDecoration: "none",
-              }}
-            >
-              Start a project on Fiverr
-            </a>
-          </div>
-        </div>
-      )}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
+            style={{
+              overflow: "hidden",
+              background: "rgba(8,8,8,0.98)",
+              backdropFilter: "blur(20px)",
+              WebkitBackdropFilter: "blur(20px)",
+              borderTop: "1px solid rgba(255,255,255,0.06)",
+              boxShadow: "0 20px 40px rgba(0,0,0,0.5)",
+            }}
+          >
+            <div style={{ padding: "24px 0 16px 0", display: "flex", flexDirection: "column" }}>
+              {links.map((l, i) => (
+                <motion.div
+                  key={l.href}
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  exit={{ x: -10, opacity: 0 }}
+                  transition={{ duration: 0.4, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  <a
+                    href={l.href}
+                    onClick={() => setOpen(false)}
+                    style={{
+                      display: "block",
+                      padding: "16px 32px",
+                      fontSize: "24px",
+                      fontFamily: "var(--font-display)",
+                      fontWeight: 500,
+                      letterSpacing: "-0.03em",
+                      color: "rgba(255,255,255,0.85)",
+                      textDecoration: "none",
+                    }}
+                  >
+                    {l.label}
+                  </a>
+                </motion.div>
+              ))}
+              
+              <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: 10, opacity: 0 }}
+                transition={{ duration: 0.4, delay: links.length * 0.05 + 0.1, ease: [0.22, 1, 0.36, 1] }}
+                style={{ padding: "32px 32px 16px 32px", marginTop: "16px", borderTop: "1px solid rgba(255,255,255,0.06)" }}
+              >
+                <a
+                  href="https://www.fiverr.com/jehanzaib_007"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "block",
+                    width: "100%",
+                    textAlign: "center",
+                    padding: "18px",
+                    borderRadius: "999px",
+                    background: "linear-gradient(180deg, #fff, rgba(255,255,255,0.8))",
+                    color: "#000",
+                    fontSize: "15px",
+                    fontWeight: 600,
+                    letterSpacing: "-0.01em",
+                    textDecoration: "none",
+                  }}
+                >
+                  Start a project on Fiverr
+                </a>
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 }
