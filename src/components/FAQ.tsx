@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useSound } from "@/context/SoundContext";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus } from "lucide-react";
+import { Plus, HelpCircle } from "lucide-react";
 
 const faqs = [
   {
@@ -51,7 +51,7 @@ function FAQItem({ item, open, onToggle }: {
       }}
       transition={{ duration: 0.3 }}
       style={{
-        borderRadius: "20px",
+        borderRadius: "16px",
         border: "1px solid",
         overflow: "hidden",
       }}
@@ -68,7 +68,7 @@ function FAQItem({ item, open, onToggle }: {
           alignItems: "center",
           justifyContent: "space-between",
           gap: "24px",
-          padding: "24px 28px",
+          padding: "22px 24px",
           background: "none",
           border: "none",
           cursor: "pointer",
@@ -77,31 +77,30 @@ function FAQItem({ item, open, onToggle }: {
       >
         <motion.span
           animate={{
-            color: open ? "rgba(255,255,255,1)" : isHovered ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.6)",
-            x: isHovered && !open ? 4 : 0,
+            color: open ? "rgba(255,255,255,1)" : isHovered ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.65)",
+            x: isHovered && !open ? 3 : 0,
           }}
           transition={{ duration: 0.2 }}
           style={{
-            fontSize: "clamp(16px, 1.4vw, 19px)",
+            fontSize: "clamp(15px, 1.2vw, 17px)",
             fontWeight: 400,
             letterSpacing: "-0.01em",
             fontFamily: "var(--font-display)",
-            lineHeight: 1.3,
+            lineHeight: 1.4,
           }}
         >
           {item.q}
         </motion.span>
-        
+
         <motion.div
           animate={{
             backgroundColor: open ? "rgba(255,255,255,0.1)" : isHovered ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.02)",
             borderColor: open ? "rgba(255,255,255,0.2)" : isHovered ? "rgba(255,255,255,0.1)" : "rgba(255,255,255,0.05)",
-            scale: isHovered ? 1.05 : 1,
           }}
           transition={{ duration: 0.2 }}
           style={{
-            width: "32px",
-            height: "32px",
+            width: "28px",
+            height: "28px",
             borderRadius: "50%",
             border: "1px solid",
             display: "flex",
@@ -111,7 +110,7 @@ function FAQItem({ item, open, onToggle }: {
           }}
         >
           <Plus
-            size={16}
+            size={14}
             strokeWidth={1.5}
             style={{
               color: open ? "#fff" : "rgba(255,255,255,0.5)",
@@ -131,13 +130,12 @@ function FAQItem({ item, open, onToggle }: {
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
             style={{ overflow: "hidden" }}
           >
-            <div style={{ padding: "0 28px 28px 28px" }}>
+            <div style={{ padding: "0 24px 24px 24px" }}>
               <p
                 style={{
-                  fontSize: "15px",
-                  lineHeight: 1.7,
-                  color: "rgba(255,255,255,0.55)",
-                  maxWidth: "600px",
+                  fontSize: "14px",
+                  lineHeight: 1.75,
+                  color: "rgba(255,255,255,0.5)",
                 }}
               >
                 {item.a}
@@ -157,9 +155,16 @@ export default function FAQ() {
   return (
     <section
       id="faq"
-      style={{ width: "100%", paddingTop: "clamp(100px,10vw,140px)", paddingBottom: "clamp(100px,10vw,140px)", borderTop: "1px solid rgba(255,255,255,0.06)", position: "relative", overflow: "hidden" }}
+      style={{
+        width: "100%",
+        paddingTop: "clamp(100px,10vw,140px)",
+        paddingBottom: "clamp(100px,10vw,140px)",
+        borderTop: "1px solid rgba(255,255,255,0.06)",
+        position: "relative",
+        overflow: "hidden",
+      }}
     >
-      {/* Background ambient glow */}
+      {/* Ambient glow */}
       <div style={{
         position: "absolute",
         top: "-200px",
@@ -169,73 +174,145 @@ export default function FAQ() {
         height: "400px",
         background: "radial-gradient(ellipse at top, rgba(255,255,255,0.03) 0%, transparent 70%)",
         pointerEvents: "none",
-        zIndex: 0
+        zIndex: 0,
       }} />
 
-      <div style={{ maxWidth: "800px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", position: "relative", zIndex: 1 }}>
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: "16px", marginBottom: "64px" }}>
-          <p
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "8px",
-              padding: "6px 14px",
-              borderRadius: "999px",
-              border: "1px solid rgba(255,255,255,0.1)",
+      <div style={{
+        maxWidth: "1280px",
+        margin: "0 auto",
+        padding: "0 clamp(20px,4vw,40px)",
+        position: "relative",
+        zIndex: 1,
+      }}>
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1.45fr",
+          gap: "clamp(48px, 6vw, 96px)",
+          alignItems: "start",
+        }}
+        className="faq-grid"
+        >
+          {/* Left rail — sticky heading */}
+          <div style={{ position: "sticky", top: "120px" }}>
+            {/* Icon */}
+            <div style={{
+              width: "48px",
+              height: "48px",
+              borderRadius: "14px",
+              border: "1px solid rgba(255,255,255,0.08)",
               background: "rgba(255,255,255,0.03)",
-              fontSize: "12px",
-              letterSpacing: "0.06em",
-              textTransform: "uppercase",
-              color: "rgba(255,255,255,0.5)",
-            }}
-          >
-            FAQ
-          </p>
-          <h2
-            style={{
-              fontSize: "clamp(32px, 4vw, 48px)",
-              fontWeight: 500,
-              letterSpacing: "-0.04em",
-              lineHeight: 1.15,
-              color: "rgba(255,255,255,0.9)",
-              fontFamily: "var(--font-display)",
-            }}
-          >
-            Questions you <span style={{ color: "rgba(255,255,255,0.4)" }}>might have.</span>
-          </h2>
-          <p
-            style={{
-              fontSize: "15px",
-              lineHeight: 1.6,
-              color: "rgba(255,255,255,0.4)",
-              maxWidth: "400px",
-              marginTop: "8px"
-            }}
-          >
-            Everything you need to know about how we work. Still have a question?{" "}
-            <a href="https://www.fiverr.com/jehanzaib_007" target="_blank" rel="noopener noreferrer" style={{ color: "#fff", textDecoration: "underline", textUnderlineOffset: "4px", textDecorationColor: "rgba(255,255,255,0.3)" }}>Ask on Fiverr</a>
-          </p>
-        </div>
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              marginBottom: "28px",
+            }}>
+              <HelpCircle size={22} strokeWidth={1.25} style={{ color: "rgba(255,255,255,0.4)" }} />
+            </div>
 
-        {/* Accordion Container */}
-        <div style={{ 
-          display: "flex",
-          flexDirection: "column",
-          gap: "12px",
-        }}>
-          {faqs.map((item, i) => (
-            <FAQItem
-              key={i}
-              item={item}
-              open={open === i}
-              onToggle={() => {
-                playClick();
-                setOpen(open === i ? null : i);
+            <p
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+                padding: "5px 12px",
+                borderRadius: "999px",
+                border: "1px solid rgba(255,255,255,0.1)",
+                background: "rgba(255,255,255,0.03)",
+                fontSize: "11px",
+                letterSpacing: "0.08em",
+                textTransform: "uppercase",
+                color: "rgba(255,255,255,0.4)",
+                marginBottom: "24px",
               }}
-            />
-          ))}
+            >
+              FAQ
+            </p>
+
+            <h2
+              style={{
+                fontSize: "clamp(28px, 3.2vw, 44px)",
+                fontWeight: 500,
+                letterSpacing: "-0.04em",
+                lineHeight: 1.15,
+                color: "rgba(255,255,255,0.9)",
+                fontFamily: "var(--font-display)",
+                marginBottom: "20px",
+              }}
+            >
+              Questions you{" "}
+              <span style={{ color: "rgba(255,255,255,0.35)" }}>might have.</span>
+            </h2>
+
+            <p style={{
+              fontSize: "14px",
+              lineHeight: 1.7,
+              color: "rgba(255,255,255,0.4)",
+              marginBottom: "32px",
+              maxWidth: "320px",
+            }}>
+              Everything about working together, covered. Can't find your answer?
+            </p>
+
+            <a
+              href="https://www.fiverr.com/jehanzaib_007"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+                fontSize: "13px",
+                color: "rgba(255,255,255,0.7)",
+                textDecoration: "none",
+                borderBottom: "1px solid rgba(255,255,255,0.15)",
+                paddingBottom: "2px",
+                transition: "color 0.2s, border-color 0.2s",
+              }}
+              onMouseEnter={e => {
+                (e.currentTarget as HTMLAnchorElement).style.color = "#fff";
+                (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.5)";
+              }}
+              onMouseLeave={e => {
+                (e.currentTarget as HTMLAnchorElement).style.color = "rgba(255,255,255,0.7)";
+                (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.15)";
+              }}
+            >
+              Ask on Fiverr →
+            </a>
+
+          </div>
+
+          {/* Right — accordion */}
+          <div style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "10px",
+          }}>
+            {faqs.map((item, i) => (
+              <FAQItem
+                key={i}
+                item={item}
+                open={open === i}
+                onToggle={() => {
+                  playClick();
+                  setOpen(open === i ? null : i);
+                }}
+              />
+            ))}
+          </div>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 810px) {
+          .faq-grid {
+            grid-template-columns: 1fr !important;
+          }
+          .faq-grid > div:first-child {
+            position: static !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }
