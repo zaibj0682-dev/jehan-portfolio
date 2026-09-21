@@ -105,7 +105,7 @@ export default function About() {
                   I learned to code between lectures, deploying real-world solutions by evening. That relentless pace—engineering fast and delivering faster—became the foundation of my entire philosophy.
                 </p>
                 <p>
-                  What started as a solo hustle has scaled into a dedicated operation. Today, my team and I architect and launch over 100 bespoke web experiences every single month for industry leaders worldwide. 
+                  What started as a solo hustle has scaled into a 25-person operation. Today, my team and I architect and launch over 100 bespoke web experiences every single month for industry leaders worldwide.
                 </p>
                 <p>
                   But despite the immense scale, my standards remain unchanged. I don't just hand off templates; I engineer digital assets driven by UX thinking, competitor analysis, and a relentless focus on conversion.
@@ -215,7 +215,7 @@ export default function About() {
                   { value: "3,300+", label: "Projects Delivered" },
                   { value: "5.0", label: "Average Rating" },
                   { value: "6+ yrs", label: "Top Rated Status" },
-                  { value: "~20", label: "Expert Team" },
+                  { value: "25+", label: "Expert Team" },
                 ].map((s) => (
                   <div
                     key={s.label}
