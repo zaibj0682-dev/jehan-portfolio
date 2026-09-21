@@ -9,14 +9,14 @@ interface SoundContextType {
 }
 
 const SoundContext = createContext<SoundContextType>({
-  soundEnabled: true,
+  soundEnabled: false,
   toggleSound: () => {},
   playHover: () => {},
   playClick: () => {},
 });
 
 export function SoundProvider({ children }: { children: ReactNode }) {
-  const [soundEnabled, setSoundEnabled] = useState(true);
+  const [soundEnabled, setSoundEnabled] = useState(false);
   const audioCtxRef = useRef<AudioContext | null>(null);
 
   const getAudioCtx = () => {
