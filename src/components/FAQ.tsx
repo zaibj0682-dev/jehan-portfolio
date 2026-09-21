@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { useSound } from "@/context/SoundContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus } from "lucide-react";
 
@@ -151,6 +152,7 @@ function FAQItem({ item, open, onToggle }: {
 
 export default function FAQ() {
   const [open, setOpen] = useState<number | null>(null);
+  const { playClick } = useSound();
 
   return (
     <section
@@ -226,7 +228,10 @@ export default function FAQ() {
               key={i}
               item={item}
               open={open === i}
-              onToggle={() => setOpen(open === i ? null : i)}
+              onToggle={() => {
+                playClick();
+                setOpen(open === i ? null : i);
+              }}
             />
           ))}
         </div>

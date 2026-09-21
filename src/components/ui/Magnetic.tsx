@@ -1,6 +1,7 @@
 "use client";
 import { useRef, useState, ReactElement, cloneElement } from "react";
 import { motion, useSpring } from "framer-motion";
+import { useSound } from "@/context/SoundContext";
 
 export default function Magnetic({
   children,
@@ -13,6 +14,7 @@ export default function Magnetic({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
+  const { playHover } = useSound();
 
   const x = useSpring(0, springConfig);
   const y = useSpring(0, springConfig);
@@ -35,6 +37,7 @@ export default function Magnetic({
 
   const handleMouseEnter = () => {
     setIsHovered(true);
+    playHover();
   };
 
   return (
@@ -43,7 +46,7 @@ export default function Magnetic({
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onMouseEnter={handleMouseEnter}
-      style={{ x, y, display: "inline-block" }}
+      style={{ x, y, display: "inline-block", position: "relative" }}
     >
       {children}
     </motion.div>

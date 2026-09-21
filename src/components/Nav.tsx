@@ -1,10 +1,11 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Volume2, VolumeX } from "lucide-react";
 import Magnetic from "./ui/Magnetic";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { usePreloader } from "@/context/PreloaderContext";
+import { useSound } from "@/context/SoundContext";
 
 const links = [
   { href: "#work", label: "Work" },
@@ -17,6 +18,7 @@ const links = [
 export default function Nav() {
   const [open, setOpen] = useState(false);
   const { isReadyToAnimate } = usePreloader();
+  const { soundEnabled, toggleSound, playHover } = useSound();
   const { scrollYProgress } = useScroll();
 
   const blur = useTransform(scrollYProgress, [0, 0.05], ["blur(0px)", "blur(12px)"]);
@@ -108,6 +110,7 @@ export default function Nav() {
                 transition: "color 0.2s, background 0.2s",
               }}
               onMouseEnter={(e) => {
+                playHover();
                 (e.currentTarget as HTMLAnchorElement).style.color = "rgba(255,255,255,0.9)";
                 (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.06)";
               }}
@@ -122,7 +125,21 @@ export default function Nav() {
         </nav>
 
         {/* Right: Fiverr CTA */}
-        <div className="hidden tablet:flex items-center" style={{ gap: "16px" }}>
+        <div className="hidden tablet:flex items-center" style={{ gap: "24px" }}>
+          
+          {/* Sound Toggle */}
+          <button
+            onClick={toggleSound}
+            className="group flex items-center justify-center transition-colors hover:text-white"
+            style={{ color: soundEnabled ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.3)", background: "none", border: "none", cursor: "pointer", padding: "4px" }}
+            aria-label="Toggle sound"
+          >
+            {soundEnabled ? <Volume2 size={16} strokeWidth={2} /> : <VolumeX size={16} strokeWidth={2} />}
+          </button>
+
+          {/* Divider */}
+          <div style={{ width: "1px", height: "12px", background: "rgba(255,255,255,0.1)" }} />
+
           {/* Available dot */}
           <span
             style={{

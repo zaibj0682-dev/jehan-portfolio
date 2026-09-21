@@ -7,6 +7,8 @@ import FilmGrain from "@/components/ui/FilmGrain";
 import Preloader from "@/components/ui/Preloader";
 import { PreloaderProvider } from "@/context/PreloaderContext";
 
+import { SoundProvider } from "@/context/SoundContext";
+
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -159,12 +161,14 @@ export default function RootLayout({
           >
             Skip to main content
           </a>
-          <LenisProvider>
-            <Preloader />
-            <FilmGrain />
-            <CustomCursor />
-            <main id="main" style={{ opacity: 0, transition: "opacity 0.4s ease-in-out" }}>{children}</main>
-          </LenisProvider>
+          <SoundProvider>
+            <LenisProvider>
+              <Preloader />
+              <FilmGrain />
+              <CustomCursor />
+              <main id="main" style={{ opacity: 0, transition: "opacity 0.4s ease-in-out" }}>{children}</main>
+            </LenisProvider>
+          </SoundProvider>
         </PreloaderProvider>
       </body>
     </html>

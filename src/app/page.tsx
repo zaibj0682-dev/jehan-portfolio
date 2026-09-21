@@ -12,15 +12,19 @@ import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 
 import Image from "next/image";
+import DynamicBackground from "@/components/ui/DynamicBackground";
 import ScrollProgress from "@/components/ui/ScrollProgress";
+import Marquee from "@/components/ui/Marquee";
 
 export default function Home() {
   return (
     <>
+      <DynamicBackground />
       <Nav />
       <Hero />
       <Intro />
       <Services />
+      <Marquee />
       <SelectedWork />
       <Process />
       <Reviews />
