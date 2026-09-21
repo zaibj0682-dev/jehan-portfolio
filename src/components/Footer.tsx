@@ -11,8 +11,8 @@ const navLinks = [
 ];
 
 const fiverr = [
-  { label: "Message on Fiverr", href: "https://www.fiverr.com/jehanzaib_007" },
-  { label: "Main gig", href: "https://www.fiverr.com/jehanzaib_007/design-and-develop-a-professional-wordpress-website-and-blog" },
+  { label: "View profile", href: "https://www.fiverr.com/jehanzaib_007" },
+  { label: "WordPress Design & Dev", href: "https://www.fiverr.com/jehanzaib_007/design-and-develop-a-professional-wordpress-website-and-blog" },
   { label: "Start a project", href: "https://www.fiverr.com/jehanzaib_007/design-and-develop-a-professional-wordpress-website-and-blog" },
 ];
 
