@@ -2,10 +2,21 @@
 // Stripe colors: #6ec3f4 cyan · #3a3aff electric blue · #ff61ab hot pink · #E63946 red
 
 "use client";
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 import { usePreloader } from "@/context/PreloaderContext";
 
 export default function HeroBg() {
+  const { setVideoReady, isReadyToAnimate } = usePreloader();
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Start playing the moment the preloader panels open — not before
+  useEffect(() => {
+    if (isReadyToAnimate && videoRef.current) {
+      videoRef.current.currentTime = 0;
+      videoRef.current.play().catch(() => {});
+    }
+  }, [isReadyToAnimate]);
+
   return (
     <div
       aria-hidden
@@ -32,20 +43,21 @@ export default function HeroBg() {
           100% { transform: scale(1.2); opacity: 1; }
         }
         @keyframes cinematic-zoom {
-          0% { transform: scaleX(-1) scaleY(1); }
-          100% { transform: scaleX(-1.15) scaleY(1.15); }
+          0% { transform: scale(1); }
+          100% { transform: scale(1.15); }
         }
       `}</style>
 
       {/* The 5.5MB Video - browser natively streams it asynchronously via range requests */}
       {/* preload="auto" ensures it starts downloading immediately but without blocking the main thread */}
       <video
-        autoPlay
+        ref={videoRef}
         loop
         muted
         playsInline
         preload="auto"
         poster="/images/hero-poster.jpg"
+        onCanPlay={setVideoReady}
         style={{
           position: "absolute",
           inset: 0,
@@ -54,10 +66,11 @@ export default function HeroBg() {
           objectFit: "cover",
           opacity: 0.85, 
           mixBlendMode: "screen", 
-          filter: "saturate(1.3) contrast(1.15)", // A bit more pop since we flipped it to the dark side
+          filter: "saturate(1.3) contrast(1.15)",
           animation: "cinematic-zoom 25s ease-in-out infinite alternate",
         }}
       >
+        <source src="/videos/hero-bg.webm" type="video/webm" />
         <source src="/videos/hero-bg.mp4" type="video/mp4" />
       </video>
 

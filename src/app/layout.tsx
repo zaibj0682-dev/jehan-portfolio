@@ -147,6 +147,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <head>
+        {/* Start video fetch at highest priority before JS hydrates */}
+        <link rel="preload" as="video" href="/videos/hero-bg.webm" type="video/webm" />
+        <link rel="preload" as="video" href="/videos/hero-bg.mp4" type="video/mp4" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

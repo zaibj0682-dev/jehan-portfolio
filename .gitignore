@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# source video files (too large for git)
+*.mov
+*.avi
+*.mkv

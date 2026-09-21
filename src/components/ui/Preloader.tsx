@@ -1,64 +1,81 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePreloader } from "@/context/PreloaderContext";
 
 const WORDS = ["Crafting.", "Building.", "Launching."];
+const MIN_MS = 3000;  // always show at least 3 seconds
+const MAX_MS = 7500;  // force exit after 7.5 seconds regardless
 
 export default function Preloader() {
   const [progress, setProgress] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [isComplete, setIsComplete] = useState(false);
   const [wordIndex, setWordIndex] = useState(0);
-  const { setReady } = usePreloader();
+  const { setReady, isVideoReady } = usePreloader();
+
+  // Keep a ref so the interval closure always reads the latest value
+  const isVideoReadyRef = useRef(isVideoReady);
+  useEffect(() => { isVideoReadyRef.current = isVideoReady; }, [isVideoReady]);
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
 
-    // Cycle through words every 700ms, stop on the last word
+    // Cycle through words every 800ms, stop on the last one
     const wordInterval = setInterval(() => {
       setWordIndex((i) => {
-        if (i >= WORDS.length - 1) {
-          clearInterval(wordInterval);
-          return i;
-        }
+        if (i >= WORDS.length - 1) { clearInterval(wordInterval); return i; }
         return i + 1;
       });
-    }, 700);
+    }, 800);
 
-    // Progress counter — slow & organic, takes ~2.5–3s total
-    let current = 0;
+    const startTime = Date.now();
+    let completed = false;
+
+    function complete() {
+      if (completed) return;
+      completed = true;
+      clearInterval(interval);
+      clearInterval(wordInterval);
+      setProgress(100);
+      setIsComplete(true);
+      setTimeout(() => {
+        const blocker = document.getElementById("ssr-blocker");
+        if (blocker) blocker.remove();
+        const main = document.getElementById("main");
+        if (main) main.style.opacity = "1";
+        setIsLoading(false);
+        document.body.style.overflow = "";
+        window.scrollTo(0, 0);
+        setTimeout(() => setReady(), 400);
+      }, 500);
+    }
+
     const interval = setInterval(() => {
-      // Slow near the end for dramatic effect
-      const remaining = 100 - current;
-      const increment = remaining > 30
-        ? Math.floor(Math.random() * 6) + 3   // fast early: +3 to +8
-        : Math.floor(Math.random() * 2) + 1;   // slow near end: +1 to +2
-      current = Math.min(current + increment, 100);
-      if (current >= 100) {
-        clearInterval(interval);
-        clearInterval(wordInterval);
-        setIsComplete(true); // Trigger text/UI fade out
-        setTimeout(() => {
-          const blocker = document.getElementById("ssr-blocker");
-          if (blocker) blocker.remove();
+      const elapsed = Date.now() - startTime;
 
-          const main = document.getElementById("main");
-          if (main) main.style.opacity = "1";
-          
-          setIsLoading(false); // Trigger panel split
-          document.body.style.overflow = "";
-          window.scrollTo(0, 0);
-          
-          // Let the app know the preloader is done sliding
-          setTimeout(() => {
-            setReady();
-          }, 400); // Trigger hero animation slightly before preloader finishes completely for smooth transition
-          
-        }, 500); // Wait for fade out before splitting
+      // Hard cap — exit no matter what after MAX_MS
+      if (elapsed >= MAX_MS) { complete(); return; }
+
+      if (elapsed < MIN_MS) {
+        // Phase 1: organic progress 0 → 90 over the first 3s
+        // Fast early (feels snappy), slows near 90 (suspense before reveal)
+        const t = elapsed / MIN_MS;
+        const eased = t < 0.65
+          ? (t / 0.65) * 0.82              // 0 → 82% in first 65% of time
+          : 0.82 + ((t - 0.65) / 0.35) * 0.08; // 82 → 90% in last 35%
+        setProgress(Math.round(eased * 100));
+      } else {
+        // Phase 2: slow creep 90 → 99 while waiting for video
+        const phase2Elapsed = elapsed - MIN_MS;
+        const phase2Duration = MAX_MS - MIN_MS; // 4.5s window
+        const creep = (phase2Elapsed / phase2Duration) * 9; // adds 0 → 9 on top of 90
+        setProgress(Math.round(90 + creep));
+
+        // Exit as soon as video signals it can play
+        if (isVideoReadyRef.current) { complete(); }
       }
-      setProgress(current);
-    }, 90); // 90ms interval × ~25 steps ≈ ~2.5s
+    }, 50);
 
     return () => {
       clearInterval(interval);
