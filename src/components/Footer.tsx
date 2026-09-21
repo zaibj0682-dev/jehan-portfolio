@@ -55,21 +55,6 @@ export default function Footer() {
               </p>
             </div>
             <LiveStatus />
-            <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-              <span
-                style={{
-                  width: 6,
-                  height: 6,
-                  borderRadius: "50%",
-                  background: "#4ade80",
-                  display: "inline-block",
-                  boxShadow: "0 0 6px rgba(74,222,128,0.5)",
-                }}
-              />
-              <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.3)" }}>
-                Available for new projects
-              </span>
-            </div>
           </div>
 
           {/* Link columns */}

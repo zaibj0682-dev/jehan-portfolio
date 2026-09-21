@@ -137,32 +137,6 @@ export default function Nav() {
             {soundEnabled ? <Volume2 size={16} strokeWidth={2} /> : <VolumeX size={16} strokeWidth={2} />}
           </button>
 
-          {/* Divider */}
-          <div style={{ width: "1px", height: "12px", background: "rgba(255,255,255,0.1)" }} />
-
-          {/* Available dot */}
-          <span
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "6px",
-              fontSize: "12px",
-              color: "rgba(255,255,255,0.3)",
-            }}
-          >
-            <span
-              style={{
-                width: 6,
-                height: 6,
-                borderRadius: "50%",
-                background: "#4ade80",
-                display: "inline-block",
-                boxShadow: "0 0 6px rgba(74,222,128,0.6)",
-              }}
-            />
-            Available
-          </span>
-
           <a
             href="https://www.fiverr.com/jehanzaib_007"
             target="_blank"
