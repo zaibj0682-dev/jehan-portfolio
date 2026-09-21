@@ -140,7 +140,7 @@ export default function Hero() {
               {/* Profile header */}
               <div style={{ padding: "28px 24px 20px", display: "flex", flexDirection: "column", alignItems: "center", gap: "12px" }}>
                 <div style={{ width: 72, height: 72, borderRadius: "50%", overflow: "hidden", border: "2px solid rgba(255,255,255,0.1)" }}>
-                  <Image src="/images/profile.jpg" alt="Jehan Zaib" width={72} height={72} className="object-cover object-top w-full h-full" priority />
+                  <Image src="/images/profile.jpg" alt="Jehan Zaib" width={72} height={72} className="object-cover w-full h-full" style={{ objectPosition: "50% 15%" }} priority />
                 </div>
                 <div style={{ textAlign: "center" }}>
                   <h2 style={{ fontSize: "14px", fontWeight: 600, color: "var(--color-text-heading)", letterSpacing: "-0.01em" }}>Jehan Zaib</h2>
