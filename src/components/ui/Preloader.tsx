@@ -1,33 +1,27 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { usePreloader } from "@/context/PreloaderContext";
 
-const WORDS = ["Crafting.", "Building.", "Launching."];
-const MIN_MS = 3000;  // always show at least 3 seconds
-const MAX_MS = 7500;  // force exit after 7.5 seconds regardless
+const MIN_MS = 3000;
+const MAX_MS = 7500;
 
 export default function Preloader() {
   const [progress, setProgress] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isComplete, setIsComplete] = useState(false);
-  const [wordIndex, setWordIndex] = useState(0);
+  const [overlayOpacity, setOverlayOpacity] = useState(1);
+  const [hidden, setHidden] = useState(false);
   const { setReady, isVideoReady } = usePreloader();
-
-  // Keep a ref so the interval closure always reads the latest value
   const isVideoReadyRef = useRef(isVideoReady);
+
   useEffect(() => { isVideoReadyRef.current = isVideoReady; }, [isVideoReady]);
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
 
-    // Cycle through words every 800ms, stop on the last one
-    const wordInterval = setInterval(() => {
-      setWordIndex((i) => {
-        if (i >= WORDS.length - 1) { clearInterval(wordInterval); return i; }
-        return i + 1;
-      });
-    }, 800);
+    // Reveal main immediately — our overlay covers it during load
+    const blocker = document.getElementById("ssr-blocker");
+    if (blocker) blocker.remove();
+    const main = document.getElementById("main");
+    if (main) main.style.opacity = "1";
 
     const startTime = Date.now();
     let completed = false;
@@ -36,259 +30,189 @@ export default function Preloader() {
       if (completed) return;
       completed = true;
       clearInterval(interval);
-      clearInterval(wordInterval);
       setProgress(100);
-      setIsComplete(true);
+      document.body.style.overflow = "";
+      window.scrollTo(0, 0);
+
+      // Brief pause at 100%, then fade out
       setTimeout(() => {
-        const blocker = document.getElementById("ssr-blocker");
-        if (blocker) blocker.remove();
-        const main = document.getElementById("main");
-        if (main) main.style.opacity = "1";
-        setIsLoading(false);
-        document.body.style.overflow = "";
-        window.scrollTo(0, 0);
-        setTimeout(() => setReady(), 400);
-      }, 500);
+        setOverlayOpacity(0);
+        setTimeout(() => {
+          setHidden(true);
+          setReady();
+        }, 950);
+      }, 180);
     }
 
     const interval = setInterval(() => {
       const elapsed = Date.now() - startTime;
-
-      // Hard cap — exit no matter what after MAX_MS
       if (elapsed >= MAX_MS) { complete(); return; }
 
       if (elapsed < MIN_MS) {
-        // Phase 1: organic progress 0 → 90 over the first 3s
-        // Fast early (feels snappy), slows near 90 (suspense before reveal)
         const t = elapsed / MIN_MS;
         const eased = t < 0.65
-          ? (t / 0.65) * 0.82              // 0 → 82% in first 65% of time
-          : 0.82 + ((t - 0.65) / 0.35) * 0.08; // 82 → 90% in last 35%
+          ? (t / 0.65) * 0.82
+          : 0.82 + ((t - 0.65) / 0.35) * 0.08;
         setProgress(Math.round(eased * 100));
       } else {
-        // Phase 2: slow creep 90 → 99 while waiting for video
-        const phase2Elapsed = elapsed - MIN_MS;
-        const phase2Duration = MAX_MS - MIN_MS; // 4.5s window
-        const creep = (phase2Elapsed / phase2Duration) * 9; // adds 0 → 9 on top of 90
-        setProgress(Math.round(90 + creep));
-
-        // Exit as soon as video signals it can play
-        if (isVideoReadyRef.current) { complete(); }
+        const phase2 = (elapsed - MIN_MS) / (MAX_MS - MIN_MS);
+        setProgress(Math.round(90 + phase2 * 9));
+        if (isVideoReadyRef.current) complete();
       }
     }, 50);
 
-    return () => {
-      clearInterval(interval);
-      clearInterval(wordInterval);
-      document.body.style.overflow = "";
-    };
+    return () => { clearInterval(interval); document.body.style.overflow = ""; };
   }, []);
 
+  if (hidden) return null;
+
   return (
-    <AnimatePresence>
-      {isLoading && (
-        <>
-          {/* Top panel */}
-          <motion.div
-            key="preloader-top"
-            initial={{ y: 0 }}
-            exit={{ y: "-100%" }}
-            transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0 }}
-            style={{
-              position: "fixed",
-              top: 0,
-              left: 0,
-              right: 0,
-              height: "50vh",
-              zIndex: 99999,
-              background: "#060606",
-              display: "flex",
-              alignItems: "flex-end",
-              justifyContent: "center",
-              paddingBottom: "0",
-              overflow: "hidden",
-            }}
-          >
-            {/* Ambient gradient top-left */}
-            <div style={{
-              position: "absolute",
-              top: "-20%",
-              left: "-10%",
-              width: "400px",
-              height: "400px",
-              borderRadius: "50%",
-              background: "radial-gradient(circle, rgba(58,58,200,0.12) 0%, transparent 70%)",
-              pointerEvents: "none",
-            }} />
-            {/* Ambient gradient top-right */}
-            <div style={{
-              position: "absolute",
-              top: "-20%",
-              right: "-10%",
-              width: "400px",
-              height: "400px",
-              borderRadius: "50%",
-              background: "radial-gradient(circle, rgba(180,60,120,0.1) 0%, transparent 70%)",
-              pointerEvents: "none",
-            }} />
-          </motion.div>
+    <div
+      style={{
+        position: "fixed",
+        inset: 0,
+        zIndex: 99999,
+        background: "#060606",
+        opacity: overlayOpacity,
+        transition: overlayOpacity < 1 ? "opacity 0.95s cubic-bezier(0.76, 0, 0.24, 1)" : "none",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        pointerEvents: overlayOpacity < 0.4 ? "none" : "auto",
+        overflow: "hidden",
+      }}
+    >
+      <style>{`
+        @keyframes drift1 {
+          0%   { transform: translate(0, 0) scale(1); }
+          100% { transform: translate(-50px, 40px) scale(1.12); }
+        }
+        @keyframes drift2 {
+          0%   { transform: translate(0, 0) scale(1); }
+          100% { transform: translate(50px, -35px) scale(1.18); }
+        }
+        @keyframes drift3 {
+          0%   { transform: translate(0, 0) scale(1); }
+          100% { transform: translate(25px, 50px) scale(0.88); }
+        }
+        @keyframes loader-name-in {
+          0%   { opacity: 0; transform: translateY(18px); filter: blur(6px); }
+          100% { opacity: 1; transform: translateY(0);    filter: blur(0px); }
+        }
+        @keyframes loader-sub-in {
+          0%   { opacity: 0; transform: translateY(10px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
 
-          {/* Bottom panel */}
-          <motion.div
-            key="preloader-bottom"
-            initial={{ y: 0 }}
-            exit={{ y: "100%" }}
-            transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0 }}
-            style={{
-              position: "fixed",
-              bottom: 0,
-              left: 0,
-              right: 0,
-              height: "50vh",
-              zIndex: 99999,
-              background: "#060606",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "flex-start",
-              paddingTop: "0",
-              overflow: "hidden",
-            }}
-          >
-            {/* Ambient gradient bottom */}
-            <div style={{
-              position: "absolute",
-              bottom: "-20%",
-              left: "30%",
-              width: "500px",
-              height: "300px",
-              borderRadius: "50%",
-              background: "radial-gradient(circle, rgba(100,180,240,0.08) 0%, transparent 70%)",
-              pointerEvents: "none",
-            }} />
+      {/* Aurora glows — matching particle video palette */}
+      <div style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
+        <div style={{
+          position: "absolute", top: "-15%", right: "-8%",
+          width: "55vw", height: "55vw", maxWidth: "700px", maxHeight: "700px",
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(110,195,244,0.13) 0%, transparent 65%)",
+          animation: "drift1 9s ease-in-out infinite alternate",
+        }} />
+        <div style={{
+          position: "absolute", bottom: "-20%", left: "-8%",
+          width: "50vw", height: "50vw", maxWidth: "650px", maxHeight: "650px",
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(255,97,171,0.11) 0%, transparent 65%)",
+          animation: "drift2 11s ease-in-out infinite alternate",
+        }} />
+        <div style={{
+          position: "absolute", top: "25%", left: "15%",
+          width: "40vw", height: "40vw", maxWidth: "520px", maxHeight: "520px",
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(58,58,200,0.09) 0%, transparent 65%)",
+          animation: "drift3 14s ease-in-out infinite alternate",
+        }} />
+      </div>
 
-            {/* Cycling word */}
-            <div style={{ overflow: "hidden", marginTop: "0", paddingTop: "1px" }}>
-              <AnimatePresence mode="wait">
-                {!isComplete && (
-                  <motion.p
-                    key={wordIndex}
-                    initial={{ y: "110%", opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: "-110%", opacity: 0 }}
-                    transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                    style={{
-                      fontFamily: "var(--font-display)",
-                      fontSize: "clamp(48px, 8vw, 96px)", // Increased size
-                      fontWeight: 500,
-                      letterSpacing: "-0.04em",
-                      color: "rgba(255,255,255,0.85)", // Brighter color
-                      lineHeight: 1,
-                      textAlign: "center",
-                      paddingBottom: "60px",
-                    }}
-                  >
-                    {WORDS[wordIndex]}
-                  </motion.p>
-                )}
-              </AnimatePresence>
-            </div>
+      {/* Centre identity */}
+      <div style={{ textAlign: "center", position: "relative", zIndex: 1 }}>
+        <h1
+          style={{
+            fontFamily: "var(--font-display)",
+            fontSize: "clamp(48px, 7.5vw, 92px)",
+            fontWeight: 400,
+            letterSpacing: "-0.04em",
+            color: "rgba(255,255,255,0.90)",
+            lineHeight: 1,
+            margin: 0,
+            animation: "loader-name-in 0.9s cubic-bezier(0.16,1,0.3,1) forwards",
+          }}
+        >
+          Jehan Zaib
+        </h1>
 
-            {/* Progress bar + counter — pinned to very bottom */}
-            <AnimatePresence>
-              {!isComplete && (
-                <motion.div
-                  initial={{ opacity: 1 }}
-                  exit={{ opacity: 0, y: 20 }}
-                  transition={{ duration: 0.4, ease: "easeOut" }}
-                  style={{
-                    position: "absolute",
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                  }}
-                >
-                  {/* Counter */}
-                  <div style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    padding: "0 clamp(24px, 4vw, 48px)",
-                    marginBottom: "10px",
-                  }}>
-                    <motion.span
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 0.3 }}
-                      style={{
-                        fontSize: "11px",
-                        letterSpacing: "0.12em",
-                        textTransform: "uppercase",
-                        color: "rgba(255,255,255,0.25)",
-                      }}
-                    >
-                      Digital Platform Architect
-                    </motion.span>
-                    <motion.span
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 0.3 }}
-                      style={{
-                        fontSize: "11px",
-                        letterSpacing: "0.06em",
-                        color: "rgba(255,255,255,0.3)",
-                        fontVariantNumeric: "tabular-nums",
-                        fontFamily: "var(--font-display)",
-                      }}
-                    >
-                      {progress}%
-                    </motion.span>
-                  </div>
+        {/* Thin gradient rule */}
+        <div style={{
+          width: "48px", height: "1px", margin: "18px auto 0",
+          background: "linear-gradient(90deg, #6ec3f4, #3a3aff, #ff61ab)",
+          borderRadius: "999px",
+        }} />
 
-                  {/* Progress track */}
-                  <div style={{
-                    width: "100%",
-                    height: "1px",
-                    background: "rgba(255,255,255,0.06)",
-                    position: "relative",
-                  }}>
-                    <motion.div
-                      style={{
-                        position: "absolute",
-                        left: 0,
-                        top: 0,
-                        height: "1px",
-                        background: "linear-gradient(90deg, rgba(58,58,200,0.8), rgba(180,60,120,0.8), rgba(100,180,240,0.8))",
-                        width: `${progress}%`,
-                        transition: "width 0.12s ease-out",
-                      }}
-                    />
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.div>
+        <p
+          style={{
+            fontSize: "10px",
+            letterSpacing: "0.26em",
+            textTransform: "uppercase",
+            color: "rgba(255,255,255,0.22)",
+            marginTop: "14px",
+            fontWeight: 500,
+            animation: "loader-sub-in 0.9s 0.25s cubic-bezier(0.16,1,0.3,1) both",
+          }}
+        >
+          Digital Platform Architect
+        </p>
+      </div>
 
-          {/* Centre hairline divider between panels */}
-          <motion.div
-            key="preloader-divider"
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            exit={{ scaleX: 0, opacity: 0 }}
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            style={{
-              position: "fixed",
-              top: "50vh",
-              left: "10%",
-              right: "10%",
-              height: "1px",
-              background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)",
-              zIndex: 99999,
-              transformOrigin: "center",
-            }}
-          />
-        </>
-      )}
-    </AnimatePresence>
+      {/* Progress — pinned to bottom */}
+      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0 }}>
+        <div style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          padding: "0 clamp(20px, 4vw, 48px)",
+          marginBottom: "10px",
+        }}>
+          <span style={{
+            fontSize: "10px",
+            letterSpacing: "0.14em",
+            textTransform: "uppercase",
+            color: "rgba(255,255,255,0.16)",
+          }}>
+            Loading experience
+          </span>
+          <span style={{
+            fontSize: "10px",
+            letterSpacing: "0.06em",
+            color: "rgba(255,255,255,0.22)",
+            fontVariantNumeric: "tabular-nums",
+            fontFamily: "var(--font-display)",
+          }}>
+            {progress}%
+          </span>
+        </div>
+
+        {/* Progress track */}
+        <div style={{
+          width: "100%", height: "1px",
+          background: "rgba(255,255,255,0.05)",
+          position: "relative",
+        }}>
+          <div style={{
+            position: "absolute", left: 0, top: 0, height: "1px",
+            width: `${progress}%`,
+            background: "linear-gradient(90deg, #3a3aff, #6ec3f4, #ff61ab)",
+            transition: "width 0.08s linear",
+            boxShadow: "0 0 8px rgba(110,195,244,0.5)",
+          }} />
+        </div>
+      </div>
+    </div>
   );
 }
