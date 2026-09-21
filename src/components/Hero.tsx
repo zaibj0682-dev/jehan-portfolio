@@ -21,8 +21,6 @@ export default function Hero() {
       className="relative flex items-center justify-center overflow-hidden"
       style={{
         minHeight: "clamp(800px, 100svh, 1080px)",
-        paddingLeft: "clamp(20px, 4vw, 40px)",
-        paddingRight: "clamp(20px, 4vw, 40px)",
         maxWidth: "1920px",
         margin: "0 auto",
       }}
@@ -39,6 +37,8 @@ export default function Hero() {
         style={{
           maxWidth: "1280px",
           margin: "0 auto",
+          paddingLeft: "clamp(20px, 4vw, 40px)",
+          paddingRight: "clamp(20px, 4vw, 40px)",
           paddingTop: "clamp(100px, 14vw, 160px)",
           paddingBottom: "clamp(80px, 10vw, 120px)",
         }}

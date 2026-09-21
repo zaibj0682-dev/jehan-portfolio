@@ -50,16 +50,16 @@ export default function Nav() {
           transformOrigin: "0%",
         }}
       />
-      <div style={{ padding: "0 clamp(20px,4vw,40px)" }}>
-        <div
-          className="flex items-center justify-between"
-          style={{
-            maxWidth: "1280px",
-            margin: "0 auto",
-            height: "60px",
-          }}
-        >
-          {/* Brand */}
+      <div
+        className="flex items-center justify-between"
+        style={{
+          maxWidth: "1280px",
+          margin: "0 auto",
+          padding: "0 clamp(20px,4vw,40px)",
+          height: "60px",
+        }}
+      >
+        {/* Brand */}
         <Magnetic intensity={0.1}>
           <Link
             href="/"
@@ -202,8 +202,6 @@ export default function Nav() {
           {open ? <X size={20} strokeWidth={1.5} /> : <Menu size={20} strokeWidth={1.5} />}
         </button>
       </div>
-      </div>
-
 
       {/* Mobile drawer */}
       <AnimatePresence>
