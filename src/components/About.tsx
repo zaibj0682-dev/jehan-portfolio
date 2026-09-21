@@ -32,7 +32,7 @@ function ProfileImage() {
       }}
     >
       <Image
-        src="/images/profile.png"
+        src="/images/profile.jpg"
         alt="Jehan Zaib"
         fill
         className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
@@ -183,7 +183,7 @@ export default function About() {
                     borderRadius: "16px",
                     overflow: "hidden",
                     position: "relative",
-                    background: "#f0ece8", // Match the image background just in case
+                    background: "#060606",
                   }}
                 >
                   <ProfileImage />
