@@ -25,9 +25,6 @@ export default function Hero() {
         margin: "0 auto",
       }}
     >
-      {/* bg gradient */}
-      <div className="absolute inset-0" style={{ background: "var(--hero-gradient)" }} aria-hidden />
-
       {/* Canvas-based animated gradient / Video */}
       <HeroBg />
 
