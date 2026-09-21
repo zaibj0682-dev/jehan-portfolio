@@ -39,21 +39,24 @@ export default function CTA() {
             <div style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", alignItems: "center", maxWidth: "800px" }}>
               <p
                 style={{
-                  fontSize: "12px",
+                  fontSize: "11px",
                   letterSpacing: "0.15em",
                   textTransform: "uppercase",
-                  color: "rgba(255,255,255,0.7)",
+                  color: "rgba(255,255,255,0.5)",
                   marginBottom: "24px",
-                  background: "rgba(0,0,0,0.5)",
-                  padding: "8px 20px",
+                  background: "rgba(255,255,255,0.04)",
+                  padding: "7px 18px",
                   borderRadius: "999px",
-                  backdropFilter: "blur(12px)",
-                  border: "1px solid rgba(255,255,255,0.15)",
+                  border: "1px solid rgba(255,255,255,0.1)",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "8px",
                 }}
               >
-                Ready to start?
+                <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#4ade80", boxShadow: "0 0 8px #4ade80", display: "inline-block" }} />
+                Now accepting new projects
               </p>
-              
+
               <h2
                 style={{
                   fontSize: "clamp(32px, 5vw, 60px)",
@@ -65,13 +68,14 @@ export default function CTA() {
                   marginBottom: "20px",
                 }}
               >
-                Ready to dominate your industry?
+                Let's build something your{" "}
+                <span style={{ color: "rgba(255,255,255,0.35)" }}>competitors can't ignore.</span>
               </h2>
-              
-              <p style={{ fontSize: "16px", color: "rgba(255,255,255,0.65)", lineHeight: 1.6, marginBottom: "32px", maxWidth: "600px" }}>
+
+              <p style={{ fontSize: "16px", color: "rgba(255,255,255,0.5)", lineHeight: 1.6, marginBottom: "40px", maxWidth: "520px" }}>
                 Stop losing high-ticket clients to poor design. Let's engineer a digital experience that reflects the true value of your brand.
               </p>
-              
+
               <Magnetic>
                 <a
                   href="https://www.fiverr.com/jehanzaib_007"
@@ -94,16 +98,18 @@ export default function CTA() {
                     letterSpacing: "-0.01em",
                   }}
                 >
-                  Message me on Fiverr
+                  Start your project
                   <ExternalLink size={16} strokeWidth={2.5} />
                 </a>
               </Magnetic>
-              
-              <div style={{ marginTop: "32px", display: "flex", alignItems: "center", gap: "10px" }}>
-                <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#4ade80", boxShadow: "0 0 12px #4ade80" }} />
-                <span style={{ fontSize: "12px", letterSpacing: "0.06em", color: "rgba(255,255,255,0.45)", textTransform: "uppercase" }}>
-                  Available for new projects
-                </span>
+
+              {/* Trust row */}
+              <div style={{ marginTop: "28px", display: "flex", alignItems: "center", gap: "20px", flexWrap: "wrap", justifyContent: "center" }}>
+                <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.3)" }}>~1 hr reply time</span>
+                <span style={{ width: 3, height: 3, borderRadius: "50%", background: "rgba(255,255,255,0.15)", display: "inline-block" }} />
+                <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.3)" }}>5.0 · 2,277 reviews</span>
+                <span style={{ width: 3, height: 3, borderRadius: "50%", background: "rgba(255,255,255,0.15)", display: "inline-block" }} />
+                <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.3)" }}>3,300+ platforms delivered</span>
               </div>
             </div>
             </div>
