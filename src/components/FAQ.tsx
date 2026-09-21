@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useSound } from "@/context/SoundContext";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, HelpCircle } from "lucide-react";
+import { Plus } from "lucide-react";
 
 const faqs = [
   {
@@ -194,20 +194,20 @@ export default function FAQ() {
         >
           {/* Left rail — sticky heading */}
           <div style={{ position: "sticky", top: "120px" }}>
-            {/* Icon */}
-            <div style={{
-              width: "48px",
-              height: "48px",
-              borderRadius: "14px",
-              border: "1px solid rgba(255,255,255,0.08)",
-              background: "rgba(255,255,255,0.03)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              marginBottom: "28px",
-            }}>
-              <HelpCircle size={22} strokeWidth={1.25} style={{ color: "rgba(255,255,255,0.4)" }} />
-            </div>
+            {/* Branded icon */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/icons/support.png"
+              alt=""
+              style={{
+                width: "96px",
+                height: "96px",
+                objectFit: "contain",
+                marginBottom: "32px",
+                filter: "grayscale(1)",
+                opacity: 0.55,
+              }}
+            />
 
             <p
               style={{
