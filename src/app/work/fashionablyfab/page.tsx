@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/ui/Reveal";
+import LazyVideo from "@/components/ui/LazyVideo";
 import ParallaxImage from "@/components/ui/ParallaxImage";
 
 const meta = [
@@ -107,9 +108,7 @@ export default function FashionablyFabCaseStudy() {
           <div aria-hidden style={{ position: "absolute", top: "5%", right: "5%", width: "35%", height: "60%", borderRadius: "50%", background: "radial-gradient(circle, rgba(220,80,160,0.09) 0%, transparent 70%)", filter: "blur(50px)", pointerEvents: "none", zIndex: 0 }} />
           <Reveal delay={0.05}>
             <div style={{ position: "relative", zIndex: 1, borderRadius: "18px", overflow: "hidden" }}>
-              <video autoPlay muted loop playsInline style={{ width: "100%", height: "auto", display: "block" }}>
-                <source src="/images/projects/fashionablyfab/demo.mp4" type="video/mp4" />
-              </video>
+              <LazyVideo src="/images/projects/fashionablyfab/demo.mp4" style={{ width: "100%", height: "auto", display: "block" }} />
             </div>
           </Reveal>
         </div>

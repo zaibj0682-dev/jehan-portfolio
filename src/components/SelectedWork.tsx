@@ -324,20 +324,17 @@ function ProjectCard({ study, index }: { study: CaseStudy; index: number }) {
               borderTop: "1px solid rgba(255,255,255,0.1)",
               display: "flex",
               alignItems: "center",
-              justifyContent: "space-between",
-              gap: "16px",
+              gap: "10px",
             }}
           >
-            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <span style={{ fontSize: "11px", letterSpacing: "0.05em", color: "rgba(255,255,255,0.3)", textTransform: "uppercase" }}>
-                Delivery
-              </span>
-              <span style={{ fontSize: "13px", color: "rgba(255,255,255,0.8)", fontWeight: 500 }}>
-                {study.time}
-              </span>
-            </div>
+            <span style={{ fontSize: "11px", letterSpacing: "0.05em", color: "rgba(255,255,255,0.3)", textTransform: "uppercase", flexShrink: 0 }}>
+              Result
+            </span>
+            <span style={{ fontSize: "13px", color: "rgba(255,255,255,0.75)", fontWeight: 500, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", minWidth: 0, flex: 1 }}>
+              {study.result}
+            </span>
             {study.caseStudy && (
-              <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.2)", letterSpacing: "0.06em", textTransform: "uppercase" }}>
+              <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.2)", letterSpacing: "0.06em", textTransform: "uppercase", whiteSpace: "nowrap", flexShrink: 0 }}>
                 Case study
               </span>
             )}

@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/ui/Reveal";
+import LazyVideo from "@/components/ui/LazyVideo";
 import ParallaxImage from "@/components/ui/ParallaxImage";
 
 const meta = [
@@ -149,9 +150,7 @@ export default function LandBeagleCaseStudy() {
           </div>
           <Reveal delay={0.05}>
             <div style={{ borderRadius: "20px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.07)", background: "#0a0a0a", position: "relative", zIndex: 1 }}>
-              <video autoPlay muted loop playsInline style={{ width: "100%", height: "auto", display: "block" }}>
-                <source src="/images/projects/landbeagle/demo.mp4" type="video/mp4" />
-              </video>
+              <LazyVideo src="/images/projects/landbeagle/demo.mp4" style={{ width: "100%", height: "auto", display: "block" }} />
             </div>
           </Reveal>
         </div>
