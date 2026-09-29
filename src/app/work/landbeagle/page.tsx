@@ -348,7 +348,7 @@ export default function LandBeagleCaseStudy() {
                     </h2>
                   </div>
                   <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.25)", maxWidth: "360px", lineHeight: 1.6, textAlign: "right" }}>
-                    Every capability used to take this project from brief to live — relevant to Fiverr Pro assessment.
+                    Every capability used to take this project from brief to live.
                   </p>
                 </div>
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0" }} className="skills-grid">
