@@ -76,6 +76,18 @@ const studies: CaseStudy[] = [
     mockup: "/images/projects/cognitrex/hero.png",
     alt: "Cognitrex enterprise learning platform",
   },
+  {
+    num: "06",
+    client: "Velisse Labs",
+    industry: "Research Products",
+    need: "A premium WooCommerce store with custom account-gating, tiered bundle pricing, and per-SKU COA verification — all built beyond what the platform supports out of the box.",
+    time: "Multi-month",
+    result: "Fully custom store live. Client returned multiple times for new products. 5-star review with tip.",
+    url: "https://velisselabs.com",
+    caseStudy: "/work/velisse",
+    mockup: "/images/projects/velisse/hero.png",
+    alt: "Velisse Labs WooCommerce research peptide store",
+  },
 ];
 
 import { useRef } from "react";
