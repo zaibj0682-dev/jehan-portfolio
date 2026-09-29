@@ -221,8 +221,8 @@ export default function CognitrexCaseStudy() {
           </div>
         </section>
 
-        {/* Use Case image */}
-        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", paddingBottom: "clamp(40px,5vw,64px)" }}>
+        {/* Use Case image — after Challenge */}
+        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", paddingBottom: "clamp(60px,7vw,100px)" }}>
           <Reveal>
             <div style={{ borderRadius: "20px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.07)" }}>
               <Image
@@ -235,26 +235,6 @@ export default function CognitrexCaseStudy() {
             </div>
             <p style={{ marginTop: "12px", fontSize: "12px", color: "rgba(255,255,255,0.2)", textAlign: "center", letterSpacing: "0.04em" }}>
               One of eight Use Case pages — Automation Solution
-            </p>
-          </Reveal>
-        </div>
-
-        {/* Video demo */}
-        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", paddingBottom: "clamp(60px,7vw,100px)" }}>
-          <Reveal>
-            <div style={{ borderRadius: "20px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.07)", background: "#0a0a0a" }}>
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                style={{ width: "100%", height: "auto", display: "block" }}
-              >
-                <source src="/images/projects/cognitrex/demo.mp4" type="video/mp4" />
-              </video>
-            </div>
-            <p style={{ marginTop: "12px", fontSize: "12px", color: "rgba(255,255,255,0.2)", textAlign: "center", letterSpacing: "0.04em" }}>
-              Live site walkthrough — cognitrex.com
             </p>
           </Reveal>
         </div>
@@ -285,6 +265,20 @@ export default function CognitrexCaseStudy() {
             </div>
           </div>
         </section>
+
+        {/* Video demo — after Approach */}
+        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", paddingBottom: "clamp(60px,7vw,100px)" }}>
+          <Reveal>
+            <div style={{ borderRadius: "20px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.07)", background: "#0a0a0a" }}>
+              <video autoPlay muted loop playsInline style={{ width: "100%", height: "auto", display: "block" }}>
+                <source src="/images/projects/cognitrex/demo.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <p style={{ marginTop: "12px", fontSize: "12px", color: "rgba(255,255,255,0.2)", textAlign: "center", letterSpacing: "0.04em" }}>
+              Live site walkthrough — cognitrex.com
+            </p>
+          </Reveal>
+        </div>
 
         {/* Pull quote */}
         <section style={{ paddingTop: "clamp(20px,3vw,40px)", paddingBottom: "clamp(60px,7vw,80px)" }}>
