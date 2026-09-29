@@ -142,22 +142,17 @@ export default function FashionablyFabCaseStudy() {
           </Reveal>
         </div>
 
-        {/* Hero image with ambient glow */}
+        {/* Video hero */}
         <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", position: "relative" }}>
           <div aria-hidden style={{ position: "absolute", inset: 0, pointerEvents: "none", zIndex: 0 }}>
             <div style={{ position: "absolute", top: "15%", left: "-5%", width: "45%", height: "60%", borderRadius: "50%", background: "radial-gradient(circle, rgba(160,100,220,0.10) 0%, transparent 70%)", filter: "blur(40px)" }} />
             <div style={{ position: "absolute", top: "10%", right: "-5%", width: "40%", height: "60%", borderRadius: "50%", background: "radial-gradient(circle, rgba(230,120,180,0.09) 0%, transparent 70%)", filter: "blur(40px)" }} />
           </div>
           <Reveal delay={0.05}>
-            <div style={{ borderRadius: "20px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.07)", position: "relative", zIndex: 1 }}>
-              <Image
-                src="/images/projects/fashionablyfab/hero.png"
-                alt="FashionablyFab — editorial lifestyle brand site, About page"
-                width={1280}
-                height={960}
-                style={{ width: "100%", height: "auto", display: "block" }}
-                priority
-              />
+            <div style={{ borderRadius: "20px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.07)", background: "#0a0a0a", position: "relative", zIndex: 1 }}>
+              <video autoPlay muted loop playsInline style={{ width: "100%", height: "auto", display: "block" }}>
+                <source src="/images/projects/fashionablyfab/demo.mp4" type="video/mp4" />
+              </video>
             </div>
           </Reveal>
         </div>
@@ -257,20 +252,6 @@ export default function FashionablyFabCaseStudy() {
             </div>
           </div>
         </section>
-
-        {/* Video demo */}
-        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", paddingBottom: "clamp(60px,7vw,100px)" }}>
-          <Reveal>
-            <div style={{ borderRadius: "20px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.07)", background: "#0a0a0a" }}>
-              <video autoPlay muted loop playsInline style={{ width: "100%", height: "auto", display: "block" }}>
-                <source src="/images/projects/fashionablyfab/demo.mp4" type="video/mp4" />
-              </video>
-            </div>
-            <p style={{ marginTop: "12px", fontSize: "12px", color: "rgba(255,255,255,0.2)", textAlign: "center", letterSpacing: "0.04em" }}>
-              Live site walkthrough — fashionablyfab.com
-            </p>
-          </Reveal>
-        </div>
 
         {/* Pull quote */}
         <section style={{ paddingTop: "clamp(20px,3vw,40px)", paddingBottom: "clamp(60px,7vw,80px)" }}>

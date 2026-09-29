@@ -90,6 +90,18 @@ const studies: CaseStudy[] = [
   },
   {
     num: "07",
+    client: "Lotus Ledger",
+    industry: "SaaS / POS",
+    need: "A premium SaaS marketing site that started on WordPress, hit a wall with scroll animations, and was fully rebuilt as a custom Next.js app — deployed on the client's own Vercel, with all copy and graphics created from scratch.",
+    time: "Multi-phase",
+    result: "Custom-coded site live on client's own infrastructure. Full pivot from WordPress without losing the client.",
+    url: "https://www.lotusledger.io",
+    caseStudy: "/work/lotusledger",
+    mockup: "/images/projects/lotusledger/hero.png",
+    alt: "Lotus Ledger salon POS SaaS marketing site",
+  },
+  {
+    num: "08",
     client: "FashionablyFab",
     industry: "Lifestyle & Editorial",
     need: "A premium editorial lifestyle brand site built from a Figma file with no animation specs and no real mobile layout — with everything the client expected built from scratch beyond what the file specified.",
