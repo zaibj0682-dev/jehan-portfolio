@@ -63,6 +63,15 @@ const outcomes = [
   "Press-release launch",
 ];
 
+const timeline = [
+  { date: "Dec 28", event: "Project start", detail: "26-page brief received" },
+  { date: "Dec 30", event: "GHL migration", detail: "Full re-platform mid-build" },
+  { date: "Dec 31", event: "Coming Soon live", detail: "Same-day, no charge" },
+  { date: "Jan 1", event: "Cognitrex launches", detail: "Press release goes live" },
+  { date: "Jan 5", event: "Hana Dhanji brief", detail: "Second site, design pivot" },
+  { date: "Jan 14", event: "Both sites live", detail: "On time, 5.0 rating" },
+];
+
 const skills = {
   stack: [
     "WordPress",
@@ -185,6 +194,22 @@ export default function CognitrexCaseStudy() {
           </Reveal>
         </div>
 
+        {/* Press coverage bar */}
+        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", paddingBottom: "clamp(32px,4vw,48px)" }}>
+          <Reveal>
+            <div style={{ display: "flex", alignItems: "center", gap: "clamp(16px,3vw,32px)", flexWrap: "wrap", padding: "20px 28px", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "14px", background: "rgba(255,255,255,0.02)" }}>
+              <span style={{ fontSize: "10px", letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.2)", whiteSpace: "nowrap", flexShrink: 0 }}>Client featured in</span>
+              <div style={{ width: "1px", height: "16px", background: "rgba(255,255,255,0.08)", flexShrink: 0 }} className="press-divider" />
+              {["Forbes", "GlobeNewsWire", "Canadian Business Today"].map((pub, i, arr) => (
+                <div key={pub} style={{ display: "flex", alignItems: "center", gap: "clamp(16px,3vw,32px)" }}>
+                  <span style={{ fontSize: "clamp(13px,1.4vw,16px)", fontWeight: 500, color: "rgba(255,255,255,0.45)", letterSpacing: "-0.01em", fontFamily: "var(--font-display)" }}>{pub}</span>
+                  {i < arr.length - 1 && <span style={{ width: 3, height: 3, borderRadius: "50%", background: "rgba(255,255,255,0.15)", display: "inline-block" }} />}
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+
         {/* Stats strip */}
         <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", paddingTop: "clamp(48px,5vw,72px)", paddingBottom: "clamp(48px,5vw,72px)" }}>
           <Reveal>
@@ -221,6 +246,28 @@ export default function CognitrexCaseStudy() {
           </div>
         </section>
 
+        {/* Timeline */}
+        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", paddingBottom: "clamp(60px,7vw,100px)" }}>
+          <Reveal>
+            <div style={{ borderRadius: "16px", border: "1px solid rgba(255,255,255,0.07)", overflow: "hidden" }}>
+              <div style={{ padding: "20px 28px", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+                <span style={{ fontSize: "10px", letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.2)" }}>Project timeline</span>
+              </div>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(6,1fr)" }} className="timeline-grid">
+                {timeline.map((t, i) => (
+                  <div key={t.date} style={{ padding: "20px 20px 24px", borderRight: i < timeline.length - 1 ? "1px solid rgba(255,255,255,0.06)" : "none", display: "flex", flexDirection: "column", gap: "8px", position: "relative" }}>
+                    {/* connector dot */}
+                    <div style={{ width: 6, height: 6, borderRadius: "50%", background: i === 3 ? "#4ade80" : "rgba(255,255,255,0.2)", marginBottom: "4px", boxShadow: i === 3 ? "0 0 8px #4ade80" : "none" }} />
+                    <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.3)", letterSpacing: "0.06em" }}>{t.date}</span>
+                    <span style={{ fontSize: "13px", fontWeight: 500, color: "rgba(255,255,255,0.8)", lineHeight: 1.3 }}>{t.event}</span>
+                    <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.35)", lineHeight: 1.4 }}>{t.detail}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+        </div>
+
         {/* Use Case image — after Challenge */}
         <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", paddingBottom: "clamp(60px,7vw,100px)" }}>
           <Reveal>
@@ -236,6 +283,29 @@ export default function CognitrexCaseStudy() {
             <p style={{ marginTop: "12px", fontSize: "12px", color: "rgba(255,255,255,0.2)", textAlign: "center", letterSpacing: "0.04em" }}>
               One of eight Use Case pages — Automation Solution
             </p>
+          </Reveal>
+        </div>
+
+        {/* Side-by-side: two deliverables */}
+        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", paddingBottom: "clamp(60px,7vw,100px)" }}>
+          <Reveal>
+            <p style={{ fontSize: "11px", letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.2)", marginBottom: "20px" }}>Two deliverables. Two completely different design systems.</p>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }} className="compare-grid">
+              {[
+                { src: "/images/projects/cognitrex/hero.png", label: "Corporate Platform", sub: "cognitrex.com", w: 1280, h: 854 },
+                { src: "/images/projects/cognitrex/hana.png", label: "Executive Personal Brand", sub: "hanadhanji.com", w: 1366, h: 1024 },
+              ].map((item) => (
+                <div key={item.label}>
+                  <div style={{ borderRadius: "16px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.07)" }}>
+                    <Image src={item.src} alt={item.label} width={item.w} height={item.h} style={{ width: "100%", height: "auto", display: "block" }} />
+                  </div>
+                  <div style={{ marginTop: "12px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                    <span style={{ fontSize: "13px", color: "rgba(255,255,255,0.6)", fontWeight: 500 }}>{item.label}</span>
+                    <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", letterSpacing: "0.04em" }}>{item.sub}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </Reveal>
         </div>
 
@@ -408,6 +478,10 @@ export default function CognitrexCaseStudy() {
           .stats-grid { grid-template-columns: 1fr 1fr !important; }
           .skills-grid { grid-template-columns: 1fr !important; }
           .skills-grid > div:first-child { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.07); }
+          .timeline-grid { grid-template-columns: 1fr 1fr !important; }
+          .timeline-grid > div { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.06); }
+          .compare-grid { grid-template-columns: 1fr !important; }
+          .press-divider { display: none; }
         }
       `}</style>
     </>
