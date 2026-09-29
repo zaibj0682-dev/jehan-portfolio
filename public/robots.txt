@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jehanzaib.com/sitemap.xml
+Sitemap: https://jehanzaib007.com/sitemap.xml
