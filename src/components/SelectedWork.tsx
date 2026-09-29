@@ -14,6 +14,7 @@ interface CaseStudy {
   time: string;
   result: string;
   url: string | null;
+  caseStudy?: string;
   mockup: string;
   alt: string;
 }
@@ -62,6 +63,18 @@ const studies: CaseStudy[] = [
     url: "https://penguinkeys.com",
     mockup: "/images/projects/penguinkeys-mockup.png",
     alt: "Penguin Keys WooCommerce store",
+  },
+  {
+    num: "05",
+    client: "Cognitrex & Hana Dhanji",
+    industry: "Enterprise SaaS",
+    need: "Two premium websites — a 26-page enterprise learning platform and an executive personal brand site — built in 17 days against press-release-driven launch deadlines.",
+    time: "17 days",
+    result: "Both sites launched on time. Featured in Forbes, GlobeNewsWire, and Canadian Business Today.",
+    url: "https://cognitrex.com",
+    caseStudy: "/work/cognitrex",
+    mockup: "/images/projects/cognitrex/hero.png",
+    alt: "Cognitrex enterprise learning platform",
   },
 ];
 
@@ -222,6 +235,23 @@ function ProjectCard({ study, index }: { study: CaseStudy; index: number }) {
                 {study.time}
               </span>
             </div>
+            {study.caseStudy && (
+              <a
+                href={study.caseStudy}
+                style={{
+                  fontSize: "12px",
+                  color: "rgba(255,255,255,0.5)",
+                  textDecoration: "none",
+                  letterSpacing: "0.01em",
+                  transition: "color 0.2s",
+                  whiteSpace: "nowrap",
+                }}
+                onMouseEnter={e => (e.currentTarget.style.color = "rgba(255,255,255,0.9)")}
+                onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.5)")}
+              >
+                Read case study →
+              </a>
+            )}
           </div>
         </div>
       </div>
