@@ -6,8 +6,8 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 const milestones = [
   { year: "2020", event: "Launched career. First 10 projects shipped in 30 days." },
-  { year: "2022", event: "Achieved Top Rated status. First enterprise-scale project." },
   { year: "2023", event: "Founded agency to scale operations globally." },
+  { year: "2024", event: "Achieved Top Rated status. First enterprise-scale project." },
   { year: "2026", event: "Thousands of custom platforms delivered. Maintaining a 5.0 elite standard." },
 ];
 
@@ -214,7 +214,7 @@ export default function About() {
                 {[
                   { value: "3,300+", label: "Projects Delivered" },
                   { value: "5.0", label: "Average Rating" },
-                  { value: "6+ yrs", label: "Top Rated Status" },
+                  { value: "6+ yrs", label: "On Fiverr" },
                   { value: "25+", label: "Expert Team" },
                 ].map((s) => (
                   <div

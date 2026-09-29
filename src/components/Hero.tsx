@@ -65,7 +65,7 @@ export default function Hero() {
               }}
             >
               <Star size={11} strokeWidth={1.5} style={{ color: "#d39794" }} />
-              Top Rated · Fiverr · Since 2020
+              Top Rated Seller · On Fiverr Since 2020
             </span>
           </motion.div>
 

@@ -73,7 +73,7 @@ export default function Marquee() {
           textTransform: "uppercase"
         }}
       >
-        <MarqueeItem text="NEXT.JS · REACT · NODE.JS · THREE.JS · TAILWIND" baseVelocity={-2} />
+        <MarqueeItem text="WORDPRESS · ELEMENTOR · WOOCOMMERCE · SHOPIFY · WIX" baseVelocity={-2} />
       </div>
       <div 
         style={{
@@ -85,7 +85,7 @@ export default function Marquee() {
           textTransform: "uppercase"
         }}
       >
-        <MarqueeItem text="FRAMER MOTION · AWS · VERCEL · STRIPE · SUPABASE" baseVelocity={2} />
+        <MarqueeItem text="NEXT.JS · REACT · TAILWIND · VERCEL · CUSTOM PHP" baseVelocity={2} />
       </div>
     </section>
   );

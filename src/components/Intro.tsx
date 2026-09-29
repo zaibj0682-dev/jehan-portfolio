@@ -6,7 +6,7 @@ const lines = [
   "My journey started in a university dorm room, balancing lectures with late-night coding.",
   "I learned a new framework in the morning and deployed it for a real client by evening.",
   "That relentless pace — engineering fast, delivering faster — became my entire philosophy.",
-  "It took 18 months of uncompromising dedication to earn my first Top Rated badge.",
+  "It took years of uncompromising dedication to earn my first Top Rated badge.",
   "Then came the first enterprise contract. Then clients in the US. Then the UK. Then globally.",
   "To handle the immense scale, I founded an agency.",
   "Today, we architect and launch over 100 bespoke web experiences every single month.",
