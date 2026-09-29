@@ -88,6 +88,18 @@ const studies: CaseStudy[] = [
     mockup: "/images/projects/velisse/hero.png",
     alt: "Velisse Labs WooCommerce research peptide store",
   },
+  {
+    num: "07",
+    client: "FashionablyFab",
+    industry: "Lifestyle & Editorial",
+    need: "A premium editorial lifestyle brand site built from a Figma file with no animation specs and no real mobile layout — with everything the client expected built from scratch beyond what the file specified.",
+    time: "Phase 1 + 2",
+    result: "\"I really love my site. You were able to execute my vision.\" — Phase 2 work booked immediately.",
+    url: "https://www.fashionablyfab.com",
+    caseStudy: "/work/fashionablyfab",
+    mockup: "/images/projects/fashionablyfab/hero.png",
+    alt: "FashionablyFab editorial lifestyle brand website",
+  },
 ];
 
 import { useRef } from "react";
