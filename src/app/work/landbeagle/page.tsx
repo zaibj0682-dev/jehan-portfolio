@@ -8,94 +8,85 @@ import Reveal from "@/components/ui/Reveal";
 import ParallaxImage from "@/components/ui/ParallaxImage";
 
 const meta = [
-  { label: "Client", value: "Cognitrex · Hana Dhanji" },
-  { label: "Type", value: "WordPress · Elementor · Go High Level" },
-  { label: "Scope", value: "26-page corporate + 5-page personal brand" },
-  { label: "Deadline", value: "Hard Jan 1st — press release driven" },
+  { label: "Client", value: "Land Beagle · Endeavor Ventures LLC" },
+  { label: "Type", value: "Custom Platform · Full-Stack Web Application" },
+  { label: "Scope", value: "Two-sided land marketplace + full admin console" },
+  { label: "Status", value: "Live · landbeagle.net" },
 ];
 
 const stats = [
-  { value: "26", label: "Pages built" },
-  { value: "2", label: "Sites delivered" },
-  { value: "2 days", label: "Initial deadline" },
+  { value: "2-sided", label: "Marketplace" },
+  { value: "Custom", label: "Admin console" },
+  { value: "Vetted", label: "Seller system" },
   { value: "5.0", label: "Client rating" },
 ];
 
 const approach = [
   {
     n: "01",
-    title: "26-page build matched to spec",
-    body: "Built the full Cognitrex site on WordPress and Elementor, mirroring the depth and structure of their reference site (LearningOS) across every Platform, Solutions, Services, and eight Use Case pages — all aligned to their brand guide.",
+    title: "Full two-sided marketplace architecture",
+    body: "Built distinct buyer and seller flows from the ground up — buyers browse, search, and message sellers directly; sellers go through an application and approval process before listing. Neither flow was templated — every interaction was designed and built custom.",
   },
   {
     n: "02",
-    title: "Mid-build hosting migration",
-    body: "When the client switched from GoDaddy to Go High Level partway through, I re-platformed the entire build without disrupting the timeline or missing a single external deadline.",
+    title: "Location-based property search",
+    body: "Built a multi-filter search system with State, County, and City dropdowns alongside deal type, minimum price, and minimum acreage inputs — returning live listings matched to the buyer's exact criteria.",
   },
   {
     n: "03",
-    title: "Full design pivot on the personal site",
-    body: "Implemented a locked editorial design system for hanadhanji.com — specific hex codes, the paid IvyPresto typeface at exact weight, and four approved photos placed exactly as the brand spec called for.",
+    title: "APN-indexed listing system",
+    body: "Every property is tracked by its Assessor's Parcel Number — the legal identifier for land. Listings are indexed, searchable, and manageable by APN, giving sellers and admins a professional-grade record system that mirrors how real land transactions are tracked.",
   },
   {
     n: "04",
-    title: "Same-day Coming Soon page — no charge",
-    body: "When the client needed a placeholder live before a press release with almost no notice, I built and shipped a Coming Soon page at no extra cost to protect their public image.",
+    title: "Vetted seller onboarding",
+    body: "Built a full seller application and review flow — applicants submit, the admin reviews and approves or rejects, and only approved sellers can list. No anonymous listings, no unvetted inventory on the platform.",
   },
   {
     n: "05",
-    title: "High-volume feedback, fast turnarounds",
-    body: "Worked directly from checklists, Notion docs, and screen recordings. Ran early-morning Zoom sessions timed around press release go-lives. Confirmed every ambiguity before touching the site.",
+    title: "Bones rewards and invoicing system",
+    body: "Designed and built a custom rewards program — 'Bones' — that tracks seller activity, applies tiered fee structures, and generates invoices, all managed through the admin console with a real-time sales pipeline showing Pending, Invoiced, and Paid stages.",
   },
   {
     n: "06",
-    title: "Scope boundaries held clearly",
-    body: "When requests moved into full SEO strategy, I pointed the client to the right specialist rather than overpromising — while handling everything design and development related myself, including post-launch troubleshooting.",
+    title: "Full admin console built from scratch",
+    body: "Built a complete operator dashboard: overview metrics, featured listing rotation, listings management by APN, seller application review, direct messaging, blog management, media library, and settings — all as one cohesive internal tool built for a non-technical operator.",
   },
 ];
 
 const outcomes = [
-  "Zero missed deadlines",
-  "Mid-build migration",
-  "Full design overhaul",
-  "Repeat client",
-  "Same-day emergency page",
-  "Press-release launch",
-];
-
-const timeline = [
-  { date: "Dec 28", event: "Project start", detail: "26-page brief received" },
-  { date: "Dec 30", event: "GHL migration", detail: "Full re-platform mid-build" },
-  { date: "Dec 31", event: "Coming Soon live", detail: "Same-day, no charge" },
-  { date: "Jan 1", event: "Cognitrex launches", detail: "Press release goes live" },
-  { date: "Jan 5", event: "Hana Dhanji brief", detail: "Second site, design pivot" },
-  { date: "Jan 14", event: "Both sites live", detail: "On time, 5.0 rating" },
+  "Full marketplace platform",
+  "Custom admin console",
+  "Vetted seller onboarding",
+  "APN-indexed listings",
+  "Bones rewards system",
+  "Direct buyer-seller messaging",
 ];
 
 const skills = {
   stack: [
-    "WordPress",
-    "Elementor",
-    "Go High Level",
-    "PHP & MySQL",
-    "Custom CSS",
-    "Responsive Design",
-    "DNS & Hosting Migration",
-    "Schema & SEO Foundations",
+    "Custom Full-Stack Platform",
+    "Marketplace Architecture",
+    "Member Authentication",
+    "Location-Based Search",
+    "Admin Dashboard",
+    "Rewards & Invoicing System",
+    "Blog & Community",
+    "Media Library",
   ],
   disciplines: [
-    "Information Architecture",
-    "Brand System Implementation",
-    "Editorial Typography",
-    "Multi-site Management",
-    "Scope & Budget Control",
-    "Deadline-Driven Delivery",
-    "Client Communication",
-    "Post-Launch Support",
+    "Two-sided Marketplace Design",
+    "Buyer & Seller UX",
+    "Admin Dashboard Design",
+    "Custom Backend Architecture",
+    "Search & Filter Systems",
+    "Seller Vetting Workflow",
+    "Financial Pipeline Management",
+    "End-to-End Product Ownership",
   ],
 };
 
-export default function CognitrexCaseStudy() {
+export default function LandBeagleCaseStudy() {
   return (
     <>
       <Nav />
@@ -121,20 +112,19 @@ export default function CognitrexCaseStudy() {
         <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", paddingTop: "clamp(32px,4vw,48px)" }}>
           <Reveal>
             <p style={{ fontSize: "11px", letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)", marginBottom: "20px" }}>
-              Case Study · WordPress
+              Case Study · Custom Platform
             </p>
           </Reveal>
 
           <Reveal delay={0.05}>
             <h1 style={{ fontSize: "clamp(36px,5.5vw,72px)", fontWeight: 400, letterSpacing: "-0.04em", lineHeight: 1.05, fontFamily: "var(--font-display)", color: "var(--color-text-heading)", maxWidth: "780px", marginBottom: "12px" }}>
-              Cognitrex{" "}
-              <span style={{ color: "rgba(255,255,255,0.3)" }}>& Hana Dhanji</span>
+              Land Beagle
             </h1>
           </Reveal>
 
           <Reveal delay={0.08}>
-            <p style={{ fontSize: "clamp(15px,1.3vw,18px)", color: "rgba(255,255,255,0.45)", lineHeight: 1.6, maxWidth: "600px", marginBottom: "clamp(32px,4vw,56px)" }}>
-              Two complete websites — a 26-page enterprise learning platform and an executive personal brand — both delivered against hard press-release deadlines, through a mid-build hosting migration and a full design overhaul.
+            <p style={{ fontSize: "clamp(15px,1.3vw,18px)", color: "rgba(255,255,255,0.45)", lineHeight: 1.6, maxWidth: "640px", marginBottom: "clamp(32px,4vw,56px)" }}>
+              A full two-sided land marketplace built from scratch — vetted seller onboarding, location-based property search, APN-indexed listings, direct buyer-seller messaging, a custom Bones rewards system, and a complete admin console to operate the entire platform.
             </p>
           </Reveal>
 
@@ -154,62 +144,41 @@ export default function CognitrexCaseStudy() {
         {/* Video hero */}
         <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", position: "relative" }}>
           <div aria-hidden style={{ position: "absolute", inset: 0, pointerEvents: "none", zIndex: 0 }}>
-            <div style={{ position: "absolute", top: "20%", left: "-5%", width: "45%", height: "60%", borderRadius: "50%", background: "radial-gradient(circle, rgba(110,195,244,0.12) 0%, transparent 70%)", filter: "blur(40px)" }} />
-            <div style={{ position: "absolute", top: "10%", right: "-5%", width: "40%", height: "60%", borderRadius: "50%", background: "radial-gradient(circle, rgba(255,97,171,0.09) 0%, transparent 70%)", filter: "blur(40px)" }} />
+            <div style={{ position: "absolute", top: "15%", left: "-5%", width: "45%", height: "60%", borderRadius: "50%", background: "radial-gradient(circle, rgba(200,120,60,0.12) 0%, transparent 70%)", filter: "blur(40px)" }} />
+            <div style={{ position: "absolute", top: "10%", right: "-5%", width: "40%", height: "60%", borderRadius: "50%", background: "radial-gradient(circle, rgba(180,90,40,0.09) 0%, transparent 70%)", filter: "blur(40px)" }} />
           </div>
           <Reveal delay={0.05}>
             <div style={{ borderRadius: "20px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.07)", background: "#0a0a0a", position: "relative", zIndex: 1 }}>
               <video autoPlay muted loop playsInline style={{ width: "100%", height: "auto", display: "block" }}>
-                <source src="/images/projects/cognitrex/demo.mp4" type="video/mp4" />
+                <source src="/images/projects/landbeagle/demo.mp4" type="video/mp4" />
               </video>
             </div>
           </Reveal>
         </div>
 
-        {/* Live links */}
-        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", paddingTop: "20px" }}>
+        {/* Live link */}
+        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", paddingTop: "20px", paddingBottom: "clamp(32px,4vw,48px)" }}>
           <Reveal>
             <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
-              {[
-                { label: "cognitrex.com", href: "https://cognitrex.com" },
-                { label: "hanadhanji.com", href: "https://hanadhanji.com" },
-              ].map((l) => (
-                <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer"
-                  style={{ display: "inline-flex", alignItems: "center", gap: "6px", fontSize: "12px", color: "rgba(255,255,255,0.4)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "999px", padding: "7px 16px", textDecoration: "none", transition: "color 0.2s, border-color 0.2s" }}
-                  onMouseEnter={e => { e.currentTarget.style.color = "rgba(255,255,255,0.8)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.25)"; }}
-                  onMouseLeave={e => { e.currentTarget.style.color = "rgba(255,255,255,0.4)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)"; }}
-                >
-                  <ExternalLink size={11} strokeWidth={1.5} />
-                  {l.label}
-                </a>
-              ))}
-            </div>
-          </Reveal>
-        </div>
-
-        {/* Press coverage bar */}
-        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", paddingBottom: "clamp(32px,4vw,48px)" }}>
-          <Reveal>
-            <div style={{ display: "flex", alignItems: "center", gap: "clamp(16px,3vw,32px)", flexWrap: "wrap", padding: "20px 28px", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "14px", background: "rgba(255,255,255,0.02)" }}>
-              <span style={{ fontSize: "10px", letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.2)", whiteSpace: "nowrap", flexShrink: 0 }}>Client featured in</span>
-              <div style={{ width: "1px", height: "16px", background: "rgba(255,255,255,0.08)", flexShrink: 0 }} className="press-divider" />
-              {["Forbes", "GlobeNewsWire", "Canadian Business Today"].map((pub, i, arr) => (
-                <div key={pub} style={{ display: "flex", alignItems: "center", gap: "clamp(16px,3vw,32px)" }}>
-                  <span style={{ fontSize: "clamp(13px,1.4vw,16px)", fontWeight: 500, color: "rgba(255,255,255,0.45)", letterSpacing: "-0.01em", fontFamily: "var(--font-display)" }}>{pub}</span>
-                  {i < arr.length - 1 && <span style={{ width: 3, height: 3, borderRadius: "50%", background: "rgba(255,255,255,0.15)", display: "inline-block" }} />}
-                </div>
-              ))}
+              <a href="https://landbeagle.net" target="_blank" rel="noopener noreferrer"
+                style={{ display: "inline-flex", alignItems: "center", gap: "6px", fontSize: "12px", color: "rgba(255,255,255,0.4)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "999px", padding: "7px 16px", textDecoration: "none", transition: "color 0.2s, border-color 0.2s" }}
+                onMouseEnter={e => { e.currentTarget.style.color = "rgba(255,255,255,0.8)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.25)"; }}
+                onMouseLeave={e => { e.currentTarget.style.color = "rgba(255,255,255,0.4)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)"; }}
+              >
+                <ExternalLink size={11} strokeWidth={1.5} />
+                landbeagle.net
+              </a>
             </div>
           </Reveal>
         </div>
 
         {/* Stats strip */}
-        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", paddingTop: "clamp(48px,5vw,72px)", paddingBottom: "clamp(48px,5vw,72px)" }}>
+        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", paddingBottom: "clamp(48px,5vw,72px)" }}>
           <Reveal>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: "1px", background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "20px", overflow: "hidden" }} className="stats-grid">
               {stats.map((s) => (
                 <div key={s.label} style={{ background: "rgba(255,255,255,0.02)", padding: "clamp(24px,3vw,40px) 24px", display: "flex", flexDirection: "column", gap: "8px", alignItems: "center", textAlign: "center" }}>
-                  <span style={{ fontSize: "clamp(28px,3.5vw,48px)", fontWeight: 600, letterSpacing: "-0.04em", background: "linear-gradient(180deg,#fff,rgba(255,255,255,0.6))", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", lineHeight: 1 }}>{s.value}</span>
+                  <span style={{ fontSize: "clamp(22px,3vw,40px)", fontWeight: 600, letterSpacing: "-0.04em", background: "linear-gradient(180deg,#fff,rgba(255,255,255,0.6))", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", lineHeight: 1 }}>{s.value}</span>
                   <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.35)", letterSpacing: "0.08em", textTransform: "uppercase" }}>{s.label}</span>
                 </div>
               ))}
@@ -229,56 +198,32 @@ export default function CognitrexCaseStudy() {
               </Reveal>
               <Reveal delay={0.06}>
                 <div style={{ display: "flex", flexDirection: "column", gap: "20px", fontSize: "15px", lineHeight: 1.75, color: "rgba(255,255,255,0.55)" }}>
-                  <p>The client needed a fully functional, premium website live within just 2 days — a brand-new company with nothing existing to fall back on. Cognitrex needed a 26-page WordPress site built to the depth of an established industry benchmark, covering Platform, Solutions, Services, and eight separate Use Case pages, all against a hard January 1st launch tied to national press releases going live on GlobeNewsWire, Forbes, and Canadian Business Today.</p>
-                  <p>Midway through the build, the client asked to switch hosting from GoDaddy to Go High Level — meaning the entire site had to be re-platformed without losing momentum or missing the deadline.</p>
-                  <p>Almost immediately after, the same client needed a second, completely different website: a personal executive-branding site for the founder herself. That project went through a full stylistic pivot mid-build — from a standard premium design to an exact, locked institutional design system, right down to specific hex codes, a paid custom typeface at a precise font weight, and a strict rule limiting the entire site to four specified photos in four specified positions.</p>
-                  <p>On top of that, the client's team reviewed everything in extreme detail through checklists, Notion documents, and screen recordings — with additional out-of-scope requests surfacing throughout that needed to be scoped clearly without damaging the relationship.</p>
+                  <p>The client needed a complete two-sided land marketplace built from the ground up — not a template, not a plugin, not a modified WordPress theme. Land Beagle had to work as a real product: buyers browsing vetted land listings, sellers applying to list their properties, and an operator managing all of it through a professional admin console.</p>
+                  <p>Every feature on the list was custom. Location-based search across State, County, and City. APN-indexed listings — the same identifier system used in real land transactions. A seller vetting and application approval system so no anonymous listings ever appeared on the platform. Direct buyer-to-seller messaging. A rewards system ("Bones") tied to seller activity with tiered fee structures and invoice generation.</p>
+                  <p>On top of the platform itself, the client needed a full admin console to actually operate the business — one tool that could handle listings management, seller applications, messaging, blog posts, the media library, invoicing, and all platform settings, without requiring technical knowledge to run it.</p>
                 </div>
               </Reveal>
             </div>
           </div>
         </section>
 
-        {/* Timeline */}
-        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", paddingBottom: "clamp(60px,7vw,100px)" }}>
-          <Reveal>
-            <div style={{ borderRadius: "16px", border: "1px solid rgba(255,255,255,0.07)", overflow: "hidden" }}>
-              <div style={{ padding: "20px 28px", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-                <span style={{ fontSize: "10px", letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.2)" }}>Project timeline</span>
-              </div>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(6,1fr)" }} className="timeline-grid">
-                {timeline.map((t, i) => (
-                  <div key={t.date} style={{ padding: "20px 20px 24px", borderRight: i < timeline.length - 1 ? "1px solid rgba(255,255,255,0.06)" : "none", display: "flex", flexDirection: "column", gap: "8px", position: "relative" }}>
-                    {/* connector dot */}
-                    <div style={{ width: 6, height: 6, borderRadius: "50%", background: i === 3 ? "#4ade80" : "rgba(255,255,255,0.2)", marginBottom: "4px", boxShadow: i === 3 ? "0 0 8px #4ade80" : "none" }} />
-                    <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.3)", letterSpacing: "0.06em" }}>{t.date}</span>
-                    <span style={{ fontSize: "13px", fontWeight: 500, color: "rgba(255,255,255,0.8)", lineHeight: 1.3 }}>{t.event}</span>
-                    <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.35)", lineHeight: 1.4 }}>{t.detail}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </Reveal>
-        </div>
-
-        {/* Mobile — 3 phones full width, striking visual after Challenge */}
+        {/* Homepage hero screenshot */}
         <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", paddingBottom: "clamp(20px,2vw,28px)" }}>
           <Reveal>
-            <ParallaxImage src="/images/projects/cognitrex/mobile.webp" alt="Cognitrex mobile experience across three screens" width={1280} height={854} />
+            <ParallaxImage src="/images/projects/landbeagle/hero-new.webp" alt="Land Beagle — homepage, Find your next parcel. Sell yours with confidence." width={1280} height={854} />
             <p style={{ marginTop: "12px", fontSize: "12px", color: "rgba(255,255,255,0.2)", textAlign: "center", letterSpacing: "0.04em" }}>
-              Fully responsive across every device
+              Homepage — Find your next parcel. Sell yours with confidence.
             </p>
           </Reveal>
         </div>
 
-        {/* Side-by-side: two deliverables */}
+        {/* Mobile experience pair */}
         <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", paddingBottom: "clamp(60px,7vw,100px)" }}>
           <Reveal>
-            <p style={{ fontSize: "11px", letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.2)", marginBottom: "20px" }}>Two deliverables. Two completely different design systems.</p>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }} className="compare-grid">
               {[
-                { src: "/images/projects/cognitrex/hero-mockup.webp", label: "Corporate Platform", sub: "cognitrex.com", w: 1920, h: 1080 },
-                { src: "/images/projects/cognitrex/hana-new.webp", label: "Executive Personal Brand", sub: "hanadhanji.com", w: 1920, h: 1280 },
+                { src: "/images/projects/landbeagle/mobile-hero.webp", label: "Mobile Homepage", sub: "Full search + hero experience on mobile", w: 1920, h: 1440 },
+                { src: "/images/projects/landbeagle/mobile-browse.webp", label: "Browse By State", sub: "Location-based search on any device", w: 1920, h: 1440 },
               ].map((item) => (
                 <div key={item.label}>
                   <div style={{ borderRadius: "16px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.07)" }}>
@@ -286,7 +231,7 @@ export default function CognitrexCaseStudy() {
                   </div>
                   <div style={{ marginTop: "12px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                     <span style={{ fontSize: "13px", color: "rgba(255,255,255,0.6)", fontWeight: 500 }}>{item.label}</span>
-                    <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", letterSpacing: "0.04em" }}>{item.sub}</span>
+                    <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", letterSpacing: "0.04em", maxWidth: "220px", textAlign: "right" }}>{item.sub}</span>
                   </div>
                 </div>
               ))}
@@ -321,23 +266,24 @@ export default function CognitrexCaseStudy() {
           </div>
         </section>
 
-        {/* LearningOS Platform — full width after Approach */}
+        {/* About + Latest Listings — full width after Approach */}
         <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", paddingBottom: "clamp(20px,2vw,28px)" }}>
           <Reveal>
-            <ParallaxImage src="/images/projects/cognitrex/learning-os.webp" alt="Cognitrex LearningOS platform overview page" width={1280} height={854} />
+            <ParallaxImage src="/images/projects/landbeagle/about-listings.webp" alt="Land Beagle — About section and Latest Listings" width={1280} height={854} />
             <p style={{ marginTop: "12px", fontSize: "12px", color: "rgba(255,255,255,0.2)", textAlign: "center", letterSpacing: "0.04em" }}>
-              LearningOS Platform — the flagship product page
+              About & Latest Listings — the vetted marketplace in action
             </p>
           </Reveal>
         </div>
 
-        {/* Side-by-side: Learner Portal + Product Training */}
+        {/* Admin Console comparison */}
         <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", paddingBottom: "clamp(20px,2vw,28px)" }}>
           <Reveal>
+            <p style={{ fontSize: "11px", letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.2)", marginBottom: "20px" }}>Admin console — built from the ground up for a non-technical operator</p>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }} className="compare-grid">
               {[
-                { src: "/images/projects/cognitrex/learner-portal.webp", label: "Learner Portal", sub: "Self-serve dashboard for employees", w: 1920, h: 1280 },
-                { src: "/images/projects/cognitrex/product-training.webp", label: "Product Knowledge Training", sub: "One of eight Use Case pages", w: 1920, h: 1920 },
+                { src: "/images/projects/landbeagle/dashboard-new.webp", label: "Dashboard Overview", sub: "Metrics · Featured listings · Sales pipeline", w: 1920, h: 1080 },
+                { src: "/images/projects/landbeagle/listings-new.webp", label: "Listings Management", sub: "APN-indexed · Status · Deal type · Actions", w: 1920, h: 1080 },
               ].map((item) => (
                 <div key={item.label}>
                   <div style={{ borderRadius: "16px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.07)" }}>
@@ -345,7 +291,7 @@ export default function CognitrexCaseStudy() {
                   </div>
                   <div style={{ marginTop: "12px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                     <span style={{ fontSize: "13px", color: "rgba(255,255,255,0.6)", fontWeight: 500 }}>{item.label}</span>
-                    <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", letterSpacing: "0.04em", maxWidth: "220px", textAlign: "right" }}>{item.sub}</span>
+                    <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", letterSpacing: "0.04em" }}>{item.sub}</span>
                   </div>
                 </div>
               ))}
@@ -353,31 +299,15 @@ export default function CognitrexCaseStudy() {
           </Reveal>
         </div>
 
-        {/* Custom Learning — full width */}
+        {/* Mobile about — two phones, full width */}
         <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", paddingBottom: "clamp(60px,7vw,100px)" }}>
           <Reveal>
-            <ParallaxImage src="/images/projects/cognitrex/custom-learning.webp" alt="Cognitrex Custom-Made Learning section" width={1280} height={854} />
+            <ParallaxImage src="/images/projects/landbeagle/mobile-about.webp" alt="Land Beagle — mobile experience on two devices" width={1280} height={854} />
             <p style={{ marginTop: "12px", fontSize: "12px", color: "rgba(255,255,255,0.2)", textAlign: "center", letterSpacing: "0.04em" }}>
-              Custom-Made Learning — tailored programmes section
+              Fully responsive — built to work on every device from day one
             </p>
           </Reveal>
         </div>
-
-        {/* Pull quote */}
-        <section style={{ paddingTop: "clamp(20px,3vw,40px)", paddingBottom: "clamp(60px,7vw,80px)" }}>
-          <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)" }}>
-            <Reveal>
-              <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", borderBottom: "1px solid rgba(255,255,255,0.06)", padding: "clamp(48px,6vw,80px) 0", textAlign: "center" }}>
-                <p style={{ fontSize: "clamp(22px,3vw,40px)", fontWeight: 400, letterSpacing: "-0.03em", lineHeight: 1.3, fontFamily: "var(--font-display)", color: "rgba(255,255,255,0.85)", maxWidth: "800px", margin: "0 auto", fontStyle: "italic" }}>
-                  "Excellent work. We couldn't have done it without you."
-                </p>
-                <p style={{ marginTop: "24px", fontSize: "12px", color: "rgba(255,255,255,0.25)", letterSpacing: "0.08em", textTransform: "uppercase" }}>
-                  Cognitrex client · Repeat buyer · 5.0 rating
-                </p>
-              </div>
-            </Reveal>
-          </div>
-        </section>
 
         {/* Result */}
         <section style={{ paddingBottom: "clamp(60px,7vw,100px)" }}>
@@ -390,9 +320,8 @@ export default function CognitrexCaseStudy() {
                 </div>
                 <div style={{ display: "flex", flexDirection: "column", gap: "28px" }}>
                   <p style={{ fontSize: "15px", lineHeight: 1.75, color: "rgba(255,255,255,0.55)" }}>
-                    Two fully launched websites delivered on time against press-release-driven deadlines — including a same-day Coming Soon page shipped at no charge. Both projects were carried through a mid-build hosting migration and a full design overhaul without losing the client's trust or missing a single external deadline.
+                    A fully operational two-sided land marketplace live at landbeagle.net — with location-based property search, APN-indexed listings, a vetted seller onboarding flow, direct buyer-seller messaging, and a custom Bones rewards and invoicing system. Every feature was custom-built. The platform is backed by a complete admin console that gives the operator full control over listings, sellers, applications, blog content, invoicing, and site settings — all in one tool.
                   </p>
-                  {/* Outcome pills */}
                   <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
                     {outcomes.map((o) => (
                       <span key={o} style={{ fontSize: "12px", color: "rgba(255,255,255,0.5)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "999px", padding: "6px 14px", letterSpacing: "0.01em" }}>
@@ -411,7 +340,6 @@ export default function CognitrexCaseStudy() {
           <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)" }}>
             <Reveal>
               <div style={{ borderRadius: "24px", border: "1px solid rgba(255,255,255,0.07)", overflow: "hidden" }}>
-                {/* Header row */}
                 <div style={{ padding: "28px 32px", borderBottom: "1px solid rgba(255,255,255,0.07)", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "12px" }}>
                   <div>
                     <p style={{ fontSize: "11px", letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.25)", marginBottom: "6px" }}>04</p>
@@ -423,14 +351,9 @@ export default function CognitrexCaseStudy() {
                     Every capability used to take this project from brief to live — relevant to Fiverr Pro assessment.
                   </p>
                 </div>
-
-                {/* Two columns */}
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0" }} className="skills-grid">
-                  {/* Stack */}
                   <div style={{ padding: "28px 32px", borderRight: "1px solid rgba(255,255,255,0.07)" }}>
-                    <p style={{ fontSize: "10px", letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.2)", marginBottom: "20px" }}>
-                      Stack & Tools
-                    </p>
+                    <p style={{ fontSize: "10px", letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.2)", marginBottom: "20px" }}>Stack & Tools</p>
                     <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
                       {skills.stack.map((s, i) => (
                         <div key={s} style={{ padding: "11px 0", borderBottom: i < skills.stack.length - 1 ? "1px solid rgba(255,255,255,0.05)" : "none", display: "flex", alignItems: "center", gap: "10px" }}>
@@ -440,12 +363,8 @@ export default function CognitrexCaseStudy() {
                       ))}
                     </div>
                   </div>
-
-                  {/* Disciplines */}
                   <div style={{ padding: "28px 32px" }}>
-                    <p style={{ fontSize: "10px", letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.2)", marginBottom: "20px" }}>
-                      Disciplines
-                    </p>
+                    <p style={{ fontSize: "10px", letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.2)", marginBottom: "20px" }}>Disciplines</p>
                     <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
                       {skills.disciplines.map((s, i) => (
                         <div key={s} style={{ padding: "11px 0", borderBottom: i < skills.disciplines.length - 1 ? "1px solid rgba(255,255,255,0.05)" : "none", display: "flex", alignItems: "center", gap: "10px" }}>
@@ -461,7 +380,7 @@ export default function CognitrexCaseStudy() {
           </div>
         </section>
 
-        {/* Next project nav */}
+        {/* Nav footer */}
         <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: "clamp(40px,5vw,64px)", paddingBottom: "clamp(40px,5vw,64px)" }}>
           <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "16px" }}>
             <Link href="/#work"
@@ -491,10 +410,7 @@ export default function CognitrexCaseStudy() {
           .stats-grid { grid-template-columns: 1fr 1fr !important; }
           .skills-grid { grid-template-columns: 1fr !important; }
           .skills-grid > div:first-child { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.07); }
-          .timeline-grid { grid-template-columns: 1fr 1fr !important; }
-          .timeline-grid > div { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.06); }
           .compare-grid { grid-template-columns: 1fr !important; }
-          .press-divider { display: none; }
         }
       `}</style>
     </>

@@ -4,7 +4,6 @@ import "./globals.css";
 import LenisProvider from "@/components/LenisProvider";
 import CustomCursor from "@/components/ui/CustomCursor";
 import FilmGrain from "@/components/ui/FilmGrain";
-import Preloader from "@/components/ui/Preloader";
 import { PreloaderProvider } from "@/context/PreloaderContext";
 
 import { SoundProvider } from "@/context/SoundContext";
@@ -156,7 +155,6 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <div id="ssr-blocker" style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0, width: "100vw", height: "100vh", backgroundColor: "#060606", zIndex: 99998 }} />
         <PreloaderProvider>
           <a
             href="#main"
@@ -166,10 +164,9 @@ export default function RootLayout({
           </a>
           <SoundProvider>
             <LenisProvider>
-              <Preloader />
               <FilmGrain />
               <CustomCursor />
-              <main id="main" style={{ opacity: 0, transition: "opacity 0.4s ease-in-out" }}>{children}</main>
+              <main id="main">{children}</main>
             </LenisProvider>
           </SoundProvider>
         </PreloaderProvider>

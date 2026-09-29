@@ -1,16 +1,14 @@
 "use client";
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useEffect } from "react";
 
 const PreloaderContext = createContext({
-  isReadyToAnimate: false,
+  isReadyToAnimate: true,
   setReady: () => {},
-  isVideoReady: false,
+  isVideoReady: true,
   setVideoReady: () => {},
 });
 
 export function PreloaderProvider({ children }: { children: React.ReactNode }) {
-  const [isReadyToAnimate, setIsReadyToAnimate] = useState(false);
-  const [isVideoReady, setIsVideoReady] = useState(false);
   
   // Force a black screen instantly when the user hits refresh or navigates away.
   // This prevents iOS Safari/Chrome from capturing the current Hero screen and
@@ -36,7 +34,7 @@ export function PreloaderProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
-    <PreloaderContext.Provider value={{ isReadyToAnimate, setReady: () => setIsReadyToAnimate(true), isVideoReady, setVideoReady: () => setIsVideoReady(true) }}>
+    <PreloaderContext.Provider value={{ isReadyToAnimate: true, setReady: () => {}, isVideoReady: true, setVideoReady: () => {} }}>
       {children}
     </PreloaderContext.Provider>
   );

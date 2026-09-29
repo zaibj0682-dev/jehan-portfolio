@@ -2,13 +2,14 @@
 import { useEffect, useRef, useState } from "react";
 import { usePreloader } from "@/context/PreloaderContext";
 
-const MIN_MS = 3000;
-const MAX_MS = 7500;
+const MIN_MS = 2400;
+const MAX_MS = 7000;
+
+type Phase = "loading" | "complete" | "lifting" | "done";
 
 export default function Preloader() {
   const [progress, setProgress] = useState(0);
-  const [overlayOpacity, setOverlayOpacity] = useState(1);
-  const [hidden, setHidden] = useState(false);
+  const [phase, setPhase] = useState<Phase>("loading");
   const { setReady, isVideoReady } = usePreloader();
   const isVideoReadyRef = useRef(isVideoReady);
 
@@ -17,7 +18,6 @@ export default function Preloader() {
   useEffect(() => {
     document.body.style.overflow = "hidden";
 
-    // Reveal main immediately — our overlay covers it during load
     const blocker = document.getElementById("ssr-blocker");
     if (blocker) blocker.remove();
     const main = document.getElementById("main");
@@ -31,17 +31,18 @@ export default function Preloader() {
       completed = true;
       clearInterval(interval);
       setProgress(100);
+      setPhase("complete");
       document.body.style.overflow = "";
       window.scrollTo(0, 0);
 
-      // Brief pause at 100%, then fade out
+      // Pause at 100, then lift the curtain
       setTimeout(() => {
-        setOverlayOpacity(0);
+        setPhase("lifting");
         setTimeout(() => {
-          setHidden(true);
+          setPhase("done");
           setReady();
-        }, 950);
-      }, 180);
+        }, 900);
+      }, 320);
     }
 
     const interval = setInterval(() => {
@@ -50,13 +51,13 @@ export default function Preloader() {
 
       if (elapsed < MIN_MS) {
         const t = elapsed / MIN_MS;
-        const eased = t < 0.65
-          ? (t / 0.65) * 0.82
-          : 0.82 + ((t - 0.65) / 0.35) * 0.08;
+        const eased = t < 0.6
+          ? (t / 0.6) * 0.78
+          : 0.78 + ((t - 0.6) / 0.4) * 0.12;
         setProgress(Math.round(eased * 100));
       } else {
-        const phase2 = (elapsed - MIN_MS) / (MAX_MS - MIN_MS);
-        setProgress(Math.round(90 + phase2 * 9));
+        const p2 = (elapsed - MIN_MS) / (MAX_MS - MIN_MS);
+        setProgress(Math.round(90 + p2 * 9));
         if (isVideoReadyRef.current) complete();
       }
     }, 50);
@@ -64,7 +65,7 @@ export default function Preloader() {
     return () => { clearInterval(interval); document.body.style.overflow = ""; };
   }, []);
 
-  if (hidden) return null;
+  if (phase === "done") return null;
 
   return (
     <div
@@ -73,145 +74,126 @@ export default function Preloader() {
         inset: 0,
         zIndex: 99999,
         background: "#060606",
-        opacity: overlayOpacity,
-        transition: overlayOpacity < 1 ? "opacity 0.95s cubic-bezier(0.76, 0, 0.24, 1)" : "none",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        pointerEvents: overlayOpacity < 0.4 ? "none" : "auto",
         overflow: "hidden",
+        transform: phase === "lifting" ? "translateY(-100%)" : "translateY(0)",
+        transition: phase === "lifting"
+          ? "transform 0.88s cubic-bezier(0.76, 0, 0.24, 1)"
+          : "none",
+        pointerEvents: phase === "lifting" ? "none" : "auto",
       }}
     >
       <style>{`
-        @keyframes drift1 {
-          0%   { transform: translate(0, 0) scale(1); }
-          100% { transform: translate(-50px, 40px) scale(1.12); }
+        @keyframes pl-in {
+          from { opacity: 0; transform: translateY(20px); }
+          to   { opacity: 1; transform: translateY(0); }
         }
-        @keyframes drift2 {
-          0%   { transform: translate(0, 0) scale(1); }
-          100% { transform: translate(50px, -35px) scale(1.18); }
+        @keyframes pl-fade-a {
+          0%, 100% { opacity: 0.55; }
+          50%       { opacity: 0.85; }
         }
-        @keyframes drift3 {
-          0%   { transform: translate(0, 0) scale(1); }
-          100% { transform: translate(25px, 50px) scale(0.88); }
+        @keyframes pl-fade-b {
+          0%, 100% { opacity: 0.4; }
+          50%       { opacity: 0.7; }
         }
-        @keyframes loader-name-in {
-          0%   { opacity: 0; transform: translateY(18px); filter: blur(6px); }
-          100% { opacity: 1; transform: translateY(0);    filter: blur(0px); }
-        }
-        @keyframes loader-sub-in {
-          0%   { opacity: 0; transform: translateY(10px); }
-          100% { opacity: 1; transform: translateY(0); }
+        @keyframes pl-fade-c {
+          0%, 100% { opacity: 0.3; }
+          50%       { opacity: 0.55; }
         }
       `}</style>
 
-      {/* Aurora glows — matching particle video palette */}
-      <div style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
+      {/* Ambient glows — opacity-only animation avoids blur repaint flicker */}
+      <div aria-hidden style={{ position: "absolute", inset: 0, pointerEvents: "none", overflow: "hidden" }}>
+        {/* Cyan — top right */}
         <div style={{
-          position: "absolute", top: "-15%", right: "-8%",
-          width: "55vw", height: "55vw", maxWidth: "700px", maxHeight: "700px",
+          position: "absolute", top: "-30%", right: "-15%",
+          width: "75vw", height: "75vw", maxWidth: "800px", maxHeight: "800px",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(110,195,244,0.13) 0%, transparent 65%)",
-          animation: "drift1 9s ease-in-out infinite alternate",
+          background: "radial-gradient(circle at center, rgba(110,195,244,0.22) 0%, rgba(110,195,244,0.08) 40%, transparent 70%)",
+          filter: "blur(60px)",
+          willChange: "opacity",
+          backfaceVisibility: "hidden",
+          animation: "pl-fade-a 4.5s ease-in-out infinite",
         }} />
+        {/* Pink — bottom left */}
         <div style={{
-          position: "absolute", bottom: "-20%", left: "-8%",
-          width: "50vw", height: "50vw", maxWidth: "650px", maxHeight: "650px",
+          position: "absolute", bottom: "-25%", left: "-12%",
+          width: "70vw", height: "70vw", maxWidth: "750px", maxHeight: "750px",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(255,97,171,0.11) 0%, transparent 65%)",
-          animation: "drift2 11s ease-in-out infinite alternate",
+          background: "radial-gradient(circle at center, rgba(255,97,171,0.2) 0%, rgba(255,97,171,0.07) 40%, transparent 70%)",
+          filter: "blur(60px)",
+          willChange: "opacity",
+          backfaceVisibility: "hidden",
+          animation: "pl-fade-b 5.5s 0.8s ease-in-out infinite",
         }} />
+        {/* Blue — center left */}
         <div style={{
-          position: "absolute", top: "25%", left: "15%",
-          width: "40vw", height: "40vw", maxWidth: "520px", maxHeight: "520px",
+          position: "absolute", top: "20%", left: "-10%",
+          width: "55vw", height: "55vw", maxWidth: "620px", maxHeight: "620px",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(58,58,200,0.09) 0%, transparent 65%)",
-          animation: "drift3 14s ease-in-out infinite alternate",
+          background: "radial-gradient(circle at center, rgba(58,58,255,0.18) 0%, rgba(58,58,255,0.06) 40%, transparent 70%)",
+          filter: "blur(55px)",
+          willChange: "opacity",
+          backfaceVisibility: "hidden",
+          animation: "pl-fade-c 7s 1.5s ease-in-out infinite",
         }} />
       </div>
 
-      {/* Centre identity */}
-      <div style={{ textAlign: "center", position: "relative", zIndex: 1 }}>
-        <h1
-          style={{
-            fontFamily: "var(--font-display)",
-            fontSize: "clamp(48px, 7.5vw, 92px)",
-            fontWeight: 400,
-            letterSpacing: "-0.04em",
-            color: "rgba(255,255,255,0.90)",
-            lineHeight: 1,
-            margin: 0,
-            animation: "loader-name-in 0.9s cubic-bezier(0.16,1,0.3,1) forwards",
-          }}
-        >
+      {/* Identity + counter */}
+      <div style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", alignItems: "center" }}>
+        {/* Nameplate */}
+        <p style={{
+          fontSize: "11px",
+          letterSpacing: "0.3em",
+          textTransform: "uppercase",
+          color: "rgba(255,255,255,0.3)",
+          fontWeight: 500,
+          margin: "0 0 28px",
+          animation: "pl-in 0.85s cubic-bezier(0.16,1,0.3,1) both",
+        }}>
           Jehan Zaib
-        </h1>
+        </p>
 
-        {/* Thin gradient rule */}
+        {/* Giant counter */}
         <div style={{
-          width: "48px", height: "1px", margin: "18px auto 0",
-          background: "linear-gradient(90deg, #6ec3f4, #3a3aff, #ff61ab)",
-          borderRadius: "999px",
+          fontFamily: "var(--font-display)",
+          fontSize: "clamp(100px, 17vw, 210px)",
+          fontWeight: 600,
+          letterSpacing: "-0.06em",
+          lineHeight: 1,
+          color: "rgba(255,255,255,0.92)",
+          fontVariantNumeric: "tabular-nums",
+          animation: "pl-in 0.85s 0.1s cubic-bezier(0.16,1,0.3,1) both",
+          minWidth: "2.6ch",
+          textAlign: "center",
+        }}>
+          {String(progress).padStart(2, "0")}
+        </div>
+
+        {/* Gradient divider */}
+        <div style={{
+          width: "clamp(160px, 20vw, 260px)",
+          height: "1px",
+          marginTop: "28px",
+          background: "linear-gradient(90deg, transparent, #6ec3f4, #3a3aff, #ff61ab, transparent)",
+          opacity: 0.65,
+          animation: "pl-in 0.85s 0.18s cubic-bezier(0.16,1,0.3,1) both",
         }} />
 
-        <p
-          style={{
-            fontSize: "10px",
-            letterSpacing: "0.26em",
-            textTransform: "uppercase",
-            color: "rgba(255,255,255,0.22)",
-            marginTop: "14px",
-            fontWeight: 500,
-            animation: "loader-sub-in 0.9s 0.25s cubic-bezier(0.16,1,0.3,1) both",
-          }}
-        >
+        {/* Sub-label */}
+        <p style={{
+          fontSize: "10px",
+          letterSpacing: "0.22em",
+          textTransform: "uppercase",
+          color: "rgba(255,255,255,0.18)",
+          marginTop: "18px",
+          animation: "pl-in 0.85s 0.24s cubic-bezier(0.16,1,0.3,1) both",
+        }}>
           Digital Platform Architect
         </p>
-      </div>
-
-      {/* Progress — pinned to bottom */}
-      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0 }}>
-        <div style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          padding: "0 clamp(20px, 4vw, 48px)",
-          marginBottom: "10px",
-        }}>
-          <span style={{
-            fontSize: "10px",
-            letterSpacing: "0.14em",
-            textTransform: "uppercase",
-            color: "rgba(255,255,255,0.16)",
-          }}>
-            Loading experience
-          </span>
-          <span style={{
-            fontSize: "10px",
-            letterSpacing: "0.06em",
-            color: "rgba(255,255,255,0.22)",
-            fontVariantNumeric: "tabular-nums",
-            fontFamily: "var(--font-display)",
-          }}>
-            {progress}%
-          </span>
-        </div>
-
-        {/* Progress track */}
-        <div style={{
-          width: "100%", height: "1px",
-          background: "rgba(255,255,255,0.05)",
-          position: "relative",
-        }}>
-          <div style={{
-            position: "absolute", left: 0, top: 0, height: "1px",
-            width: `${progress}%`,
-            background: "linear-gradient(90deg, #3a3aff, #6ec3f4, #ff61ab)",
-            transition: "width 0.08s linear",
-            boxShadow: "0 0 8px rgba(110,195,244,0.5)",
-          }} />
-        </div>
       </div>
     </div>
   );

@@ -69,7 +69,7 @@ export default function Marquee() {
           fontWeight: 600,
           letterSpacing: "-0.04em",
           color: "transparent",
-          WebkitTextStroke: "1px rgba(255,255,255,0.15)",
+          WebkitTextStroke: "1px rgba(255,255,255,0.45)",
           textTransform: "uppercase"
         }}
       >
@@ -81,7 +81,7 @@ export default function Marquee() {
           fontSize: "clamp(60px, 8vw, 120px)",
           fontWeight: 600,
           letterSpacing: "-0.04em",
-          color: "rgba(255,255,255,0.05)",
+          color: "rgba(255,255,255,0.18)",
           textTransform: "uppercase"
         }}
       >

@@ -1,6 +1,7 @@
 "use client";
+import React from "react";
 import Parallax from "./ui/Parallax";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, ArrowUpRight } from "lucide-react";
 import Reveal from "./ui/Reveal";
 import Image from "next/image";
 import SplitText from "./ui/SplitText";
@@ -22,86 +23,6 @@ interface CaseStudy {
 const studies: CaseStudy[] = [
   {
     num: "01",
-    client: "Bliss Thai Spa",
-    industry: "Wellness & Beauty",
-    need: "Multi-page site to replace a minimal booking page — showcasing 8 signature treatments and driving online bookings.",
-    time: "2 weeks",
-    result: "Online bookings and direct calls increased noticeably after launch.",
-    url: "https://blissthaispa.ca",
-    mockup: "/images/projects/blissthaispa-mockup.png",
-    alt: "Bliss Thai Spa website",
-  },
-  {
-    num: "02",
-    client: "Panel Paramedics",
-    industry: "Solar & Home Services",
-    need: "A conversion-focused web platform for a solar panel repair and maintenance company targeting homeowners and businesses.",
-    time: "2 weeks",
-    result: "Clear service breakdown drove a steady flow of quote requests from week one.",
-    url: "https://panelparamedics.com",
-    mockup: "/images/projects/panelparamedics-mockup.png",
-    alt: "Panel Paramedics solar services website",
-  },
-  {
-    num: "03",
-    client: "21 Neptune Apartments",
-    industry: "Real Estate",
-    need: "A modern property landing page to drive tour bookings for a new Lynn, MA apartment building.",
-    time: "10 days",
-    result: "Conversion-focused design generated a strong flow of tour requests from week one.",
-    url: "https://21neptuneapartments.com",
-    mockup: "/images/projects/neptune-mockup.png",
-    alt: "21 Neptune Apartments website",
-  },
-  {
-    num: "04",
-    client: "Penguin Keys",
-    industry: "E-commerce",
-    need: "A WooCommerce store to sell digital game keys, gift cards, and subscriptions to a global audience.",
-    time: "3 weeks",
-    result: "Store launched with full catalogue and seamless checkout. Client has since expanded the product range.",
-    url: "https://penguinkeys.com",
-    mockup: "/images/projects/penguinkeys-mockup.png",
-    alt: "Penguin Keys WooCommerce store",
-  },
-  {
-    num: "05",
-    client: "Cognitrex & Hana Dhanji",
-    industry: "Enterprise SaaS",
-    need: "Two premium websites — a 26-page enterprise learning platform and an executive personal brand site — built in 17 days against press-release-driven launch deadlines.",
-    time: "17 days",
-    result: "Both sites launched on time. Featured in Forbes, GlobeNewsWire, and Canadian Business Today.",
-    url: "https://cognitrex.com",
-    caseStudy: "/work/cognitrex",
-    mockup: "/images/projects/cognitrex/hero.png",
-    alt: "Cognitrex enterprise learning platform",
-  },
-  {
-    num: "06",
-    client: "Velisse Labs",
-    industry: "Research Products",
-    need: "A premium WooCommerce store with custom account-gating, tiered bundle pricing, and per-SKU COA verification — all built beyond what the platform supports out of the box.",
-    time: "Multi-month",
-    result: "Fully custom store live. Client returned multiple times for new products. 5-star review with tip.",
-    url: "https://velisselabs.com",
-    caseStudy: "/work/velisse",
-    mockup: "/images/projects/velisse/coa.png",
-    alt: "Velisse Labs WooCommerce research peptide store",
-  },
-  {
-    num: "07",
-    client: "Lotus Ledger",
-    industry: "SaaS / POS",
-    need: "A premium SaaS marketing site that started on WordPress, hit a wall with scroll animations, and was fully rebuilt as a custom Next.js app — deployed on the client's own Vercel, with all copy and graphics created from scratch.",
-    time: "Multi-phase",
-    result: "Custom-coded site live on client's own infrastructure. Full pivot from WordPress without losing the client.",
-    url: "https://www.lotusledger.io",
-    caseStudy: "/work/lotusledger",
-    mockup: "/images/projects/lotusledger/hero.png",
-    alt: "Lotus Ledger salon POS SaaS marketing site",
-  },
-  {
-    num: "08",
     client: "FashionablyFab",
     industry: "Lifestyle & Editorial",
     need: "A premium editorial lifestyle brand site built from a Figma file with no animation specs and no real mobile layout — with everything the client expected built from scratch beyond what the file specified.",
@@ -109,8 +30,100 @@ const studies: CaseStudy[] = [
     result: "\"I really love my site. You were able to execute my vision.\" — Phase 2 work booked immediately.",
     url: "https://www.fashionablyfab.com",
     caseStudy: "/work/fashionablyfab",
-    mockup: "/images/projects/fashionablyfab/hero.png",
+    mockup: "/images/projects/fashionablyfab/hero.webp",
     alt: "FashionablyFab editorial lifestyle brand website",
+  },
+  {
+    num: "02",
+    client: "Land Beagle",
+    industry: "Marketplace Platform",
+    need: "A full two-sided land marketplace — vetted seller onboarding, location-based search, APN-indexed listings, direct messaging, a custom Bones rewards system, and a complete admin console, all built from scratch.",
+    time: "Multi-phase",
+    result: "Full marketplace platform live with a custom admin console managing sellers, listings, invoicing, and messaging.",
+    url: "https://landbeagle.net",
+    caseStudy: "/work/landbeagle",
+    mockup: "/images/projects/landbeagle/hero-new.webp",
+    alt: "Land Beagle — vetted land marketplace platform",
+  },
+  {
+    num: "03",
+    client: "Cognitrex & Hana Dhanji",
+    industry: "Enterprise SaaS",
+    need: "Two premium websites — a 26-page enterprise learning platform and an executive personal brand site — built in 17 days against press-release-driven launch deadlines.",
+    time: "17 days",
+    result: "Both sites launched on time. Featured in Forbes, GlobeNewsWire, and Canadian Business Today.",
+    url: "https://cognitrex.com",
+    caseStudy: "/work/cognitrex",
+    mockup: "/images/projects/cognitrex/hero-mockup.webp",
+    alt: "Cognitrex enterprise learning platform",
+  },
+  {
+    num: "04",
+    client: "Velisse Labs",
+    industry: "Research Products",
+    need: "A premium WooCommerce store with custom account-gating, tiered bundle pricing, and per-SKU COA verification — all built beyond what the platform supports out of the box.",
+    time: "Multi-month",
+    result: "Fully custom store live. Client returned multiple times for new products. 5-star review with tip.",
+    url: "https://velisselabs.com",
+    caseStudy: "/work/velisse",
+    mockup: "/images/projects/velisse/hero-new.webp",
+    alt: "Velisse Labs WooCommerce research peptide store",
+  },
+  {
+    num: "05",
+    client: "Lotus Ledger",
+    industry: "SaaS / POS",
+    need: "A premium SaaS marketing site that started on WordPress, hit a wall with scroll animations, and was fully rebuilt as a custom Next.js app — deployed on the client's own Vercel, with all copy and graphics created from scratch.",
+    time: "Multi-phase",
+    result: "Custom-coded site live on client's own infrastructure. Full pivot from WordPress without losing the client.",
+    url: "https://www.lotusledger.io",
+    caseStudy: "/work/lotusledger",
+    mockup: "/images/projects/lotusledger/hero.webp",
+    alt: "Lotus Ledger salon POS SaaS marketing site",
+  },
+  {
+    num: "06",
+    client: "Bliss Thai Spa",
+    industry: "Wellness & Beauty",
+    need: "Multi-page site to replace a minimal booking page — showcasing 8 signature treatments and driving online bookings.",
+    time: "2 weeks",
+    result: "Online bookings and direct calls increased noticeably after launch.",
+    url: "https://blissthaispa.ca",
+    mockup: "/images/projects/blissthaispa-mockup.webp",
+    alt: "Bliss Thai Spa website",
+  },
+  {
+    num: "07",
+    client: "Panel Paramedics",
+    industry: "Solar & Home Services",
+    need: "A conversion-focused web platform for a solar panel repair and maintenance company targeting homeowners and businesses.",
+    time: "2 weeks",
+    result: "Clear service breakdown drove a steady flow of quote requests from week one.",
+    url: "https://panelparamedics.com",
+    mockup: "/images/projects/panelparamedics-mockup.webp",
+    alt: "Panel Paramedics solar services website",
+  },
+  {
+    num: "08",
+    client: "21 Neptune Apartments",
+    industry: "Real Estate",
+    need: "A modern property landing page to drive tour bookings for a new Lynn, MA apartment building.",
+    time: "10 days",
+    result: "Conversion-focused design generated a strong flow of tour requests from week one.",
+    url: "https://21neptuneapartments.com",
+    mockup: "/images/projects/neptune-mockup.webp",
+    alt: "21 Neptune Apartments website",
+  },
+  {
+    num: "09",
+    client: "Penguin Keys",
+    industry: "E-commerce",
+    need: "A WooCommerce store to sell digital game keys, gift cards, and subscriptions to a global audience.",
+    time: "3 weeks",
+    result: "Store launched with full catalogue and seamless checkout. Client has since expanded the product range.",
+    url: "https://penguinkeys.com",
+    mockup: "/images/projects/penguinkeys-mockup.webp",
+    alt: "Penguin Keys WooCommerce store",
   },
 ];
 
@@ -127,74 +140,126 @@ function ProjectCard({ study, index }: { study: CaseStudy; index: number }) {
   // Start at 0 (top visible) and pan up to -20% as we scroll down
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
 
+  const imageInner = (
+    <>
+      {/* Inner Parallax Wrapper */}
+      <motion.div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: "120%",
+          y,
+        }}
+      >
+        <Image
+          src={study.mockup}
+          alt={study.alt}
+          fill
+          sizes="(max-width: 810px) 100vw, (max-width: 1280px) 50vw, 480px"
+          style={{
+            objectFit: "contain",
+            objectPosition: "center center",
+            backfaceVisibility: "hidden",
+            WebkitBackfaceVisibility: "hidden",
+            transform: "translateZ(0)",
+          }}
+          className="transition-transform duration-[1200ms] ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-[1.04]"
+        />
+      </motion.div>
+
+      {/* Floating Industry Tag */}
+      <div
+        style={{
+          position: "absolute",
+          top: "16px",
+          right: "16px",
+          fontSize: "10px",
+          letterSpacing: "0.1em",
+          textTransform: "uppercase",
+          color: "rgba(255,255,255,0.9)",
+          padding: "6px 12px",
+          borderRadius: "999px",
+          background: "rgba(0,0,0,0.4)",
+          backdropFilter: "blur(12px)",
+          border: "1px solid rgba(255,255,255,0.15)",
+          zIndex: 1,
+        }}
+      >
+        {study.industry}
+      </div>
+
+      {/* Case study hover overlay */}
+      {study.caseStudy && (
+        <div
+          className="opacity-0 group-hover/img:opacity-100 transition-opacity duration-300"
+          style={{
+            position: "absolute",
+            inset: 0,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            background: "rgba(0,0,0,0.48)",
+            backdropFilter: "blur(2px)",
+            borderRadius: "24px",
+          }}
+        >
+          <div
+            className="translate-y-2 group-hover/img:translate-y-0 transition-transform duration-300"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "7px",
+              background: "rgba(255,255,255,0.95)",
+              color: "#000",
+              fontSize: "13px",
+              fontWeight: 600,
+              padding: "11px 20px",
+              borderRadius: "999px",
+              letterSpacing: "-0.01em",
+              boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
+            }}
+          >
+            <span>View case study</span>
+            <ArrowUpRight size={14} strokeWidth={2.5} />
+          </div>
+        </div>
+      )}
+
+      {/* Subtle Inner Ring */}
+      <div style={{ position: "absolute", inset: 0, border: "1px solid rgba(255,255,255,0.1)", borderRadius: "24px", pointerEvents: "none" }} />
+    </>
+  );
+
+  const imageContainerStyle: React.CSSProperties = {
+    width: "100%",
+    aspectRatio: "16 / 10",
+    overflow: "hidden",
+    borderRadius: "24px",
+    position: "relative",
+    background: "#0d0d0d",
+    border: "1px solid rgba(255,255,255,0.05)",
+    boxShadow: "0 20px 40px -10px rgba(0,0,0,0.3)",
+    transform: "translateZ(0)",
+    WebkitMaskImage: "-webkit-radial-gradient(white, black)",
+    display: "block",
+    textDecoration: "none",
+  };
+
   return (
     <Reveal delay={index * 0.06}>
       <div ref={ref} className="group flex flex-col gap-6 h-full">
-        {/* Image Container */}
-        <div
-          style={{
-            width: "100%",
-            aspectRatio: "16 / 10",
-            overflow: "hidden",
-            borderRadius: "24px",
-            position: "relative",
-            background: "#0d0d0d",
-            border: "1px solid rgba(255,255,255,0.05)",
-            boxShadow: "0 20px 40px -10px rgba(0,0,0,0.3)",
-            transform: "translateZ(0)",
-            WebkitMaskImage: "-webkit-radial-gradient(white, black)",
-          }}
-        >
-          {/* Inner Parallax Wrapper */}
-          <motion.div
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              right: 0,
-              height: "120%",
-              y,
-            }}
-          >
-            <Image
-              src={study.mockup}
-              alt={study.alt}
-              fill
-              sizes="(max-width: 810px) 100vw, (max-width: 1280px) 50vw, 480px"
-              style={{
-                objectFit: "contain",
-                objectPosition: "center center",
-                backfaceVisibility: "hidden",
-                WebkitBackfaceVisibility: "hidden",
-                transform: "translateZ(0)",
-              }}
-              className="transition-transform duration-[1200ms] ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-[1.04]"
-            />
-          </motion.div>
-          
-          {/* Floating Industry Tag */}
-          <div
-            style={{
-              position: "absolute",
-              top: "16px",
-              right: "16px",
-              fontSize: "10px",
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              color: "rgba(255,255,255,0.9)",
-              padding: "6px 12px",
-              borderRadius: "999px",
-              background: "rgba(0,0,0,0.4)",
-              backdropFilter: "blur(12px)",
-              border: "1px solid rgba(255,255,255,0.15)",
-            }}
-          >
-            {study.industry}
+        {/* Image Container — link if case study, div otherwise */}
+        {study.caseStudy ? (
+          <a href={study.caseStudy} className="group/img" style={imageContainerStyle}>
+            {imageInner}
+          </a>
+        ) : (
+          <div style={imageContainerStyle}>
+            {imageInner}
           </div>
-          
-          {/* Subtle Inner Ring */}
-          <div style={{ position: "absolute", inset: 0, border: "1px solid rgba(255,255,255,0.1)", borderRadius: "24px", pointerEvents: "none" }} />
-        </div>
+        )}
 
         {/* Content */}
         <div style={{ display: "flex", flexDirection: "column", gap: "12px", padding: "0 4px", flex: 1 }}>
@@ -272,21 +337,9 @@ function ProjectCard({ study, index }: { study: CaseStudy; index: number }) {
               </span>
             </div>
             {study.caseStudy && (
-              <a
-                href={study.caseStudy}
-                style={{
-                  fontSize: "12px",
-                  color: "rgba(255,255,255,0.5)",
-                  textDecoration: "none",
-                  letterSpacing: "0.01em",
-                  transition: "color 0.2s",
-                  whiteSpace: "nowrap",
-                }}
-                onMouseEnter={e => (e.currentTarget.style.color = "rgba(255,255,255,0.9)")}
-                onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.5)")}
-              >
-                Read case study →
-              </a>
+              <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.2)", letterSpacing: "0.06em", textTransform: "uppercase" }}>
+                Case study
+              </span>
             )}
           </div>
         </div>

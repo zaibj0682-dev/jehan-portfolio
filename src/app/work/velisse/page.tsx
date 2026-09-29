@@ -5,7 +5,7 @@ import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/ui/Reveal";
-import PreloaderReady from "@/components/ui/PreloaderReady";
+import ParallaxImage from "@/components/ui/ParallaxImage";
 
 const meta = [
   { label: "Client", value: "Velisse Labs" },
@@ -89,7 +89,6 @@ const skills = {
 export default function VelisseCaseStudy() {
   return (
     <>
-      <PreloaderReady />
       <Nav />
 
       <main style={{ backgroundColor: "var(--color-bg)", minHeight: "100vh", paddingTop: "80px" }}>
@@ -145,19 +144,12 @@ export default function VelisseCaseStudy() {
         {/* Hero image with ambient glow */}
         <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", position: "relative" }}>
           <div aria-hidden style={{ position: "absolute", inset: 0, pointerEvents: "none", zIndex: 0 }}>
-            <div style={{ position: "absolute", top: "15%", left: "-5%", width: "45%", height: "60%", borderRadius: "50%", background: "radial-gradient(circle, rgba(210,160,120,0.10) 0%, transparent 70%)", filter: "blur(40px)" }} />
-            <div style={{ position: "absolute", top: "10%", right: "-5%", width: "40%", height: "60%", borderRadius: "50%", background: "radial-gradient(circle, rgba(220,140,140,0.09) 0%, transparent 70%)", filter: "blur(40px)" }} />
+            <div style={{ position: "absolute", top: "15%", left: "-5%", width: "45%", height: "60%", borderRadius: "50%", background: "radial-gradient(circle, rgba(230,100,180,0.12) 0%, transparent 70%)", filter: "blur(40px)" }} />
+            <div style={{ position: "absolute", top: "10%", right: "-5%", width: "40%", height: "60%", borderRadius: "50%", background: "radial-gradient(circle, rgba(230,120,80,0.09) 0%, transparent 70%)", filter: "blur(40px)" }} />
           </div>
           <Reveal delay={0.05}>
-            <div style={{ borderRadius: "20px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.07)", position: "relative", zIndex: 1 }}>
-              <Image
-                src="/images/projects/velisse/hero.png"
-                alt="Velisse Labs — premium WooCommerce research peptide store"
-                width={1280}
-                height={854}
-                style={{ width: "100%", height: "auto", display: "block" }}
-                priority
-              />
+            <div style={{ position: "relative", zIndex: 1 }}>
+              <ParallaxImage src="/images/projects/velisse/hero-new.webp" alt="Velisse Labs — homepage hero, Research Quality. Elevated." width={1280} height={854} priority />
             </div>
           </Reveal>
         </div>
@@ -213,14 +205,24 @@ export default function VelisseCaseStudy() {
           </div>
         </section>
 
-        {/* Side-by-side: Shop vs COA */}
+        {/* Account-gated shop — full width after Challenge */}
+        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", paddingBottom: "clamp(20px,2vw,28px)" }}>
+          <Reveal>
+            <ParallaxImage src="/images/projects/velisse/shop-listing.webp" alt="Velisse Labs — account-gated product shop listing" width={1280} height={854} />
+            <p style={{ marginTop: "12px", fontSize: "12px", color: "rgba(255,255,255,0.2)", textAlign: "center", letterSpacing: "0.04em" }}>
+              Account-gated store — no browsing without signing up
+            </p>
+          </Reveal>
+        </div>
+
+        {/* Side-by-side: Shop grid + COA */}
         <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", paddingBottom: "clamp(60px,7vw,100px)" }}>
           <Reveal>
             <p style={{ fontSize: "11px", letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.2)", marginBottom: "20px" }}>Store design · COA verification system</p>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }} className="compare-grid">
               {[
-                { src: "/images/projects/velisse/shop.png", label: "Product Catalogue", sub: "Tiered bundles + custom pricing", w: 1280, h: 960 },
-                { src: "/images/projects/velisse/coa.png", label: "COA Verification System", sub: "Per-SKU certificate documentation", w: 1280, h: 960 },
+                { src: "/images/projects/velisse/shop-new.webp", label: "Product Catalogue", sub: "Tiered bundles + custom pricing", w: 1920, h: 1440 },
+                { src: "/images/projects/velisse/coa.webp", label: "COA Verification System", sub: "Per-SKU certificate documentation", w: 1920, h: 1440 },
               ].map((item) => (
                 <div key={item.label}>
                   <div style={{ borderRadius: "16px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.07)" }}>
@@ -262,6 +264,16 @@ export default function VelisseCaseStudy() {
             </div>
           </div>
         </section>
+
+        {/* COA / About page — full width after Approach */}
+        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", paddingBottom: "clamp(60px,7vw,100px)" }}>
+          <Reveal>
+            <ParallaxImage src="/images/projects/velisse/about-coa.webp" alt="Velisse Labs — Verified. Documented. Transparent. COA and About page" width={1280} height={854} />
+            <p style={{ marginTop: "12px", fontSize: "12px", color: "rgba(255,255,255,0.2)", textAlign: "center", letterSpacing: "0.04em" }}>
+              "Verified. Documented. Transparent." — COA verification built into the brand
+            </p>
+          </Reveal>
+        </div>
 
         {/* Pull quote */}
         <section style={{ paddingTop: "clamp(20px,3vw,40px)", paddingBottom: "clamp(60px,7vw,80px)" }}>

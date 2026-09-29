@@ -3,18 +3,15 @@
 
 "use client";
 import { useEffect, useRef } from "react";
-import { usePreloader } from "@/context/PreloaderContext";
 
 export default function HeroBg() {
-  const { setVideoReady, isReadyToAnimate } = usePreloader();
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    if (isReadyToAnimate && videoRef.current) {
-      videoRef.current.currentTime = 0;
+    if (videoRef.current) {
       videoRef.current.play().catch(() => {});
     }
-  }, [isReadyToAnimate]);
+  }, []);
 
   return (
     <div
@@ -41,7 +38,6 @@ export default function HeroBg() {
         playsInline
         preload="auto"
         poster="/images/hero-poster.jpg"
-        onCanPlay={setVideoReady}
         style={{
           position: "absolute",
           inset: 0,

@@ -1,11 +1,11 @@
 "use client";
 import Image from "next/image";
+import ParallaxImage from "@/components/ui/ParallaxImage";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/ui/Reveal";
-import PreloaderReady from "@/components/ui/PreloaderReady";
 
 const meta = [
   { label: "Client", value: "Lotus Ledger" },
@@ -84,7 +84,6 @@ const skills = {
 export default function LotusLedgerCaseStudy() {
   return (
     <>
-      <PreloaderReady />
       <Nav />
 
       <main style={{ backgroundColor: "var(--color-bg)", minHeight: "100vh", paddingTop: "80px" }}>
@@ -203,21 +202,35 @@ export default function LotusLedgerCaseStudy() {
           </div>
         </section>
 
-        {/* Features image */}
+        {/* Homepage screenshot */}
         <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", paddingBottom: "clamp(60px,7vw,100px)" }}>
           <Reveal>
-            <div style={{ borderRadius: "20px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.07)" }}>
-              <Image
-                src="/images/projects/lotusledger/features.png"
-                alt="Lotus Ledger — AI Receptionist and Technician dashboard features"
-                width={1280}
-                height={960}
-                style={{ width: "100%", height: "auto", display: "block" }}
-              />
-            </div>
-            <p style={{ marginTop: "12px", fontSize: "12px", color: "rgba(255,255,255,0.2)", textAlign: "center", letterSpacing: "0.04em" }}>
-              AI Receptionist + per-technician dashboard — features page
+            <ParallaxImage src="/images/projects/lotusledger/hero.webp" alt="Lotus Ledger — homepage hero, Your Salon, Beautifully Run." width={1280} height={854} />
+            <p style={{ marginTop: "12px", fontSize: "12px", color: "rgba(255,255,255,0.2)", textAlign: "center", letterSpacing: "0.04em", fontStyle: "italic" }}>
+              Homepage hero — Your Salon, Beautifully Run.
             </p>
+          </Reveal>
+        </div>
+
+        {/* Mobile mockups + Content depth pair */}
+        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", paddingBottom: "clamp(60px,7vw,100px)" }}>
+          <Reveal>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }} className="compare-grid">
+              {[
+                { src: "/images/projects/lotusledger/shot1.webp", label: "Mobile Experience", sub: "Tech-first. Built for how salons actually work.", w: 1920, h: 1440 },
+                { src: "/images/projects/lotusledger/shot2.webp", label: "Content Depth", sub: "Designed for the True Realities of nail salons.", w: 1920, h: 1440 },
+              ].map((item) => (
+                <div key={item.label}>
+                  <div style={{ borderRadius: "16px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.07)" }}>
+                    <Image src={item.src} alt={item.label} width={item.w} height={item.h} style={{ width: "100%", height: "auto", display: "block" }} />
+                  </div>
+                  <div style={{ marginTop: "12px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                    <span style={{ fontSize: "13px", color: "rgba(255,255,255,0.6)", fontWeight: 500 }}>{item.label}</span>
+                    <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", letterSpacing: "0.04em", maxWidth: "260px", textAlign: "right" }}>{item.sub}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </Reveal>
         </div>
 
@@ -247,6 +260,38 @@ export default function LotusLedgerCaseStudy() {
             </div>
           </div>
         </section>
+
+        {/* Features image */}
+        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", paddingBottom: "clamp(60px,7vw,100px)" }}>
+          <Reveal>
+            <ParallaxImage src="/images/projects/lotusledger/features.webp" alt="Lotus Ledger — AI Receptionist and Technician dashboard features" width={1280} height={960} />
+            <p style={{ marginTop: "12px", fontSize: "12px", color: "rgba(255,255,255,0.2)", textAlign: "center", letterSpacing: "0.04em", fontStyle: "italic" }}>
+              AI Receptionist + per-technician dashboard — features page
+            </p>
+          </Reveal>
+        </div>
+
+        {/* Features section + CTA pair */}
+        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", paddingBottom: "clamp(60px,7vw,100px)" }}>
+          <Reveal>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }} className="compare-grid">
+              {[
+                { src: "/images/projects/lotusledger/shot3.webp", label: "Feature Highlights", sub: "Waitlist, Tip Suggestions, Commission — all in one platform.", w: 1920, h: 1280 },
+                { src: "/images/projects/lotusledger/shot4.webp", label: "Demo & Footer", sub: "Ready to Elevate your nail salon? Book a free demo.", w: 1920, h: 1440 },
+              ].map((item) => (
+                <div key={item.label}>
+                  <div style={{ borderRadius: "16px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.07)" }}>
+                    <Image src={item.src} alt={item.label} width={item.w} height={item.h} style={{ width: "100%", height: "auto", display: "block" }} />
+                  </div>
+                  <div style={{ marginTop: "12px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                    <span style={{ fontSize: "13px", color: "rgba(255,255,255,0.6)", fontWeight: 500 }}>{item.label}</span>
+                    <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", letterSpacing: "0.04em", maxWidth: "260px", textAlign: "right" }}>{item.sub}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
 
         {/* Result */}
         <section style={{ paddingBottom: "clamp(60px,7vw,100px)" }}>
