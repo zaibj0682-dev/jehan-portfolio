@@ -114,25 +114,32 @@ export default function FashionablyFabCaseStudy() {
           </Reveal>
         </div>
 
-        {/* Live link + stats */}
-        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)" }}>
+        {/* Live link */}
+        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", paddingTop: "20px", paddingBottom: "clamp(32px,4vw,48px)" }}>
           <Reveal>
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "16px", padding: "20px 0 clamp(32px,4vw,48px)" }}>
+            <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
               <a href="https://www.fashionablyfab.com" target="_blank" rel="noopener noreferrer"
-                style={{ display: "inline-flex", alignItems: "center", gap: "6px", fontSize: "12px", color: "rgba(255,255,255,0.35)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "999px", padding: "7px 16px", textDecoration: "none", transition: "all 0.2s" }}
-                onMouseEnter={e => { e.currentTarget.style.color = "rgba(255,255,255,0.75)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)"; }}
-                onMouseLeave={e => { e.currentTarget.style.color = "rgba(255,255,255,0.35)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)"; }}
+                style={{ display: "inline-flex", alignItems: "center", gap: "6px", fontSize: "12px", color: "rgba(255,255,255,0.4)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "999px", padding: "7px 16px", textDecoration: "none", transition: "color 0.2s, border-color 0.2s" }}
+                onMouseEnter={e => { e.currentTarget.style.color = "rgba(255,255,255,0.8)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.25)"; }}
+                onMouseLeave={e => { e.currentTarget.style.color = "rgba(255,255,255,0.4)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)"; }}
               >
-                <ExternalLink size={11} strokeWidth={1.5} /> fashionablyfab.com
+                <ExternalLink size={11} strokeWidth={1.5} />
+                fashionablyfab.com
               </a>
-              <div style={{ display: "flex", gap: "clamp(24px,3vw,48px)" }}>
-                {stats.map(s => (
-                  <div key={s.label} style={{ textAlign: "right" }}>
-                    <div style={{ fontSize: "clamp(22px,2.5vw,32px)", fontWeight: 600, letterSpacing: "-0.04em", color: "rgba(255,255,255,0.85)", lineHeight: 1 }}>{s.value}</div>
-                    <div style={{ fontSize: "10px", color: "rgba(255,255,255,0.3)", letterSpacing: "0.08em", textTransform: "uppercase", marginTop: "4px" }}>{s.label}</div>
-                  </div>
-                ))}
-              </div>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* Stats strip */}
+        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", paddingBottom: "clamp(48px,5vw,72px)" }}>
+          <Reveal>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: "1px", background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "20px", overflow: "hidden" }} className="stats-grid">
+              {stats.map((s) => (
+                <div key={s.label} style={{ background: "rgba(255,255,255,0.02)", padding: "clamp(24px,3vw,40px) 24px", display: "flex", flexDirection: "column", gap: "8px", alignItems: "center", textAlign: "center" }}>
+                  <span style={{ fontSize: "clamp(28px,3.5vw,48px)", fontWeight: 600, letterSpacing: "-0.04em", background: "linear-gradient(180deg,#fff,rgba(255,255,255,0.6))", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", lineHeight: 1 }}>{s.value}</span>
+                  <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.35)", letterSpacing: "0.08em", textTransform: "uppercase" }}>{s.label}</span>
+                </div>
+              ))}
             </div>
           </Reveal>
 
