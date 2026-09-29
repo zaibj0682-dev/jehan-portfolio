@@ -142,8 +142,10 @@ export default function FashionablyFabCaseStudy() {
               ))}
             </div>
           </Reveal>
+        </div>
 
-          {/* ── 01 Challenge ── */}
+        {/* ── 01 Challenge ── */}
+        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", paddingTop: "clamp(48px,5vw,72px)" }}>
           <Reveal>
             <div style={{ paddingBottom: "clamp(24px,3vw,40px)" }}>
               <Divider num="01" label="The Challenge" />
@@ -381,6 +383,7 @@ export default function FashionablyFabCaseStudy() {
       <style>{`
         @media (max-width: 810px) {
           .case-two-col { grid-template-columns: 1fr !important; }
+          .stats-grid { grid-template-columns: 1fr 1fr !important; }
           .compare-grid { grid-template-columns: 1fr !important; }
           .compare-grid > div:first-child { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.07) !important; }
         }
