@@ -36,7 +36,7 @@ export default function HeroBg() {
         loop
         muted
         playsInline
-        preload="auto"
+        preload="none"
         poster="/images/hero-poster.jpg"
         style={{
           position: "absolute",
