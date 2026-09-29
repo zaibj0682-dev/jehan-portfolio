@@ -138,7 +138,7 @@ function ProjectCard({ study, index }: { study: CaseStudy; index: number }) {
             overflow: "hidden",
             borderRadius: "24px",
             position: "relative",
-            background: "rgba(255,255,255,0.02)",
+            background: "#0d0d0d",
             border: "1px solid rgba(255,255,255,0.05)",
             boxShadow: "0 20px 40px -10px rgba(0,0,0,0.3)",
             transform: "translateZ(0)",
@@ -162,8 +162,8 @@ function ProjectCard({ study, index }: { study: CaseStudy; index: number }) {
               fill
               sizes="(max-width: 810px) 100vw, (max-width: 1280px) 50vw, 480px"
               style={{
-                objectFit: "cover",
-                objectPosition: "top center",
+                objectFit: "contain",
+                objectPosition: "center center",
                 backfaceVisibility: "hidden",
                 WebkitBackfaceVisibility: "hidden",
                 transform: "translateZ(0)",
