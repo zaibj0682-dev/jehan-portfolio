@@ -1,6 +1,6 @@
 "use client";
-import { useRef, useState, ReactElement, cloneElement } from "react";
-import { motion, useSpring } from "framer-motion";
+import { useRef, ReactElement } from "react";
+import { motion, useSpring, type SpringOptions } from "framer-motion";
 import { useSound } from "@/context/SoundContext";
 
 export default function Magnetic({
@@ -10,10 +10,9 @@ export default function Magnetic({
 }: {
   children: ReactElement;
   intensity?: number;
-  springConfig?: any;
+  springConfig?: SpringOptions;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const [isHovered, setIsHovered] = useState(false);
   const { playHover } = useSound();
 
   const x = useSpring(0, springConfig);
@@ -30,13 +29,11 @@ export default function Magnetic({
   };
 
   const handleMouseLeave = () => {
-    setIsHovered(false);
     x.set(0);
     y.set(0);
   };
 
   const handleMouseEnter = () => {
-    setIsHovered(true);
     playHover();
   };
 

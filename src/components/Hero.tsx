@@ -7,7 +7,6 @@ import GhostButton from "./ui/GhostButton";
 import { Star } from "lucide-react";
 import HeroBg from "./ui/HeroBg";
 import TiltCard from "./ui/TiltCard";
-import AnimatedText from "./ui/AnimatedText";
 import SplitText from "./ui/SplitText";
 import { usePreloader } from "@/context/PreloaderContext";
 

@@ -1,5 +1,4 @@
 import Reveal from "./ui/Reveal";
-import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 import Magnetic from "./ui/Magnetic";
 

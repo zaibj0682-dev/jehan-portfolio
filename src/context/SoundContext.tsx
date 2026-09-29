@@ -21,7 +21,8 @@ export function SoundProvider({ children }: { children: ReactNode }) {
 
   const getAudioCtx = () => {
     if (!audioCtxRef.current && typeof window !== "undefined") {
-      audioCtxRef.current = new (window.AudioContext || (window as any).webkitAudioContext)();
+      const AudioContextClass = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+      audioCtxRef.current = new AudioContextClass();
     }
     // Resume context if it was suspended (browser autoplay policy)
     if (audioCtxRef.current?.state === "suspended") {
@@ -55,7 +56,7 @@ export function SoundProvider({ children }: { children: ReactNode }) {
       
       osc.start();
       osc.stop(ctx.currentTime + 0.05);
-    } catch (e) {
+    } catch {
       // Ignore autoplay block errors silently
     }
   };
@@ -81,7 +82,7 @@ export function SoundProvider({ children }: { children: ReactNode }) {
       
       osc.start();
       osc.stop(ctx.currentTime + 0.1);
-    } catch (e) {
+    } catch {
       // Ignore autoplay block errors silently
     }
   };

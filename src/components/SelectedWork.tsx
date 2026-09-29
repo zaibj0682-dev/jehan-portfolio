@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import Parallax from "./ui/Parallax";
 import { ExternalLink, ArrowUpRight } from "lucide-react";
 import Reveal from "./ui/Reveal";
 import Image from "next/image";
