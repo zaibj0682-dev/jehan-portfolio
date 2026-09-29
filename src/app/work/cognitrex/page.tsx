@@ -63,6 +63,29 @@ const outcomes = [
   "Press-release launch",
 ];
 
+const skills = {
+  stack: [
+    "WordPress",
+    "Elementor",
+    "Go High Level",
+    "PHP & MySQL",
+    "Custom CSS",
+    "Responsive Design",
+    "DNS & Hosting Migration",
+    "Schema & SEO Foundations",
+  ],
+  disciplines: [
+    "Information Architecture",
+    "Brand System Implementation",
+    "Editorial Typography",
+    "Multi-site Management",
+    "Scope & Budget Control",
+    "Deadline-Driven Delivery",
+    "Client Communication",
+    "Post-Launch Support",
+  ],
+};
+
 export default function CognitrexCaseStudy() {
   return (
     <>
@@ -306,6 +329,61 @@ export default function CognitrexCaseStudy() {
           </div>
         </section>
 
+        {/* Skills Applied */}
+        <section style={{ paddingBottom: "clamp(60px,7vw,100px)" }}>
+          <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)" }}>
+            <Reveal>
+              <div style={{ borderRadius: "24px", border: "1px solid rgba(255,255,255,0.07)", overflow: "hidden" }}>
+                {/* Header row */}
+                <div style={{ padding: "28px 32px", borderBottom: "1px solid rgba(255,255,255,0.07)", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "12px" }}>
+                  <div>
+                    <p style={{ fontSize: "11px", letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.25)", marginBottom: "6px" }}>04</p>
+                    <h2 style={{ fontSize: "clamp(18px,2vw,24px)", fontWeight: 400, letterSpacing: "-0.03em", fontFamily: "var(--font-display)", color: "var(--color-text-heading)", margin: 0 }}>
+                      Skills Applied
+                    </h2>
+                  </div>
+                  <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.25)", maxWidth: "360px", lineHeight: 1.6, textAlign: "right" }}>
+                    Every capability used to take this project from brief to live — relevant to Fiverr Pro assessment.
+                  </p>
+                </div>
+
+                {/* Two columns */}
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0" }} className="skills-grid">
+                  {/* Stack */}
+                  <div style={{ padding: "28px 32px", borderRight: "1px solid rgba(255,255,255,0.07)" }}>
+                    <p style={{ fontSize: "10px", letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.2)", marginBottom: "20px" }}>
+                      Stack & Tools
+                    </p>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
+                      {skills.stack.map((s, i) => (
+                        <div key={s} style={{ padding: "11px 0", borderBottom: i < skills.stack.length - 1 ? "1px solid rgba(255,255,255,0.05)" : "none", display: "flex", alignItems: "center", gap: "10px" }}>
+                          <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#6ec3f4", flexShrink: 0, opacity: 0.7 }} />
+                          <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.65)" }}>{s}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Disciplines */}
+                  <div style={{ padding: "28px 32px" }}>
+                    <p style={{ fontSize: "10px", letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.2)", marginBottom: "20px" }}>
+                      Disciplines
+                    </p>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
+                      {skills.disciplines.map((s, i) => (
+                        <div key={s} style={{ padding: "11px 0", borderBottom: i < skills.disciplines.length - 1 ? "1px solid rgba(255,255,255,0.05)" : "none", display: "flex", alignItems: "center", gap: "10px" }}>
+                          <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#ff61ab", flexShrink: 0, opacity: 0.7 }} />
+                          <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.65)" }}>{s}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
         {/* Next project nav */}
         <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: "clamp(40px,5vw,64px)", paddingBottom: "clamp(40px,5vw,64px)" }}>
           <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "16px" }}>
@@ -334,6 +412,8 @@ export default function CognitrexCaseStudy() {
           .case-two-col { grid-template-columns: 1fr !important; }
           .case-two-col > div:first-child { position: static !important; }
           .stats-grid { grid-template-columns: 1fr 1fr !important; }
+          .skills-grid { grid-template-columns: 1fr !important; }
+          .skills-grid > div:first-child { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.07); }
         }
       `}</style>
     </>
