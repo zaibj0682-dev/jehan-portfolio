@@ -85,7 +85,7 @@ const studies: CaseStudy[] = [
     result: "Fully custom store live. Client returned multiple times for new products. 5-star review with tip.",
     url: "https://velisselabs.com",
     caseStudy: "/work/velisse",
-    mockup: "/images/projects/velisse/hero.png",
+    mockup: "/images/projects/velisse/coa.png",
     alt: "Velisse Labs WooCommerce research peptide store",
   },
   {
