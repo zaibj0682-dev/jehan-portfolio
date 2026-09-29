@@ -168,10 +168,10 @@ export default function FashionablyFabCaseStudy() {
           </Reveal>
         </div>
 
-        {/* ── BLOG + STRONG CTA — fixed height pair ── */}
-        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", paddingBottom: "clamp(14px,1.5vw,20px)" }}>
-          <Reveal>
-            <div style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: "12px" }} className="compare-grid">
+        {/* ── BLOG + PARTNERSHIPS — side-by-side columns, each self-contained ── */}
+        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", paddingBottom: "clamp(60px,7vw,100px)" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(32px,4vw,56px)", alignItems: "start" }} className="case-two-col">
+            <Reveal>
               <div>
                 <div style={{ position: "relative", borderRadius: "16px", overflow: "hidden" }}>
                   <Tag label="Blog" />
@@ -179,6 +179,8 @@ export default function FashionablyFabCaseStudy() {
                 </div>
                 <p style={{ marginTop: "12px", fontSize: "13px", color: "rgba(255,255,255,0.3)", fontStyle: "italic" }}>An editorial blog that reads like a magazine.</p>
               </div>
+            </Reveal>
+            <Reveal delay={0.02}>
               <div>
                 <div style={{ position: "relative", borderRadius: "16px", overflow: "hidden" }}>
                   <Tag label="Partnerships" />
@@ -186,14 +188,14 @@ export default function FashionablyFabCaseStudy() {
                 </div>
                 <p style={{ marginTop: "12px", fontSize: "13px", color: "rgba(255,255,255,0.3)", fontStyle: "italic" }}>Speaking, media & brand partnerships.</p>
               </div>
-            </div>
-          </Reveal>
+            </Reveal>
+          </div>
         </div>
 
-        {/* ── ABOUT + CONTACT — fixed height pair ── */}
+        {/* ── ABOUT + CONTACT — side-by-side columns, each self-contained ── */}
         <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", paddingBottom: "clamp(60px,7vw,100px)" }}>
-          <Reveal>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }} className="compare-grid">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(32px,4vw,56px)", alignItems: "start" }} className="case-two-col">
+            <Reveal>
               <div>
                 <div style={{ position: "relative", borderRadius: "16px", overflow: "hidden" }}>
                   <Tag label="About" />
@@ -201,6 +203,8 @@ export default function FashionablyFabCaseStudy() {
                 </div>
                 <p style={{ marginTop: "12px", fontSize: "13px", color: "rgba(255,255,255,0.3)", fontStyle: "italic" }}>FAB Collabs — Nordstrom, HSN, and more.</p>
               </div>
+            </Reveal>
+            <Reveal delay={0.02}>
               <div>
                 <div style={{ position: "relative", borderRadius: "16px", overflow: "hidden" }}>
                   <Tag label="Contact" />
@@ -208,8 +212,8 @@ export default function FashionablyFabCaseStudy() {
                 </div>
                 <p style={{ marginTop: "12px", fontSize: "13px", color: "rgba(255,255,255,0.3)", fontStyle: "italic" }}>A contact page that matches the brand — not an afterthought.</p>
               </div>
-            </div>
-          </Reveal>
+            </Reveal>
+          </div>
         </div>
 
         {/* ── 02 Approach ── */}
@@ -242,26 +246,39 @@ export default function FashionablyFabCaseStudy() {
             </div>
           </Reveal>
 
-          {/* ── THE FAB BOOK + INSTAGRAM — fixed height pair (breaks up full-width sequence) ── */}
-          <div style={{ paddingBottom: "clamp(14px,1.5vw,20px)", paddingTop: "12px" }}>
-            <Reveal>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }} className="compare-grid">
+          {/* ── THE FAB BOOK + INSTAGRAM — side-by-side columns, each self-contained ── */}
+          <div style={{ paddingBottom: "clamp(60px,7vw,100px)", paddingTop: "12px" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(32px,4vw,56px)", alignItems: "start" }} className="case-two-col">
+              <Reveal>
                 <div>
-                  <div style={{ position: "relative", borderRadius: "16px", overflow: "hidden" }}>
-                    <Tag label="The Fab Book" />
-                    <Image src="/images/projects/fashionablyfab/book.webp" alt="FashionablyFab — The Fab Book page" width={1080} height={1350} style={{ width: "100%", height: "auto", display: "block" }} />
-                  </div>
-                  <p style={{ marginTop: "12px", fontSize: "13px", color: "rgba(255,255,255,0.3)", fontStyle: "italic" }}>Teasing a 2027 book launch — built to capture early interest.</p>
-                </div>
-                <div>
-                  <div style={{ position: "relative", borderRadius: "16px", overflow: "hidden" }}>
+                  <div style={{ position: "relative" }}>
                     <Tag label="Instagram" />
-                    <Image src="/images/projects/fashionablyfab/instagram.webp" alt="FashionablyFab — Live Instagram feed" width={1920} height={1920} style={{ width: "100%", height: "auto", display: "block" }} />
+                    <ParallaxImage src="/images/projects/fashionablyfab/instagram.webp" alt="FashionablyFab — Live Instagram feed" width={1920} height={1920} />
                   </div>
-                  <p style={{ marginTop: "12px", fontSize: "13px", color: "rgba(255,255,255,0.3)", fontStyle: "italic" }}>Live Instagram feed — social proof embedded into the brand experience.</p>
+                  <div style={{ marginTop: "16px", display: "flex", flexDirection: "column", gap: "10px" }}>
+                    <h3 style={{ fontSize: "clamp(18px,1.8vw,22px)", fontWeight: 500, letterSpacing: "-0.02em", color: "var(--color-text-heading)", fontFamily: "var(--font-display)", margin: 0 }}>Live Instagram Feed</h3>
+                    <p style={{ fontSize: "14px", lineHeight: 1.65, color: "rgba(255,255,255,0.5)", margin: 0 }}>
+                      A live-connected Instagram feed embedded directly into the homepage, pulling in her latest posts automatically so the site never looks stale — reconnected and stabilized after the live-domain migration broke it.
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </Reveal>
+              </Reveal>
+
+              <Reveal delay={0.02}>
+                <div>
+                  <div style={{ position: "relative" }}>
+                    <Tag label="The Fab Book" />
+                    <ParallaxImage src="/images/projects/fashionablyfab/book.webp" alt="FashionablyFab — The Fab Book page" width={1080} height={1350} />
+                  </div>
+                  <div style={{ marginTop: "16px", display: "flex", flexDirection: "column", gap: "10px" }}>
+                    <h3 style={{ fontSize: "clamp(18px,1.8vw,22px)", fontWeight: 500, letterSpacing: "-0.02em", color: "var(--color-text-heading)", fontFamily: "var(--font-display)", margin: 0 }}>The Fab Book</h3>
+                    <p style={{ fontSize: "14px", lineHeight: 1.65, color: "rgba(255,255,255,0.5)", margin: 0 }}>
+                      A dedicated landing page teasing Natasha&apos;s upcoming 2027 book — built to capture early interest and grow her mailing list months ahead of launch.
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
+            </div>
           </div>
 
           {/* ── MOBILE — full width (after pair, creates rhythm break before pull quote) ── */}

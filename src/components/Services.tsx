@@ -5,35 +5,35 @@ import Reveal from "./ui/Reveal";
 
 const services = [
   {
-    iconUrl: "/images/icons/business.png",
+    iconUrl: "/images/icons/business.webp",
     label: "Bespoke Web Platforms",
     description:
       "Enterprise-grade websites engineered using WordPress, Wix, or custom stacks, tailored entirely to your brand architecture.",
     delivery: "2–4 weeks",
   },
   {
-    iconUrl: "/images/icons/store.png",
+    iconUrl: "/images/icons/store.webp",
     label: "E-Commerce Ecosystems",
     description:
       "High-converting online stores deployed on Shopify or WooCommerce, fully integrated with scalable backend logic.",
     delivery: "2–3 weeks",
   },
   {
-    iconUrl: "/images/icons/landing.png",
+    iconUrl: "/images/icons/landing.webp",
     label: "Brand Identity & Graphics",
     description:
       "Comprehensive visual strategy including logo design, typography, and UI/UX assets to position you as an industry leader.",
     delivery: "1-2 weeks",
   },
   {
-    iconUrl: "/images/icons/redesign.png",
+    iconUrl: "/images/icons/redesign.webp",
     label: "Custom Software",
     description:
       "Complex web applications and custom software engineering built on modern, multi-stack frameworks for unique business challenges.",
     delivery: "4+ weeks",
   },
   {
-    iconUrl: "/images/icons/care.png",
+    iconUrl: "/images/icons/care.webp",
     label: "Performance & Scaling",
     description:
       "Ongoing strategic retainers covering technical SEO, security architecture, and performance optimization for growing platforms.",

@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 const steps = [
   {
-    iconUrl: "/images/icons/business.png",
+    iconUrl: "/images/icons/business.webp",
     num: "01",
     title: "Discovery & Strategy",
     detail: "Aligning digital goals",
@@ -13,7 +13,7 @@ const steps = [
     side: "left" as const,
   },
   {
-    iconUrl: "/images/icons/research.png",
+    iconUrl: "/images/icons/research.webp",
     num: "02",
     title: "Bespoke Engineering",
     detail: "Pixel-perfect execution",
@@ -22,7 +22,7 @@ const steps = [
     side: "right" as const,
   },
   {
-    iconUrl: "/images/icons/launch.png",
+    iconUrl: "/images/icons/launch.webp",
     num: "03",
     title: "Seamless Handoff",
     detail: "Frictionless deployment",

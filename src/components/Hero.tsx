@@ -140,7 +140,7 @@ export default function Hero() {
               {/* Profile header */}
               <div style={{ padding: "28px 24px 20px", display: "flex", flexDirection: "column", alignItems: "center", gap: "12px" }}>
                 <div style={{ width: 72, height: 72, borderRadius: "50%", overflow: "hidden", border: "2px solid rgba(255,255,255,0.1)" }}>
-                  <Image src="/images/profile.jpg" alt="Jehan Zaib" width={72} height={72} className="object-cover w-full h-full" style={{ objectPosition: "50% 15%" }} priority />
+                  <Image src="/images/profile-avatar.webp" alt="Jehan Zaib" width={72} height={72} className="object-cover w-full h-full" style={{ objectPosition: "50% 15%" }} priority />
                 </div>
                 <div style={{ textAlign: "center" }}>
                   <h2 style={{ fontSize: "14px", fontWeight: 600, color: "var(--color-text-heading)", letterSpacing: "-0.01em" }}>Jehan Zaib</h2>
@@ -159,14 +159,14 @@ export default function Hero() {
               {/* Project previews */}
               <div style={{ padding: "16px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
                 {[
-                  { name: "Bliss Thai Spa", img: "/images/projects/blissthaispa-mockup.png" },
-                  { name: "Penguin Keys", img: "/images/projects/penguinkeys-mockup.png" },
-                  { name: "21 Neptune", img: "/images/projects/neptune-mockup.png" },
-                  { name: "Panel Paramedics", img: "/images/projects/panelparamedics-mockup.png" },
+                  { name: "Bliss Thai Spa", img: "/images/projects/blissthaispa-mockup.webp" },
+                  { name: "Penguin Keys", img: "/images/projects/penguinkeys-mockup.webp" },
+                  { name: "21 Neptune", img: "/images/projects/neptune-mockup.webp" },
+                  { name: "Panel Paramedics", img: "/images/projects/panelparamedics-mockup.webp" },
                 ].map(({ name, img }) => (
                   <div key={name} style={{ borderRadius: "8px", overflow: "hidden", aspectRatio: "4/3", background: "#111" }}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={img} alt={name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
+                    <img src={img} alt={name} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
                   </div>
                 ))}
               </div>

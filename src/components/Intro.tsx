@@ -58,37 +58,44 @@ export default function Intro() {
   return (
     <section
       style={{
-        maxWidth: "1600px",
-        margin: "0 auto",
-        padding: "clamp(60px, 7vw, 100px) 40px",
         width: "100%",
+        paddingTop: "clamp(60px, 7vw, 100px)",
+        paddingBottom: "clamp(60px, 7vw, 100px)",
       }}
     >
       <div
         style={{
-          maxWidth: "760px",
+          maxWidth: "1280px",
           margin: "0 auto",
-          display: "flex",
-          flexDirection: "column",
-          gap: "clamp(20px, 2.5vw, 32px)",
+          padding: "0 clamp(20px,4vw,40px)",
         }}
       >
-        {/* Label */}
-        <p
+        <div
           style={{
-            fontSize: "11px",
-            letterSpacing: "0.1em",
-            textTransform: "uppercase",
-            color: "rgba(255,255,255,0.25)",
-            marginBottom: "8px",
+            maxWidth: "760px",
+            margin: "0 auto",
+            display: "flex",
+            flexDirection: "column",
+            gap: "clamp(20px, 2.5vw, 32px)",
           }}
         >
-          The story
-        </p>
+          {/* Label */}
+          <p
+            style={{
+              fontSize: "11px",
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              color: "rgba(255,255,255,0.25)",
+              marginBottom: "8px",
+            }}
+          >
+            The story
+          </p>
 
-        {lines.map((text, i) => (
-          <StoryLine key={i} text={text} index={i} />
-        ))}
+          {lines.map((text, i) => (
+            <StoryLine key={i} text={text} index={i} />
+          ))}
+        </div>
       </div>
     </section>
   );

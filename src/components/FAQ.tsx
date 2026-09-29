@@ -197,7 +197,7 @@ export default function FAQ() {
             {/* Branded icon */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/images/icons/support.png"
+              src="/images/icons/support.webp"
               alt=""
               style={{
                 width: "96px",

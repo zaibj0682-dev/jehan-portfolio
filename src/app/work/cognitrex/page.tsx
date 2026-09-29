@@ -271,27 +271,43 @@ export default function CognitrexCaseStudy() {
           </Reveal>
         </div>
 
-        {/* Side-by-side: two deliverables */}
+        {/* Two deliverables — side-by-side columns, each self-contained (image at natural ratio + heading + context) so mismatched aspect ratios never force a crop */}
         <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", paddingBottom: "clamp(60px,7vw,100px)" }}>
           <Reveal>
-            <p style={{ fontSize: "11px", letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.2)", marginBottom: "20px" }}>Two deliverables. Two completely different design systems.</p>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }} className="compare-grid">
-              {[
-                { src: "/images/projects/cognitrex/hero-mockup.webp", label: "Corporate Platform", sub: "cognitrex.com", w: 1920, h: 1080 },
-                { src: "/images/projects/cognitrex/hana-new.webp", label: "Executive Personal Brand", sub: "hanadhanji.com", w: 1920, h: 1280 },
-              ].map((item) => (
-                <div key={item.label}>
-                  <div style={{ borderRadius: "16px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.07)" }}>
-                    <Image src={item.src} alt={item.label} width={item.w} height={item.h} style={{ width: "100%", height: "auto", display: "block" }} />
-                  </div>
-                  <div style={{ marginTop: "12px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                    <span style={{ fontSize: "13px", color: "rgba(255,255,255,0.6)", fontWeight: 500 }}>{item.label}</span>
-                    <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", letterSpacing: "0.04em" }}>{item.sub}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <p style={{ fontSize: "11px", letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.2)", marginBottom: "clamp(28px,3vw,40px)" }}>Two deliverables. Two completely different design systems.</p>
           </Reveal>
+
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(32px,4vw,56px)", alignItems: "start" }} className="case-two-col">
+            <Reveal delay={0.02}>
+              <div>
+                <div style={{ borderRadius: "16px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.07)" }}>
+                  <Image src="/images/projects/cognitrex/hero-mockup.webp" alt="Corporate Platform" width={1920} height={1080} style={{ width: "100%", height: "auto", display: "block" }} />
+                </div>
+                <div style={{ marginTop: "16px", display: "flex", flexDirection: "column", gap: "10px" }}>
+                  <h3 style={{ fontSize: "clamp(18px,1.8vw,22px)", fontWeight: 500, letterSpacing: "-0.02em", color: "var(--color-text-heading)", fontFamily: "var(--font-display)", margin: 0 }}>Corporate Platform</h3>
+                  <p style={{ fontSize: "14px", lineHeight: 1.65, color: "rgba(255,255,255,0.5)", margin: 0 }}>
+                    A 26-page enterprise LMS/LXP platform built on WordPress and Elementor, matching the depth and structure of their reference site across every Platform, Solutions, Services, and Use Case page.
+                  </p>
+                  <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", letterSpacing: "0.04em" }}>cognitrex.com</span>
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.04}>
+              <div>
+                <div style={{ borderRadius: "16px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.07)" }}>
+                  <Image src="/images/projects/cognitrex/hana-new.webp" alt="Executive Personal Brand" width={1920} height={1280} style={{ width: "100%", height: "auto", display: "block" }} />
+                </div>
+                <div style={{ marginTop: "16px", display: "flex", flexDirection: "column", gap: "10px" }}>
+                  <h3 style={{ fontSize: "clamp(18px,1.8vw,22px)", fontWeight: 500, letterSpacing: "-0.02em", color: "var(--color-text-heading)", fontFamily: "var(--font-display)", margin: 0 }}>Executive Personal Brand</h3>
+                  <p style={{ fontSize: "14px", lineHeight: 1.65, color: "rgba(255,255,255,0.5)", margin: 0 }}>
+                    A locked editorial design system built exactly to spec — specific hex codes, the paid IvyPresto typeface at the exact weight, and four approved photos placed precisely as the brand guide called for.
+                  </p>
+                  <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", letterSpacing: "0.04em" }}>hanadhanji.com</span>
+                </div>
+              </div>
+            </Reveal>
+          </div>
         </div>
 
         {/* Approach */}
@@ -331,26 +347,37 @@ export default function CognitrexCaseStudy() {
           </Reveal>
         </div>
 
-        {/* Side-by-side: Learner Portal + Product Training */}
-        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", paddingBottom: "clamp(20px,2vw,28px)" }}>
-          <Reveal>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }} className="compare-grid">
-              {[
-                { src: "/images/projects/cognitrex/learner-portal.webp", label: "Learner Portal", sub: "Self-serve dashboard for employees", w: 1920, h: 1280 },
-                { src: "/images/projects/cognitrex/product-training.webp", label: "Product Knowledge Training", sub: "One of eight Use Case pages", w: 1920, h: 1920 },
-              ].map((item) => (
-                <div key={item.label}>
-                  <div style={{ borderRadius: "16px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.07)" }}>
-                    <Image src={item.src} alt={item.label} width={item.w} height={item.h} style={{ width: "100%", height: "auto", display: "block" }} />
-                  </div>
-                  <div style={{ marginTop: "12px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                    <span style={{ fontSize: "13px", color: "rgba(255,255,255,0.6)", fontWeight: 500 }}>{item.label}</span>
-                    <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", letterSpacing: "0.04em", maxWidth: "220px", textAlign: "right" }}>{item.sub}</span>
-                  </div>
+        {/* Learner Portal + Product Training — side-by-side columns, each self-contained */}
+        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", paddingBottom: "clamp(60px,7vw,100px)" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(32px,4vw,56px)", alignItems: "start" }} className="case-two-col">
+            <Reveal>
+              <div>
+                <div style={{ borderRadius: "16px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.07)" }}>
+                  <Image src="/images/projects/cognitrex/learner-portal.webp" alt="Learner Portal" width={1920} height={1280} style={{ width: "100%", height: "auto", display: "block" }} />
                 </div>
-              ))}
-            </div>
-          </Reveal>
+                <div style={{ marginTop: "16px", display: "flex", flexDirection: "column", gap: "10px" }}>
+                  <h3 style={{ fontSize: "clamp(18px,1.8vw,22px)", fontWeight: 500, letterSpacing: "-0.02em", color: "var(--color-text-heading)", fontFamily: "var(--font-display)", margin: 0 }}>Learner Portal</h3>
+                  <p style={{ fontSize: "14px", lineHeight: 1.65, color: "rgba(255,255,255,0.5)", margin: 0 }}>
+                    The self-serve dashboard where employees access assigned courses, track their progress, and pick up new training at any time — no admin hand-holding required.
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.02}>
+              <div>
+                <div style={{ borderRadius: "16px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.07)" }}>
+                  <Image src="/images/projects/cognitrex/product-training.webp" alt="Product Knowledge Training" width={1920} height={1920} style={{ width: "100%", height: "auto", display: "block" }} />
+                </div>
+                <div style={{ marginTop: "16px", display: "flex", flexDirection: "column", gap: "10px" }}>
+                  <h3 style={{ fontSize: "clamp(18px,1.8vw,22px)", fontWeight: 500, letterSpacing: "-0.02em", color: "var(--color-text-heading)", fontFamily: "var(--font-display)", margin: 0 }}>Product Knowledge Training</h3>
+                  <p style={{ fontSize: "14px", lineHeight: 1.65, color: "rgba(255,255,255,0.5)", margin: 0 }}>
+                    One of eight dedicated Use Case pages built to speak directly to a specific buyer problem — here, closing the product-knowledge gap that slows down sales and onboarding.
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+          </div>
         </div>
 
         {/* Custom Learning — full width */}

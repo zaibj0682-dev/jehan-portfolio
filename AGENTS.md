@@ -54,7 +54,7 @@ Custom spacing: non-standard scale (1=4px, 2=6px, 3=8px, 4=10px, 5=12px, 6=16px,
 Use `var(--color-bg)`, `var(--color-text-heading)`, `var(--color-text)`, `var(--color-text-muted)`, `var(--font-display)`, `var(--font-sans)`, `var(--text-h1)` through `var(--text-h6)`.
 
 ### Animation performance
-- **Hero background**: Pure CSS `@keyframes` in `HeroBg.tsx` — NOT a JS RAF loop. Stripe colors: `#6ec3f4`, `#3a3aff`, `#ff61ab`, `#E63946`. CSS `transform: skewY(-12deg)` on bg div.
+- **Hero background**: `HeroBg.tsx` is now a looping `<video>` (`/videos/hero-bg.webm` + `.mp4` fallback, `preload="none"`, poster `/images/hero-poster.jpg`) with `mixBlendMode: screen` and a slow CSS `cinematic-zoom` keyframe — **not** the earlier CSS Stripe-gradient animation. `preload="none"` was chosen deliberately to fix a slow-LCP regression (commit `f1e6c0e`); don't switch it to `auto`/`metadata` without checking load performance.
 - Never use `requestAnimationFrame` to update `backgroundImage` — it forces main-thread style recalculation every 16ms and makes the page lag.
 - Use Framer Motion `whileInView` with `viewport={{ once: true, margin: "-80px" }}` for scroll animations.
 
@@ -65,39 +65,93 @@ If components render stale code after edits: stop the server → `rm -rf .next` 
 ```
 src/
   app/
-    layout.tsx          — root layout, font imports, metadata
+    layout.tsx          — root layout: Inter font, JSON-LD (Person/ProfessionalService schema),
+                           PreloaderProvider > SoundProvider > LenisProvider > FilmGrain/CustomCursor > children
+                           (Preloader is NOT rendered here anymore — removed in commit `efa325a`)
     page.tsx            — assembles all section components in order
-    globals.css         — CSS variables, base styles, Tailwind v4 import
+    globals.css         — CSS variables, base styles, Tailwind v4 import, Lenis smooth-scroll CSS
+    work/
+      fashionablyfab/page.tsx — dedicated case study page
+      landbeagle/page.tsx     — dedicated case study page
+      cognitrex/page.tsx      — dedicated case study page
+      velisse/page.tsx        — dedicated case study page
+      lotusledger/page.tsx    — dedicated case study page
+  context/
+    PreloaderContext.tsx — now a **stub**: always returns `isReadyToAnimate: true` / `isVideoReady: true` immediately (no real gating). Still wraps children with a `beforeunload`/`pagehide` black-screen blocker to avoid iOS paint-hold flicker on navigation.
+    SoundContext.tsx     — `soundEnabled`, `toggleSound`, `playHover` — UI hover/click sound effects
   components/
-    Nav.tsx             — fixed header, 1280px container, "use client"
-    Hero.tsx            — full-bleed gradient hero, profile card right side, "use client"
+    LenisProvider.tsx   — wraps app in Lenis smooth-scroll, "use client"
+    Nav.tsx             — fixed header, 1280px container, scroll-driven blur/bg via useScroll, sound toggle, "use client"
+    Hero.tsx            — video-bg hero, profile card right side (uses TiltCard, AnimatedText, SplitText), "use client"
+    Intro.tsx           — "The story" scroll-revealed narrative (15 lines), 1280px container, "use client"
     ui/
-      HeroBg.tsx        — CSS-only animated Stripe gradient background (no "use client" needed)
-      PrimaryButton.tsx — white filled button
-      GhostButton.tsx   — ghost/outline button
-      Reveal.tsx        — scroll-reveal wrapper (Framer Motion), "use client"
-    Numbers.tsx         — 4-stat strip (3,300+ projects, 5.0, 6+ yrs, ~1hr)
-    About.tsx           — two-column: story + milestones left, profile photo right
-    SelectedWork.tsx    — 4 case study cards in 2-col grid, "use client"
+      HeroBg.tsx         — looping background `<video>` (webm+mp4, `preload="none"`), NOT the old CSS Stripe gradient — see Animation performance below
+      DynamicBackground.tsx — fixed full-viewport bg, scroll-interpolates #060606 → #040b16 → #060606, "use client"
+      Marquee.tsx        — two velocity-based infinite scroll rows of tech-stack keywords, "use client"
+      ScrollProgress.tsx — fixed bottom-right scroll-to-top button with circular progress ring, "use client"
+      Preloader.tsx      — DEAD CODE: file still exists, full-screen loading-counter UI, but no longer imported by layout.tsx
+      PreloaderReady.tsx — DEAD CODE: not imported anywhere in `src/`
+      FilmGrain.tsx      — subtle fixed grain overlay texture
+      CustomCursor.tsx   — custom cursor replacement, desktop only
+      Magnetic.tsx       — wraps a child, applies magnetic cursor-attraction hover effect
+      TiltCard.tsx       — 3D tilt-on-hover wrapper (used by Hero profile card)
+      Parallax.tsx       — scroll-linked parallax translate wrapper
+      ParallaxImage.tsx  — parallax wrapper specifically for `next/image`, used on case study pages
+      AnimatedText.tsx   — word/line reveal-on-scroll text wrapper
+      SplitText.tsx      — per-character/word staggered entrance text animation
+      LiveStatus.tsx     — live local-timezone/availability indicator
+      Accordion.tsx      — generic accordion used by FAQ
+      PrimaryButton.tsx  — white filled button
+      GhostButton.tsx    — ghost/outline button
+      Reveal.tsx         — scroll-reveal wrapper (Framer Motion), "use client"
     Services.tsx        — 5 service cards in auto-fill grid, "use client"
+    SelectedWork.tsx    — 9 case study cards, 16:10 image ratio, parallax image pan on scroll, industry tag + result + delivery time; first 5 link out to `/work/<slug>` case study pages, "use client"
     Process.tsx         — zigzag animated roadmap (5 steps), "use client"
-    Packages.tsx        — 3 pricing cards in connected panel, "use client"
     Reviews.tsx         — 6 client review cards
+    About.tsx           — two-column: story + milestones left, profile photo right (light container blend fix)
+    Packages.tsx        — 3 pricing cards in connected panel, "use client"
     FAQ.tsx             — two-column accordion (left heading, right accordion), "use client"
     CTA.tsx             — dark card with headline left + Fiverr profile stats right
     Footer.tsx          — brand block + nav links + Fiverr links + copyright, "use client"
+    ContactForm.tsx     — present in repo but NOT used in page.tsx (site has no contact form — Fiverr-only CTA policy)
+    Numbers.tsx         — present in repo but NOT rendered in page.tsx (removed from page flow)
 ```
 
-## Page section order (`page.tsx`)
-Hero → Numbers → SelectedWork → Services → Process → Reviews → About → Packages → FAQ → CTA → Footer
+## Page section order (`page.tsx`, current)
+```
+DynamicBackground (fixed bg layer, renders behind everything)
+Nav
+Hero
+Intro
+Services
+Marquee
+SelectedWork
+Process
+Reviews
+About
+Packages
+FAQ
+[CTA + Footer — wrapped together in a relative div with an absolute
+ /images/new-cta-bg.jpg background image (opacity 0.45, saturate/contrast filter)
+ and a top-to-bottom gradient blending var(--color-bg) into the image]
+ScrollProgress (fixed, renders last)
+```
+
+## Case studies (`SelectedWork.tsx`, 9 total — first 5 have full `/work/<slug>` pages)
+1. FashionablyFab — Lifestyle & Editorial — `/work/fashionablyfab`
+2. Land Beagle — Marketplace Platform — `/work/landbeagle`
+3. Cognitrex & Hana Dhanji — Enterprise SaaS — `/work/cognitrex`
+4. Velisse Labs — Research Products (WooCommerce) — `/work/velisse`
+5. Lotus Ledger — SaaS / POS — `/work/lotusledger`
+6. Bliss Thai Spa — Wellness & Beauty (external link only, no case study page)
+7. Panel Paramedics — Solar & Home Services (external link only)
+8. 21 Neptune Apartments — Real Estate (external link only)
+9. Penguin Keys — E-commerce, WooCommerce (external link only)
 
 ## Profile & project images
-All in `public/images/`:
-- `profile.png` — passport-style photo with white background. Use light container (`background: #f0ece8`) + dark gradient overlay at bottom to blend into dark page. Do NOT use `mix-blend-mode: multiply` with dark container — it makes the photo invisible.
-- `projects/blissthaispa-mockup.png` — Bliss Thai Spa (wellness)
-- `projects/penguinkeys-mockup.png` — Penguin Keys (WooCommerce e-commerce)
-- `projects/neptune-mockup.png` — 21 Neptune Apartments (real estate)
-- `projects/panelparamedics-mockup.png` — Panel Paramedics (solar services)
+Project media now lives under `public/images/projects/<client>/` as `.webp` (site assets) with matching `.png`/`.mp4` originals kept alongside for some clients (e.g. `cognitrex/hero.png` + `hero.webp`, `landbeagle/demo.mp4`). Always reference the `.webp` in components — the `.png`/`.mp4` are source masters, not meant to be served directly except `demo.mp4` files used intentionally in case study pages.
+- `profile.jpg` (was `profile.png`) — passport-style photo with white background. Use light container (`background: #f0ece8`) + dark gradient overlay at bottom to blend into dark page. Do NOT use `mix-blend-mode: multiply` with dark container — it makes the photo invisible.
+- Simpler 4 legacy projects (no case study page) use flat mockup files: `projects/blissthaispa-mockup.webp`, `projects/penguinkeys-mockup.webp`, `projects/neptune-mockup.webp`, `projects/panelparamedics-mockup.webp`.
 
 ## Design system
 - **Background**: `#060606` near-black
@@ -111,9 +165,9 @@ All in `public/images/`:
 - **Letter spacing**: always negative on headings (`-0.04em` h1/h2, `-0.03em` h3/h4)
 - **Border radius**: cards `16px`–`20px`, buttons `8px`–`10px`, pills `999px`
 
-## Stripe hero colors
+## Brand gradient colors (used in accents, not the hero anymore)
 `#6ec3f4` (cyan) · `#3a3aff` (electric blue) · `#ff61ab` (hot pink) · `#E63946` (red)
-Animation: `background-size: 400% 400%`, `animation: stripe-flow 10s ease infinite`, `transform: skewY(-12deg)`, `opacity: 0.88`
+Still shows up as the Nav scroll-progress bar gradient and the Preloader's dead-code divider — the Hero itself now uses the `HeroBg.tsx` video, not this gradient.
 
 ## Fiverr URLs (all CTAs point to these — no other contact)
 - Profile: `https://www.fiverr.com/jehanzaib_007`

@@ -32,7 +32,7 @@ function ProfileImage() {
       }}
     >
       <Image
-        src="/images/profile.jpg"
+        src="/images/profile.webp"
         alt="Jehan Zaib"
         fill
         className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
