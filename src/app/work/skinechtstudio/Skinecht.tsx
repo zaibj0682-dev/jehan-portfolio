@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import Nav from "@/components/Nav";
@@ -193,33 +192,6 @@ export default function SkinechtCaseStudy() {
           </div>
         </div>
 
-        {/* Homepage screenshot */}
-        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", marginBottom: "clamp(16px,2vw,24px)" }}>
-          <Reveal>
-            <ParallaxImage
-              src="/images/projects/skinechtstudio/homepage.webp"
-              alt="Skinecht Studio — homepage design"
-              width={1920}
-              height={1400}
-            />
-          </Reveal>
-        </div>
-
-        {/* About + Service pair */}
-        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", marginBottom: "clamp(64px,8vw,100px)" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(12px,1.5vw,20px)" }}>
-            <Reveal>
-              <div style={{ borderRadius: "16px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.07)" }}>
-                <Image src="/images/projects/skinechtstudio/about.webp" alt="Skinecht Studio — about page" width={1920} height={1400} style={{ width: "100%", height: "auto", display: "block" }} />
-              </div>
-            </Reveal>
-            <Reveal delay={0.06}>
-              <div style={{ borderRadius: "16px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.07)" }}>
-                <Image src="/images/projects/skinechtstudio/service.webp" alt="Skinecht Studio — Morpheus8 service page" width={1920} height={1400} style={{ width: "100%", height: "auto", display: "block" }} />
-              </div>
-            </Reveal>
-          </div>
-        </div>
 
         {/* Approach */}
         <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", marginBottom: "clamp(64px,8vw,100px)" }}>
@@ -238,18 +210,6 @@ export default function SkinechtCaseStudy() {
               </Reveal>
             ))}
           </div>
-        </div>
-
-        {/* Product page screenshot */}
-        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px)", marginBottom: "clamp(64px,8vw,100px)" }}>
-          <Reveal>
-            <ParallaxImage
-              src="/images/projects/skinechtstudio/product.webp"
-              alt="Skinecht Studio — Alumier product page"
-              width={1920}
-              height={1400}
-            />
-          </Reveal>
         </div>
 
         {/* Outcomes + Stack */}
