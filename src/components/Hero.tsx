@@ -158,10 +158,10 @@ export default function Hero() {
               {/* Project previews */}
               <div style={{ padding: "16px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
                 {[
-                  { name: "Bliss Thai Spa", img: "/images/projects/blissthaispa-mockup.webp" },
-                  { name: "Penguin Keys", img: "/images/projects/penguinkeys-mockup.webp" },
-                  { name: "21 Neptune", img: "/images/projects/neptune-mockup.webp" },
-                  { name: "Panel Paramedics", img: "/images/projects/panelparamedics-mockup.webp" },
+                  { name: "FashionablyFab", img: "/images/projects/fashionablyfab/hero-thumb.webp" },
+                  { name: "Cognitrex", img: "/images/projects/cognitrex/hero-mockup-thumb.webp" },
+                  { name: "Land Beagle", img: "/images/projects/landbeagle/hero-thumb.webp" },
+                  { name: "Velisse Labs", img: "/images/projects/velisse/hero-thumb.webp" },
                 ].map(({ name, img }) => (
                   <div key={name} style={{ borderRadius: "8px", overflow: "hidden", aspectRatio: "4/3", background: "#111" }}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
