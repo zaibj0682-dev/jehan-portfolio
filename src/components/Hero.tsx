@@ -165,7 +165,7 @@ export default function Hero() {
                 ].map(({ name, img }) => (
                   <div key={name} style={{ borderRadius: "8px", overflow: "hidden", aspectRatio: "4/3", background: "#111" }}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={img} alt={name} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
+                    <img src={img} alt={name} loading="eager" fetchPriority="high" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
                   </div>
                 ))}
               </div>
