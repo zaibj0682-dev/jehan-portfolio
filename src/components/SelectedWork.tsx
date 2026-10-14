@@ -82,6 +82,18 @@ const studies: CaseStudy[] = [
   },
   {
     num: "06",
+    client: "Skinecht Studio",
+    industry: "Beauty & Aesthetics",
+    need: "A luxury WordPress site for a premium skincare studio — editorial layout, dedicated treatment pages, and booking-focused UX.",
+    time: "7–30 days",
+    result: "A refined digital presence that communicates premium quality and converts first-time visitors into bookings.",
+    url: "https://skinechtstudio.com",
+    caseStudy: "/work/skinechtstudio",
+    mockup: "/images/projects/skinechtstudio/hero.webp",
+    alt: "Skinecht Studio luxury beauty website",
+  },
+  {
+    num: "07",
     client: "Bliss Thai Spa",
     industry: "Wellness & Beauty",
     need: "Multi-page site to replace a minimal booking page — showcasing 8 signature treatments and driving online bookings.",
@@ -92,7 +104,7 @@ const studies: CaseStudy[] = [
     alt: "Bliss Thai Spa website",
   },
   {
-    num: "07",
+    num: "08",
     client: "Panel Paramedics",
     industry: "Solar & Home Services",
     need: "A conversion-focused web platform for a solar panel repair and maintenance company targeting homeowners and businesses.",
@@ -103,7 +115,7 @@ const studies: CaseStudy[] = [
     alt: "Panel Paramedics solar services website",
   },
   {
-    num: "08",
+    num: "09",
     client: "21 Neptune Apartments",
     industry: "Real Estate",
     need: "A modern property landing page to drive tour bookings for a new Lynn, MA apartment building.",
@@ -114,7 +126,7 @@ const studies: CaseStudy[] = [
     alt: "21 Neptune Apartments website",
   },
   {
-    num: "09",
+    num: "10",
     client: "Penguin Keys",
     industry: "E-commerce",
     need: "A WooCommerce store to sell digital game keys, gift cards, and subscriptions to a global audience.",
